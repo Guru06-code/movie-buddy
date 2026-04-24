@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Buddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+    <div class="film-grain"></div>
+
+    <section class="auth-shell" id="auth-shell">
+
+      <!-- Welcome screen -->
+      <div class="auth-screen" id="auth-welcome">
+        <div class="auth-card glass-panel">
+          <div class="auth-brand-hero">
+            <div class="brand-mark brand-mark-lg">MB</div>
+            <h1 class="auth-brand-title">Movie Buddy</h1>
+            <p class="auth-brand-tagline">Your personal cinema universe.</p>
+          </div>
+          <div class="auth-welcome-pills">
+            <span>Wishlist</span>
+            <span>AI Picks</span>
+            <span>Friends</span>
+            <span>Reminders</span>
+          </div>
+          <div class="auth-welcome-actions">
+            <button class="auth-submit" id="go-to-signin" type="button">Sign in</button>
+            <button class="auth-submit-outline" id="go-to-signup" type="button">Create account</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sign in screen -->
+      <div class="auth-screen hidden" id="auth-signin">
+        <div class="auth-card glass-panel">
+          <button class="auth-back" id="signin-back" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Back
+          </button>
+          <div class="auth-form-intro">
+            <h2>Welcome back</h2>
+            <p>Sign in to your movie universe.</p>
+          </div>
+          <form class="auth-form" id="login-form">
+            <label class="form-field" for="login-email">
+              <span>Email</span>
+              <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </label>
+            <label class="form-field" for="login-password">
+              <span>Password</span>
+              <div class="pw-wrap">
+                <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+                <button class="pw-toggle" type="button" aria-label="Show password" data-target="login-password">
+                  <svg class="pw-eye pw-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="pw-eye pw-hide hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+            </label>
+            <button class="text-button auth-link" id="show-reset" type="button">Forgot password?</button>
+            <button class="auth-submit" type="submit">Sign in</button>
+            <div class="social-auth" id="social-auth">
+              <div class="social-divider"><span>or continue with</span></div>
+              <div class="social-grid">
+                <button class="social-button" data-provider="google" type="button">
+                  <span class="social-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.5 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c1.9 0 3.2.8 3.9 1.5l2.7-2.6C16.9 3.2 14.7 2.2 12 2.2 6.6 2.2 2.2 6.6 2.2 12S6.6 21.8 12 21.8c6.9 0 9.6-4.8 9.6-7.3 0-.5-.1-.9-.1-1.2H12z"/>
+                      <path fill="#34A853" d="M3.3 7.4l3.2 2.3C7.4 7.8 9.5 6 12 6c1.9 0 3.2.8 3.9 1.5l2.7-2.6C16.9 3.2 14.7 2.2 12 2.2c-3.8 0-7.1 2.2-8.7 5.2z"/>
+                      <path fill="#4A90E2" d="M12 21.8c2.6 0 4.8-.9 6.4-2.5l-3-2.4c-.8.6-1.9 1.1-3.4 1.1-4 0-5.2-2.6-5.5-3.9l-3.2 2.4c1.6 3.1 4.9 5.3 8.7 5.3z"/>
+                      <path fill="#FBBC05" d="M6.5 14.1c-.2-.6-.3-1.3-.3-2.1s.1-1.4.3-2.1L3.3 7.4C2.6 8.8 2.2 10.4 2.2 12s.4 3.2 1.1 4.6l3.2-2.5z"/>
+                    </svg>
+                  </span>
+                  <span>Google</span>
+                </button>
+                <button class="social-button" data-provider="apple" type="button">
+                  <span class="social-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path fill="currentColor" d="M16.7 12.9c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9s-1.9-.9-3.1-.8c-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.1 1.2 9.3.8 1.1 1.7 2.3 3 2.2 1.2 0 1.7-.8 3.2-.8s2 .8 3.2.8c1.3 0 2.2-1.1 3-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.8-3.8zM14.3 5.9c.7-.8 1.2-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.2 1.9-1 3 1 .1 2-.5 2.7-1.4z"/>
+                    </svg>
+                  </span>
+                  <span>Apple</span>
+                </button>
+                <button class="social-button" data-provider="microsoft" type="button">
+                  <span class="social-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="3" y="3" width="8" height="8" fill="#F25022"/>
+                      <rect x="13" y="3" width="8" height="8" fill="#7FBA00"/>
+                      <rect x="3" y="13" width="8" height="8" fill="#00A4EF"/>
+                      <rect x="13" y="13" width="8" height="8" fill="#FFB900"/>
+                    </svg>
+                  </span>
+                  <span>Microsoft</span>
+                </button>
+              </div>
+            </div>
+          </form>
+          <p class="auth-switch">Don't have an account? <button class="text-button" id="signin-to-signup" type="button">Create account</button></p>
+        </div>
+      </div>
+
+      <!-- Create account screen -->
+      <div class="auth-screen hidden" id="auth-signup">
+        <div class="auth-card glass-panel">
+          <button class="auth-back" id="signup-back" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Back
+          </button>
+          <div class="auth-form-intro">
+            <h2>Create account</h2>
+            <p>Join Movie Buddy and start your film universe.</p>
+          </div>
+          <form class="auth-form" id="signup-form">
+            <label class="form-field" for="signup-name">
+              <span>Name</span>
+              <input id="signup-name" name="name" type="text" autocomplete="name" placeholder="Your display name" required>
+            </label>
+            <label class="form-field" for="signup-email">
+              <span>Email</span>
+              <input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </label>
+            <label class="form-field" for="signup-phone">
+              <span>Phone <span class="field-hint">(optional — for OTP reset)</span></span>
+              <input id="signup-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 000 000 0000">
+            </label>
+            <label class="form-field" for="signup-password">
+              <span>Password</span>
+              <div class="pw-wrap">
+                <input id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Min. 6 characters" minlength="6" required>
+                <button class="pw-toggle" type="button" aria-label="Show password" data-target="signup-password">
+                  <svg class="pw-eye pw-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="pw-eye pw-hide hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+            </label>
+            <button class="auth-submit" type="submit">Create account</button>
+          </form>
+          <p class="auth-switch">Already have an account? <button class="text-button" id="signup-to-signin" type="button">Sign in</button></p>
+        </div>
+      </div>
+
+      <!-- Reset password screen -->
+      <div class="auth-screen hidden" id="auth-reset-screen">
+        <div class="auth-card glass-panel">
+          <form class="auth-form" id="reset-form">
+            <div class="auth-form-intro">
+              <h2>Reset password</h2>
+              <p>We'll send a one-time code to verify it's you.</p>
+            </div>
+            <div class="reset-methods" role="tablist" aria-label="OTP delivery method">
+              <button class="reset-method-button active" id="reset-via-email" type="button">OTP via email</button>
+              <button class="reset-method-button" id="reset-via-phone" type="button">OTP via phone</button>
+            </div>
+            <label class="form-field" for="reset-identifier">
+              <span id="reset-identifier-label">Email</span>
+              <input id="reset-identifier" name="identifier" type="text" autocomplete="email" required>
+            </label>
+            <button class="auth-submit" id="send-otp" type="button">Send OTP</button>
+            <label class="form-field" for="reset-otp">
+              <span>One-time code</span>
+              <input id="reset-otp" name="otp" inputmode="numeric" maxlength="6" placeholder="6-digit code" required>
+            </label>
+            <label class="form-field" for="reset-password">
+              <span>New password</span>
+              <div class="pw-wrap">
+                <input id="reset-password" name="password" type="password" autocomplete="new-password" placeholder="Min. 6 characters" minlength="6" required>
+                <button class="pw-toggle" type="button" aria-label="Show password" data-target="reset-password">
+                  <svg class="pw-eye pw-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg class="pw-eye pw-hide hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                </button>
+              </div>
+            </label>
+            <div class="reset-actions">
+              <button class="text-button auth-link" id="cancel-reset" type="button">Back to sign in</button>
+              <button class="auth-submit" type="submit">Verify &amp; reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <p class="auth-message auth-toast" id="auth-message" aria-live="polite"></p>
+    </section>
+
+    <div class="app-shell hidden" id="app-shell">
+      <header class="app-header">
+        <nav class="topbar">
+          <div class="brand-lockup">
+            <div class="brand-mark">MB</div>
+            <div>
+              <p class="eyebrow">Movie circle</p>
+              <h1>Movie Buddy</h1>
+            </div>
+          </div>
+          <div class="topbar-tools">
+            <div class="topbar-search-field topbar-search-field-wide" id="topbar-search-shell">
+              <label for="catalog-search-input" class="hidden">Search titles</label>
+              <input id="catalog-search-input" type="search" placeholder="Search any movie or series and keep building your universe" aria-label="Search titles">
+              <section class="search-stage search-dropdown hidden" id="search-stage">
+                <div class="section-heading compact search-dropdown-header">
+                  <div>
+                    <p class="eyebrow">Search results</p>
+                    <h3>Now showing</h3>
+                  </div>
+                  <div class="catalog-stats search-stage-meta">
+                    <span id="results-count">No search yet</span>
+                    <span class="dot"></span>
+                    <span id="search-status">Waiting for a title</span>
+                    <button class="text-button" id="close-search-button" type="button">Close</button>
+                  </div>
+                </div>
+                <div class="movie-grid search-results-grid" id="movie-grid"></div>
+              </section>
+            </div>
+            <div class="topbar-search-field hidden" id="topbar-friend-search-shell">
+              <label for="topbar-friend-search-input" class="hidden">Search friends</label>
+              <input id="topbar-friend-search-input" type="search" placeholder="Search friends" aria-label="Search friends preview">
+              <div class="topbar-friend-results hidden" id="topbar-friend-results"></div>
+            </div>
+            <div class="topbar-account">
+              <div class="user-pill">
+                <span class="eyebrow">Signed in as</span>
+                <strong id="current-user-name">Guest</strong>
+                <span class="user-id" id="current-user-id">mb-user</span>
+              </div>
+              <button class="tab-action" id="home-save-starter-button" type="button">Save starter shelf</button>
+              <button class="logout-button" id="logout-button" type="button">Logout</button>
+            </div>
+          </div>
+        </nav>
+
+        <section class="first-run-guide glass-panel hidden" id="first-run-guide">
+          <div class="first-run-guide-copy">
+            <p class="eyebrow">First time here</p>
+            <h2>How Movie Buddy works</h2>
+            <p class="hero-subtext">Search from the top bar, use Wishlist for later, Like for AI for true taste, and move titles into watching when they become active.</p>
+          </div>
+          <div class="first-run-guide-steps" aria-label="Getting started guide">
+            <span class="guide-chip">1. Search any title</span>
+            <span class="guide-chip">2. Wishlist for later</span>
+            <span class="guide-chip">3. Like for AI taste</span>
+            <span class="guide-chip">4. Save starter shelf once</span>
+          </div>
+          <div class="first-run-guide-actions">
+            <div class="hero-micro-stats">
+              <div class="micro-stat">
+                <strong id="friends-count">0</strong>
+                <span>friends</span>
+              </div>
+              <div class="micro-stat">
+                <strong id="notifications-count">0</strong>
+                <span>alerts</span>
+              </div>
+              <div class="micro-stat">
+                <strong id="watched-count">0</strong>
+                <span>watched</span>
+              </div>
+            </div>
+            <button class="secondary-action" id="dismiss-first-run-guide" type="button">Got it</button>
+          </div>
+        </section>
+
+      </header>
+
+      <section class="onboarding-shell hidden" id="onboarding-shell">
+        <main class="dashboard-grid onboarding-grid onboarding-grid-reframed">
+          <section class="glass-panel moodboard-panel">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Starter rail</p>
+                <h3>Set the first few taste anchors</h3>
+              </div>
+            </div>
+            <div class="moodboard-copy">
+              <p>You can already browse the main dashboard below. This panel just helps you seed it faster.</p>
+              <p>Use the search bar above to pull in any title, then separate what you want to watch from what you actually love.</p>
+            </div>
+            <div class="moodboard-steps">
+              <article class="mood-step">
+                <span>01</span>
+                <div>
+                  <strong>Browse or search immediately</strong>
+                  <p>The opening shelf is live right away, and search results stay visible under the hero.</p>
+                </div>
+              </article>
+              <article class="mood-step">
+                <span>02</span>
+                <div>
+                  <strong>Save and like deliberately</strong>
+                  <p>Wishlist is for later. Liked titles are the actual AI signal.</p>
+                </div>
+              </article>
+              <article class="mood-step">
+                <span>03</span>
+                <div>
+                  <strong>Unlock a more personal dashboard</strong>
+                  <p>Save the starter shelf when ready so recommendations and friend flows use your actual setup.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="glass-panel wishlist-panel" id="wishlist">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Starter set</p>
+                <h3>Wishlist</h3>
+              </div>
+              <span class="wishlist-total" id="wishlist-total">0 saved</span>
+            </div>
+            <div class="wishlist-list" id="wishlist-list"></div>
+            <div class="wishlist-cta">
+              <p id="wishlist-guidance">Add a few movies you genuinely like. This becomes the base for your first AI recommendation pass.</p>
+              <button class="auth-submit save-wishlist-button" id="save-wishlist-button" type="button">Save starter shelf</button>
+            </div>
+          </aside>
+        </main>
+      </section>
+
+      <section class="home-shell hidden" id="home-shell">
+        <div class="glass-panel home-nav-panel">
+          <div class="home-tabs" id="home-tabs" role="tablist" aria-label="Movie Buddy sections">
+            <button class="home-tab active" id="tab-button-home" data-tab="home" type="button" role="tab" aria-selected="true" aria-controls="tab-home">Home</button>
+            <button class="home-tab" id="tab-button-ai" data-tab="ai" type="button" role="tab" aria-selected="false" aria-controls="tab-ai">AI Recommendation</button>
+            <button class="home-tab" id="tab-button-friends" data-tab="friends" type="button" role="tab" aria-selected="false" aria-controls="tab-friends">Friends</button>
+            <button class="home-tab" id="tab-button-activity" data-tab="activity" type="button" role="tab" aria-selected="false" aria-controls="tab-activity">Requests and activity</button>
+          </div>
+        </div>
+
+        <section class="glass-panel pending-request-banner hidden" id="pending-request-banner">
+          <div>
+            <p class="eyebrow">Pending request</p>
+            <h3 id="pending-request-title">Friend request waiting</h3>
+            <p class="hero-subtext" id="pending-request-text">Accept to start sharing movie recommendations.</p>
+          </div>
+          <div class="pending-request-actions">
+            <button class="auth-submit" id="pending-request-accept-button" type="button">Accept</button>
+            <button class="secondary-action" id="pending-request-decline-button" type="button">Decline</button>
+          </div>
+        </section>
+
+        <section class="tab-panel active" id="tab-home" role="tabpanel" aria-labelledby="tab-button-home">
+          <div class="home-dashboard-grid">
+            <section class="glass-panel cinematic-banner">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Your world</p>
+                  <h3>Now showing</h3>
+                </div>
+                <button class="tab-action" id="open-library-editor-button" type="button">Manage library</button>
+              </div>
+              <div class="subheading-row section-spaced home-split-row">
+                <h4>Movies</h4>
+                <span class="mini-kicker">Your active or saved movie picks</span>
+              </div>
+              <div class="movie-grid compact-media-grid movie-rail" id="currently-watching-grid"></div>
+              <div class="subheading-row section-spaced home-split-row">
+                <h4>Series</h4>
+                <span class="mini-kicker">Your active or saved shows</span>
+              </div>
+              <div class="movie-grid compact-media-grid movie-rail" id="currently-watching-series-grid"></div>
+            </section>
+
+            <section class="glass-panel">
+              <div class="subheading-row section-spaced">
+                <div>
+                  <h4>Upcoming releases</h4>
+                  <span class="mini-kicker">Upcoming and reminder-ready</span>
+                </div>
+                <button class="tab-action" id="open-reminder-settings-button" type="button">Reminder settings</button>
+              </div>
+              <div class="subheading-row section-spaced home-split-row">
+                <h4>Upcoming movies</h4>
+                <span class="mini-kicker">Film releases on the horizon</span>
+              </div>
+              <div class="movie-grid compact-media-grid movie-rail" id="upcoming-grid"></div>
+              <div class="subheading-row section-spaced home-split-row">
+                <h4>Upcoming series</h4>
+                <span class="mini-kicker">Shows with new episodes or fresh arrivals</span>
+              </div>
+              <div class="movie-grid compact-media-grid movie-rail" id="upcoming-series-grid"></div>
+            </section>
+
+            <section class="glass-panel">
+              <div class="subheading-row section-spaced">
+                <h4>Trending now</h4>
+                <span class="mini-kicker">The titles people keep talking about</span>
+              </div>
+              <div class="subheading-row section-spaced home-split-row">
+                <h4>Trending movies</h4>
+                <span class="mini-kicker">Popular films right now</span>
+              </div>
+              <div class="movie-grid compact-media-grid movie-rail" id="trending-grid"></div>
+              <div class="subheading-row section-spaced home-split-row">
+                <h4>Trending series</h4>
+                <span class="mini-kicker">Popular shows right now</span>
+              </div>
+              <div class="movie-grid compact-media-grid movie-rail" id="trending-series-grid"></div>
+            </section>
+
+            <section class="hidden" aria-hidden="true">
+              <div class="movie-grid compact-media-grid movie-rail" id="liked-grid"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-ai" role="tabpanel" aria-labelledby="tab-button-ai">
+          <div class="panel-grid">
+            <section class="glass-panel">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">AI Recommendation</p>
+                  <h3>Recommended by AI</h3>
+                </div>
+                <button class="text-button refresh-button" id="refresh-ai-button" type="button">Refresh picks</button>
+              </div>
+              <div class="movie-grid movie-rail" id="ai-recommendation-grid"></div>
+            </section>
+
+            <aside class="glass-panel side-panel">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Why these?</p>
+                  <h3>Taste signals</h3>
+                </div>
+              </div>
+              <div class="signal-list" id="taste-signal-list"></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-friends" role="tabpanel" aria-labelledby="tab-button-friends">
+          <div class="panel-grid">
+            <section class="glass-panel">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Find your circle</p>
+                  <h3>Search users and add friends</h3>
+                </div>
+              </div>
+              <label class="search-field" for="friend-search-input">
+                <span>Search by user id or name</span>
+                <input id="friend-search-input" type="search" placeholder="Try mb-7r8x1 or a display name">
+              </label>
+              <div class="social-list" id="friend-search-results"></div>
+            </section>
+
+            <aside class="glass-panel side-panel">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Your network</p>
+                  <h3>Friends</h3>
+                </div>
+              </div>
+              <div class="social-list compact-list" id="friend-list"></div>
+              <div class="recommend-composer">
+                <p class="eyebrow">Send recommendation</p>
+                <label class="form-field" for="recommend-friend-select">
+                  <span>Choose a friend</span>
+                  <select id="recommend-friend-select"></select>
+                </label>
+                <label class="form-field" for="recommend-movie-select">
+                  <span>Choose a movie</span>
+                  <select id="recommend-movie-select"></select>
+                </label>
+                <label class="form-field" for="recommend-note-input">
+                  <span>Short note</span>
+                  <textarea id="recommend-note-input" rows="3" placeholder="Why should they watch this?"></textarea>
+                </label>
+                <button class="auth-submit" id="send-recommendation-button" type="button">Send recommendation</button>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-activity" role="tabpanel" aria-labelledby="tab-button-activity">
+          <div class="panel-grid">
+            <section class="glass-panel">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Incoming</p>
+                  <h3>Friend requests</h3>
+                </div>
+              </div>
+              <div class="social-list" id="incoming-request-list"></div>
+            </section>
+
+            <aside class="glass-panel side-panel">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Activity</p>
+                  <h3>Notifications</h3>
+                </div>
+              </div>
+              <div class="social-list compact-list" id="notification-list"></div>
+            </aside>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <template id="movie-card-template">
+    <article class="movie-card">
+      <div class="movie-poster"></div>
+      <div class="movie-card-body">
+        <div class="movie-card-header">
+          <div>
+            <p class="movie-type"></p>
+            <h4 class="movie-title"></h4>
+          </div>
+          <span class="movie-year"></span>
+        </div>
+        <p class="movie-context hidden"></p>
+        <p class="movie-meta"></p>
+        <p class="movie-summary"></p>
+        <div class="movie-card-actions"></div>
+      </div>
+    </article>
+  </template>
+
+  <template id="wishlist-item-template">
+    <article class="wishlist-item">
+      <div>
+        <p class="wishlist-language"></p>
+        <h4 class="wishlist-title"></h4>
+        <p class="wishlist-meta"></p>
+      </div>
+      <button class="remove-button" type="button">Remove</button>
+    </article>
+  </template>
+
+  <template id="social-item-template">
+    <article class="social-item">
+      <div>
+        <p class="social-kicker"></p>
+        <h4 class="social-title"></h4>
+        <p class="social-meta"></p>
+      </div>
+      <div class="social-actions"></div>
+    </article>
+  </template>
+
+  <div class="review-modal-overlay hidden" id="review-modal-overlay">
+    <div class="rating-modal glass-panel" role="dialog" aria-modal="true" aria-labelledby="review-target-title">
+      <button class="rating-modal-close" id="close-review-modal" type="button" aria-label="Close">✕</button>
+      <div class="rating-modal-header">
+        <p class="eyebrow">Finished watching</p>
+        <h3 class="rating-movie-name" id="review-target-title">Movie Title</h3>
+      </div>
+      <form id="review-form">
+        <p class="rating-question">How would you rate it?</p>
+        <div class="star-rating-group" id="star-rating-group" role="group" aria-label="Rate this movie">
+          <button class="star-btn" data-rating="1" type="button" aria-label="1 star">★</button>
+          <button class="star-btn" data-rating="2" type="button" aria-label="2 stars">★</button>
+          <button class="star-btn" data-rating="3" type="button" aria-label="3 stars">★</button>
+          <button class="star-btn" data-rating="4" type="button" aria-label="4 stars">★</button>
+          <button class="star-btn" data-rating="5" type="button" aria-label="5 stars">★</button>
+        </div>
+        <div class="star-rating-labels">
+          <span>Not for me</span>
+          <span>Masterpiece</span>
+        </div>
+        <p class="rating-hint" id="rating-hint">Tap a star to rate — 4★ or higher auto-adds to your AI taste anchors.</p>
+        <div class="rating-actions">
+          <button class="text-button" id="skip-review-button" type="button">Just mark as watched</button>
+          <button class="auth-submit" id="save-rating-button" type="submit">Save rating</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="review-modal-overlay hidden" id="library-editor-overlay">
+    <div class="review-modal library-editor-modal glass-panel" role="dialog" aria-modal="true" aria-labelledby="library-editor-title">
+      <div class="provider-modal-header">
+        <div>
+          <p class="eyebrow">Library editor</p>
+          <h3 id="library-editor-title">Shape your shelves</h3>
+        </div>
+        <button class="provider-close" id="close-library-editor" type="button">Close</button>
+      </div>
+      <p class="provider-modal-text">Move titles between shelves, reorder the active lane, and control when release reminders actually fire.</p>
+      <div class="library-editor-toolbar" id="library-editor-toolbar">
+        <button class="library-filter-button active" data-collection="wishlist" type="button">Wishlist</button>
+        <button class="library-filter-button" data-collection="liked" type="button">Liked</button>
+        <button class="library-filter-button" data-collection="currentlyWatching" type="button">Watching</button>
+        <button class="library-filter-button" data-collection="releaseReminders" type="button">Reminders</button>
+      </div>
+      <div class="library-editor-layout">
+        <section class="library-editor-panel">
+          <div class="subheading-row section-spaced">
+            <div>
+              <h4 id="library-editor-section-title">Wishlist</h4>
+              <span class="mini-kicker" id="library-editor-section-meta">Saved for later</span>
+            </div>
+          </div>
+          <div class="library-editor-list" id="library-editor-list"></div>
+        </section>
+
+        <aside class="library-editor-panel reminder-settings-panel">
+          <div class="subheading-row section-spaced">
+            <div>
+              <h4>Reminder preferences</h4>
+              <span class="mini-kicker">Timezone-aware delivery</span>
+            </div>
+          </div>
+          <form class="auth-form compact-form" id="reminder-preferences-form">
+            <label class="checkbox-field" for="reminder-enabled-input">
+              <input id="reminder-enabled-input" type="checkbox">
+              <span>Enable release reminders</span>
+            </label>
+            <label class="form-field" for="reminder-lead-select">
+              <span>Notify this many days ahead</span>
+              <select id="reminder-lead-select">
+                <option value="0">Release day</option>
+                <option value="1">1 day before</option>
+                <option value="3">3 days before</option>
+                <option value="7">7 days before</option>
+                <option value="14">14 days before</option>
+              </select>
+            </label>
+            <label class="form-field" for="reminder-hour-select">
+              <span>Delivery hour</span>
+              <select id="reminder-hour-select">
+                <option value="0">00:00</option>
+                <option value="6">06:00</option>
+                <option value="9">09:00</option>
+                <option value="12">12:00</option>
+                <option value="18">18:00</option>
+                <option value="21">21:00</option>
+              </select>
+            </label>
+            <label class="form-field" for="reminder-timezone-input">
+              <span>Timezone</span>
+              <input id="reminder-timezone-input" type="text" placeholder="America/New_York" autocomplete="off">
+            </label>
+            <p class="provider-helper-text" id="reminder-preferences-summary"></p>
+            <div class="push-status-block">
+              <p class="provider-helper-text" id="browser-push-status">Browser push is checking availability.</p>
+              <button class="secondary-action" id="browser-push-button" type="button">Enable browser push</button>
+            </div>
+            <div class="provider-actions">
+              <button class="auth-submit" type="submit">Save reminder settings</button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://alcdn.msauth.net/browser/2.38.3/js/msal-browser.min.js" async defer></script>
+  <script src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js" async defer></script>
+  <script src="./app.js"></script>
+</body>
+</html>

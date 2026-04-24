@@ -1,0 +1,16 @@
+{
+  "name": "movie-buddy-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Movie Buddy full-stack prototype with Node.js and SQLite",
+  "scripts": {
+    "start": "node server.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
+  },
+  "dependencies": {
+    "web-push": "^3.6.7"
+  }
+}
