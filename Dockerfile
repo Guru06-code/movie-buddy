@@ -14,8 +14,8 @@ RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
 RUN chown -R appuser:appgroup /app
 USER appuser
 
-# Cloud platforms inject PORT automatically; fall back to 4173 locally
 ENV HOST=0.0.0.0
+ENV PORT=4173
 ENV NODE_ENV=production
 
 EXPOSE 4173
