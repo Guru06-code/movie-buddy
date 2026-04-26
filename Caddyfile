@@ -1,7 +1,43 @@
-# Caddy reverse proxy with automatic HTTPS (Let's Encrypt)
-# Usage: caddy run
-# Replace yourdomain.com with your actual domain name.
+# Caddy reverse proxy — auto HTTPS via Let's Encrypt
+# Replace YOUR_DOMAIN below with your actual domain (e.g. moviebuddy.duckdns.org)
 
-yourdomain.com {
-    reverse_proxy localhost:4173
+YOUR_DOMAIN {
+    # Reverse proxy to Node.js app
+    reverse_proxy localhost:4173 {
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Security headers
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "geolocation=(), microphone=(), camera=()"
+        -Server
+    }
+
+    # Compress responses
+    encode gzip
+
+    # Cache static assets aggressively
+    @static {
+        path *.js *.css *.svg *.ico *.png *.woff2 *.webmanifest
+    }
+    header @static Cache-Control "public, max-age=31536000, immutable"
+
+    # Service worker must never be cached
+    @sw {
+        path /sw.js
+    }
+    header @sw Cache-Control "no-store, no-cache, must-revalidate"
+
+    # Logging
+    log {
+        output file /var/log/caddy/movie-buddy.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+    }
 }
