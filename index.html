@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Movie Buddy — your personal cinema universe. Track what you've watched, discover new films with AI, and share recommendations with friends.">
+  <meta name="theme-color" content="#07070d">
   <title>Movie Buddy</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Movie Buddy">
+  <meta property="og:title" content="Movie Buddy — Your Personal Cinema Universe">
+  <meta property="og:description" content="Track what you've watched, build your wishlist, get AI-powered picks, and share recommendations with friends who share your taste.">
+  <meta property="og:image" content="/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Movie Buddy — Personal cinema tracking app">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Movie Buddy — Your Personal Cinema Universe">
+  <meta name="twitter:description" content="Track what you've watched, build your wishlist, get AI-powered picks, and share recommendations with friends.">
+  <meta name="twitter:image" content="/og-image.svg">
+  <link rel="manifest" href="./manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -15,120 +33,188 @@
     <div class="ambient ambient-right"></div>
     <div class="film-grain"></div>
 
+    <!-- ─── AUTH SHELL ─── -->
     <section class="auth-shell" id="auth-shell">
 
-      <!-- Welcome screen -->
-      <div class="auth-screen" id="auth-welcome">
-        <div class="auth-card glass-panel">
-          <div class="auth-brand-hero">
-            <div class="brand-mark brand-mark-lg">MB</div>
-            <h1 class="auth-brand-title">Movie Buddy</h1>
-            <p class="auth-brand-tagline">Your personal cinema universe.</p>
-          </div>
-          <div class="auth-welcome-pills">
-            <span>Wishlist</span>
-            <span>AI Picks</span>
-            <span>Friends</span>
-            <span>Reminders</span>
-          </div>
-          <div class="auth-welcome-actions">
-            <button class="auth-submit" id="go-to-signin" type="button">Sign in</button>
-            <button class="auth-submit-outline" id="go-to-signup" type="button">Create account</button>
-          </div>
+      <!-- Cinematic background mosaic -->
+      <div class="auth-bg" aria-hidden="true">
+        <div class="auth-bg-mosaic">
+          <div style="background:linear-gradient(145deg,#1a0505,#8b1a00,#e04000)"></div>
+          <div style="background:linear-gradient(145deg,#00061a,#001a5a,#0050c0)"></div>
+          <div style="background:linear-gradient(145deg,#0a1a00,#2a5a00,#6aaa00)"></div>
+          <div style="background:linear-gradient(145deg,#1a0028,#5a0090,#b030f0)"></div>
+          <div style="background:linear-gradient(145deg,#1a0800,#6a2800,#d07000)"></div>
+          <div style="background:linear-gradient(145deg,#001018,#003050,#009ac8)"></div>
+          <div style="background:linear-gradient(145deg,#180000,#500010,#a00028)"></div>
+          <div style="background:linear-gradient(145deg,#120800,#402800,#8a6800)"></div>
+          <div style="background:linear-gradient(145deg,#001a10,#004030,#00b870)"></div>
+          <div style="background:linear-gradient(145deg,#181018,#483060,#7850b8)"></div>
+          <div style="background:linear-gradient(145deg,#1a1000,#5a4000,#c08800)"></div>
+          <div style="background:linear-gradient(145deg,#0a0010,#280050,#5800b8)"></div>
+        </div>
+        <div class="auth-bg-vignette"></div>
+      </div>
+
+      <!-- Film strip decoration -->
+      <div class="auth-filmstrip" aria-hidden="true">
+        <div class="auth-filmstrip-track">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
 
-      <!-- Sign in screen -->
-      <div class="auth-screen hidden" id="auth-signin">
-        <div class="auth-card glass-panel">
-          <button class="auth-back" id="signin-back" type="button">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            Back
-          </button>
-          <div class="auth-form-intro">
-            <h2>Welcome back</h2>
-            <p>Sign in to your movie universe.</p>
+      <!-- ─── SIGN IN (default screen) ─── -->
+      <div class="auth-screen" id="auth-signin">
+        <div class="auth-card">
+
+          <!-- Brand header -->
+          <div class="auth-brand">
+            <div class="brand-mark brand-mark-lg">MB</div>
+            <div class="auth-brand-text">
+              <h1 class="auth-brand-title">Movie Buddy</h1>
+              <p class="auth-brand-tagline">Your personal cinema universe</p>
+            </div>
           </div>
-          <form class="auth-form" id="login-form">
-            <label class="form-field" for="login-email">
-              <span>Email</span>
-              <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-            </label>
-            <label class="form-field" for="login-password">
-              <span>Password</span>
-              <div class="pw-wrap">
-                <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
-                <button class="pw-toggle" type="button" aria-label="Show password" data-target="login-password">
-                  <svg class="pw-eye pw-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  <svg class="pw-eye pw-hide hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                </button>
+
+          <!-- Social login -->
+          <div class="auth-social-section" id="social-auth">
+            <button class="social-button social-button-google" data-provider="google" type="button">
+              <span class="social-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" width="18" height="18">
+                  <path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.5 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c1.9 0 3.2.8 3.9 1.5l2.7-2.6C16.9 3.2 14.7 2.2 12 2.2 6.6 2.2 2.2 6.6 2.2 12S6.6 21.8 12 21.8c6.9 0 9.6-4.8 9.6-7.3 0-.5-.1-.9-.1-1.2H12z"/>
+                </svg>
+              </span>
+              <span>Continue with Google</span>
+            </button>
+            <div class="social-pair">
+              <button class="social-button" data-provider="apple" type="button">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" width="17" height="17">
+                    <path fill="currentColor" d="M16.7 12.9c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9s-1.9-.9-3.1-.8c-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.1 1.2 9.3.8 1.1 1.7 2.3 3 2.2 1.2 0 1.7-.8 3.2-.8s2 .8 3.2.8c1.3 0 2.2-1.1 3-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.8-3.8zM14.3 5.9c.7-.8 1.2-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.2 1.9-1 3 1 .1 2-.5 2.7-1.4z"/>
+                  </svg>
+                </span>
+                <span>Apple</span>
+              </button>
+              <button class="social-button" data-provider="microsoft" type="button">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false" width="16" height="16">
+                    <rect x="3" y="3" width="8" height="8" fill="#F25022"/>
+                    <rect x="13" y="3" width="8" height="8" fill="#7FBA00"/>
+                    <rect x="3" y="13" width="8" height="8" fill="#00A4EF"/>
+                    <rect x="13" y="13" width="8" height="8" fill="#FFB900"/>
+                  </svg>
+                </span>
+                <span>Microsoft</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth-divider"><span>or sign in</span></div>
+
+          <!-- Login method tabs -->
+          <div class="login-method-tabs" role="tablist" aria-label="Login method">
+            <button class="login-tab active" id="tab-email" type="button" role="tab" aria-selected="true">Email</button>
+            <button class="login-tab" id="tab-phone" type="button" role="tab" aria-selected="false">Phone</button>
+          </div>
+
+          <!-- Email panel -->
+          <form class="auth-form" id="login-form" autocomplete="off">
+            <div id="login-email-panel">
+              <label class="form-field" for="login-email">
+                <span>Email</span>
+                <input id="login-email" name="email" type="email" autocomplete="off" placeholder="you@example.com">
+              </label>
+              <label class="form-field" for="login-password">
+                <span>Password</span>
+                <div class="pw-wrap">
+                  <input id="login-password" name="password" type="password" autocomplete="new-password" placeholder="Your password">
+                  <button class="pw-toggle" type="button" aria-label="Show password" data-target="login-password">
+                    <svg class="pw-eye pw-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg class="pw-eye pw-hide hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  </button>
+                </div>
+              </label>
+            </div>
+
+            <!-- Phone panel -->
+            <div id="login-phone-panel" class="hidden">
+              <label class="form-field" for="login-phone">
+                <span>Phone number</span>
+                <input id="login-phone" name="phone" type="tel" autocomplete="off" placeholder="+1 000 000 0000">
+              </label>
+              <div class="phone-mode-tabs" role="tablist" aria-label="Phone login method">
+                <button class="phone-mode-btn active" id="phone-mode-otp" data-mode="otp" type="button" role="tab">OTP code</button>
+                <button class="phone-mode-btn" id="phone-mode-password" data-mode="password" type="button" role="tab">Password</button>
               </div>
-            </label>
-            <button class="text-button auth-link" id="show-reset" type="button">Forgot password?</button>
-            <button class="auth-submit" type="submit">Sign in</button>
-            <div class="social-auth" id="social-auth">
-              <div class="social-divider"><span>or continue with</span></div>
-              <div class="social-grid">
-                <button class="social-button" data-provider="google" type="button">
-                  <span class="social-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.5 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c1.9 0 3.2.8 3.9 1.5l2.7-2.6C16.9 3.2 14.7 2.2 12 2.2 6.6 2.2 2.2 6.6 2.2 12S6.6 21.8 12 21.8c6.9 0 9.6-4.8 9.6-7.3 0-.5-.1-.9-.1-1.2H12z"/>
-                      <path fill="#34A853" d="M3.3 7.4l3.2 2.3C7.4 7.8 9.5 6 12 6c1.9 0 3.2.8 3.9 1.5l2.7-2.6C16.9 3.2 14.7 2.2 12 2.2c-3.8 0-7.1 2.2-8.7 5.2z"/>
-                      <path fill="#4A90E2" d="M12 21.8c2.6 0 4.8-.9 6.4-2.5l-3-2.4c-.8.6-1.9 1.1-3.4 1.1-4 0-5.2-2.6-5.5-3.9l-3.2 2.4c1.6 3.1 4.9 5.3 8.7 5.3z"/>
-                      <path fill="#FBBC05" d="M6.5 14.1c-.2-.6-.3-1.3-.3-2.1s.1-1.4.3-2.1L3.3 7.4C2.6 8.8 2.2 10.4 2.2 12s.4 3.2 1.1 4.6l3.2-2.5z"/>
-                    </svg>
-                  </span>
-                  <span>Google</span>
-                </button>
-                <button class="social-button" data-provider="apple" type="button">
-                  <span class="social-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path fill="currentColor" d="M16.7 12.9c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9s-1.9-.9-3.1-.8c-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.1 1.2 9.3.8 1.1 1.7 2.3 3 2.2 1.2 0 1.7-.8 3.2-.8s2 .8 3.2.8c1.3 0 2.2-1.1 3-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.7-1-2.8-3.8zM14.3 5.9c.7-.8 1.2-1.9 1-3-.9.1-2 .6-2.7 1.4-.6.7-1.2 1.9-1 3 1 .1 2-.5 2.7-1.4z"/>
-                    </svg>
-                  </span>
-                  <span>Apple</span>
-                </button>
-                <button class="social-button" data-provider="microsoft" type="button">
-                  <span class="social-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <rect x="3" y="3" width="8" height="8" fill="#F25022"/>
-                      <rect x="13" y="3" width="8" height="8" fill="#7FBA00"/>
-                      <rect x="3" y="13" width="8" height="8" fill="#00A4EF"/>
-                      <rect x="13" y="13" width="8" height="8" fill="#FFB900"/>
-                    </svg>
-                  </span>
-                  <span>Microsoft</span>
-                </button>
+              <!-- OTP sub-panel -->
+              <div id="phone-otp-panel">
+                <button class="auth-submit" id="send-phone-otp-btn" type="button">Send code</button>
+                <label class="form-field hidden" id="phone-otp-field" for="phone-otp-code">
+                  <span>Login code</span>
+                  <input id="phone-otp-code" inputmode="numeric" maxlength="6" placeholder="6-digit code" autocomplete="off">
+                </label>
+              </div>
+              <!-- Password sub-panel -->
+              <div id="phone-password-panel" class="hidden">
+                <label class="form-field" for="login-phone-password">
+                  <span>Password</span>
+                  <div class="pw-wrap">
+                    <input id="login-phone-password" type="password" autocomplete="new-password" placeholder="Your password">
+                    <button class="pw-toggle" type="button" aria-label="Show password" data-target="login-phone-password">
+                      <svg class="pw-eye pw-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                      <svg class="pw-eye pw-hide hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    </button>
+                  </div>
+                </label>
               </div>
             </div>
+
+            <button class="auth-submit" type="submit" id="login-submit-btn">Sign In</button>
           </form>
-          <p class="auth-switch">Don't have an account? <button class="text-button" id="signin-to-signup" type="button">Create account</button></p>
+
+          <!-- Footer links -->
+          <div class="auth-card-footer">
+            <button class="text-button auth-link" id="show-reset" type="button">Forgot password?</button>
+            <p class="auth-switch">New to Movie Buddy? <button class="text-button auth-create-btn" id="signin-to-signup" type="button">Create account →</button></p>
+            <p class="auth-docs-link"><a href="/docs" target="_blank" rel="noopener">Read the docs →</a></p>
+          </div>
+
         </div>
       </div>
 
-      <!-- Create account screen -->
+      <!-- ─── CREATE ACCOUNT ─── -->
       <div class="auth-screen hidden" id="auth-signup">
-        <div class="auth-card glass-panel">
+        <div class="auth-card">
           <button class="auth-back" id="signup-back" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            Back
+            Back to sign in
           </button>
           <div class="auth-form-intro">
             <h2>Create account</h2>
             <p>Join Movie Buddy and start your film universe.</p>
           </div>
-          <form class="auth-form" id="signup-form">
+          <form class="auth-form" id="signup-form" autocomplete="off">
             <label class="form-field" for="signup-name">
               <span>Name</span>
-              <input id="signup-name" name="name" type="text" autocomplete="name" placeholder="Your display name" required>
+              <input id="signup-name" name="name" type="text" autocomplete="off" placeholder="Your display name" required>
+            </label>
+            <label class="form-field" for="signup-handle">
+              <span>Username</span>
+              <div class="handle-wrap">
+                <span class="handle-at">@</span>
+                <input id="signup-handle" name="handle" type="text" autocomplete="off" placeholder="yourname" minlength="3" maxlength="30" required>
+                <span class="handle-status" id="handle-status" aria-live="polite"></span>
+              </div>
             </label>
             <label class="form-field" for="signup-email">
               <span>Email</span>
-              <input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <input id="signup-email" name="email" type="email" autocomplete="off" placeholder="you@example.com" required>
             </label>
             <label class="form-field" for="signup-phone">
-              <span>Phone <span class="field-hint">(optional — for OTP reset)</span></span>
-              <input id="signup-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 000 000 0000">
+              <span>Phone <span class="field-hint">(optional)</span></span>
+              <input id="signup-phone" name="phone" type="tel" autocomplete="off" placeholder="+1 000 000 0000">
             </label>
             <label class="form-field" for="signup-password">
               <span>Password</span>
@@ -140,15 +226,37 @@
                 </button>
               </div>
             </label>
-            <button class="auth-submit" type="submit">Create account</button>
+            <button class="auth-submit" type="submit">Continue →</button>
           </form>
           <p class="auth-switch">Already have an account? <button class="text-button" id="signup-to-signin" type="button">Sign in</button></p>
         </div>
       </div>
 
-      <!-- Reset password screen -->
+      <!-- ─── EMAIL VERIFY (signup step 2) ─── -->
+      <div class="auth-screen hidden" id="auth-verify">
+        <div class="auth-card">
+          <button class="auth-back" id="verify-back" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            Back
+          </button>
+          <div class="auth-form-intro">
+            <h2>Verify your email</h2>
+            <p id="verify-desc">We sent a 6-digit code to your email address.</p>
+          </div>
+          <form class="auth-form" id="verify-form" autocomplete="off">
+            <label class="form-field" for="verify-otp">
+              <span>Verification code</span>
+              <input id="verify-otp" name="otp" inputmode="numeric" maxlength="6" placeholder="6-digit code" autocomplete="off" required>
+            </label>
+            <button class="auth-submit" type="submit">Verify &amp; create account</button>
+          </form>
+          <button class="text-button auth-link" id="resend-verify-otp" type="button" style="margin-top:12px;">Resend code</button>
+        </div>
+      </div>
+
+      <!-- ─── RESET PASSWORD ─── -->
       <div class="auth-screen hidden" id="auth-reset-screen">
-        <div class="auth-card glass-panel">
+        <div class="auth-card">
           <form class="auth-form" id="reset-form">
             <div class="auth-form-intro">
               <h2>Reset password</h2>
@@ -160,7 +268,7 @@
             </div>
             <label class="form-field" for="reset-identifier">
               <span id="reset-identifier-label">Email</span>
-              <input id="reset-identifier" name="identifier" type="text" autocomplete="email" required>
+              <input id="reset-identifier" name="identifier" type="text" autocomplete="off" required>
             </label>
             <button class="auth-submit" id="send-otp" type="button">Send OTP</button>
             <label class="form-field" for="reset-otp">
@@ -179,7 +287,7 @@
             </label>
             <div class="reset-actions">
               <button class="text-button auth-link" id="cancel-reset" type="button">Back to sign in</button>
-              <button class="auth-submit" type="submit">Verify &amp; reset</button>
+              <button class="auth-submit" type="submit" style="width:auto;padding:0 24px;">Verify &amp; reset</button>
             </div>
           </form>
         </div>
@@ -188,64 +296,79 @@
       <p class="auth-message auth-toast" id="auth-message" aria-live="polite"></p>
     </section>
 
+    <!-- ─── APP SHELL ─── -->
     <div class="app-shell hidden" id="app-shell">
+
+      <!-- Navbar -->
       <header class="app-header">
         <nav class="topbar">
-          <div class="brand-lockup">
+          <button class="brand-lockup" id="brand-home-btn" type="button" aria-label="Go to home">
             <div class="brand-mark">MB</div>
-            <div>
-              <p class="eyebrow">Movie circle</p>
-              <h1>Movie Buddy</h1>
-            </div>
-          </div>
+            <h1>Movie Buddy</h1>
+          </button>
+
           <div class="topbar-tools">
             <div class="topbar-search-field topbar-search-field-wide" id="topbar-search-shell">
-              <label for="catalog-search-input" class="hidden">Search titles</label>
-              <input id="catalog-search-input" type="search" placeholder="Search any movie or series and keep building your universe" aria-label="Search titles">
-              <section class="search-stage search-dropdown hidden" id="search-stage">
+              <label for="catalog-search-input" class="visually-hidden">Search titles</label>
+              <input id="catalog-search-input" type="search" placeholder="Search any movie or series…" aria-label="Search titles" autocomplete="off">
+              <section class="search-stage search-dropdown hidden" id="search-stage" aria-label="Search results">
                 <div class="section-heading compact search-dropdown-header">
                   <div>
                     <p class="eyebrow">Search results</p>
-                    <h3>Now showing</h3>
+                    <h3>Results</h3>
                   </div>
                   <div class="catalog-stats search-stage-meta">
-                    <span id="results-count">No search yet</span>
-                    <span class="dot"></span>
-                    <span id="search-status">Waiting for a title</span>
-                    <button class="text-button" id="close-search-button" type="button">Close</button>
+                    <span id="results-count"></span>
+                    <span class="dot" id="search-dot" style="display:none"></span>
+                    <span id="search-status"></span>
+                    <button class="text-button" id="close-search-button" type="button">Close ✕</button>
                   </div>
                 </div>
                 <div class="movie-grid search-results-grid" id="movie-grid"></div>
               </section>
             </div>
+
             <div class="topbar-search-field hidden" id="topbar-friend-search-shell">
-              <label for="topbar-friend-search-input" class="hidden">Search friends</label>
-              <input id="topbar-friend-search-input" type="search" placeholder="Search friends" aria-label="Search friends preview">
+              <label for="topbar-friend-search-input" class="visually-hidden">Search friends</label>
+              <input id="topbar-friend-search-input" type="search" placeholder="Find a friend…" aria-label="Search friends">
               <div class="topbar-friend-results hidden" id="topbar-friend-results"></div>
             </div>
+
             <div class="topbar-account">
-              <div class="user-pill">
-                <span class="eyebrow">Signed in as</span>
-                <strong id="current-user-name">Guest</strong>
-                <span class="user-id" id="current-user-id">mb-user</span>
-              </div>
-              <button class="tab-action" id="home-save-starter-button" type="button">Save starter shelf</button>
-              <button class="logout-button" id="logout-button" type="button">Logout</button>
+              <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              </button>
+              <button id="open-profile-button" class="user-avatar" type="button" aria-label="Open profile">
+                <div class="avatar-bubble" id="user-avatar-bubble">MB</div>
+                <div class="avatar-label">
+                  <strong id="current-user-name">Guest</strong>
+                  <span id="current-user-id">mb-user</span>
+                </div>
+              </button>
+              <button class="tab-action hidden" id="home-save-starter-button" type="button">Save starter shelf</button>
+              <button class="secondary-action hidden" id="pwa-install-button" type="button">⬇ Install App</button>
+              <a class="docs-topbar-link" href="/docs" target="_blank" rel="noopener" title="Documentation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                Docs
+              </a>
+              <button class="logout-button" id="logout-button" type="button">Sign out</button>
             </div>
           </div>
         </nav>
 
-        <section class="first-run-guide glass-panel hidden" id="first-run-guide">
+        <!-- First-run guide -->
+        <section class="first-run-guide hidden" id="first-run-guide" aria-label="Getting started">
           <div class="first-run-guide-copy">
             <p class="eyebrow">First time here</p>
             <h2>How Movie Buddy works</h2>
-            <p class="hero-subtext">Search from the top bar, use Wishlist for later, Like for AI for true taste, and move titles into watching when they become active.</p>
+            <p class="hero-subtext">Search, save to wishlist, mark what you love, and connect with friends.</p>
           </div>
-          <div class="first-run-guide-steps" aria-label="Getting started guide">
-            <span class="guide-chip">1. Search any title</span>
-            <span class="guide-chip">2. Wishlist for later</span>
-            <span class="guide-chip">3. Like for AI taste</span>
-            <span class="guide-chip">4. Save starter shelf once</span>
+          <div class="first-run-guide-steps">
+            <span class="guide-chip">① Search any title</span>
+            <span class="guide-chip">② Wishlist for later</span>
+            <span class="guide-chip">③ Like for AI picks</span>
+            <span class="guide-chip">④ Save starter shelf</span>
           </div>
           <div class="first-run-guide-actions">
             <div class="hero-micro-stats">
@@ -265,42 +388,42 @@
             <button class="secondary-action" id="dismiss-first-run-guide" type="button">Got it</button>
           </div>
         </section>
-
       </header>
 
+      <!-- Onboarding -->
       <section class="onboarding-shell hidden" id="onboarding-shell">
         <main class="dashboard-grid onboarding-grid onboarding-grid-reframed">
           <section class="glass-panel moodboard-panel">
             <div class="section-heading compact">
               <div>
                 <p class="eyebrow">Starter rail</p>
-                <h3>Set the first few taste anchors</h3>
+                <h3>Set your taste anchors</h3>
               </div>
             </div>
             <div class="moodboard-copy">
-              <p>You can already browse the main dashboard below. This panel just helps you seed it faster.</p>
-              <p>Use the search bar above to pull in any title, then separate what you want to watch from what you actually love.</p>
+              <p>Browse the main dashboard below or use the search bar to find titles you love.</p>
+              <p>Separate what you want to watch from what you actually love — that's how AI recommendations get sharp.</p>
             </div>
             <div class="moodboard-steps">
               <article class="mood-step">
                 <span>01</span>
                 <div>
                   <strong>Browse or search immediately</strong>
-                  <p>The opening shelf is live right away, and search results stay visible under the hero.</p>
+                  <p>The dashboard is live right away. Search results appear below the navbar.</p>
                 </div>
               </article>
               <article class="mood-step">
                 <span>02</span>
                 <div>
                   <strong>Save and like deliberately</strong>
-                  <p>Wishlist is for later. Liked titles are the actual AI signal.</p>
+                  <p>Wishlist is "watch later." Liked titles are the actual AI signal.</p>
                 </div>
               </article>
               <article class="mood-step">
                 <span>03</span>
                 <div>
-                  <strong>Unlock a more personal dashboard</strong>
-                  <p>Save the starter shelf when ready so recommendations and friend flows use your actual setup.</p>
+                  <strong>Unlock a personal dashboard</strong>
+                  <p>Save the starter shelf once so recommendations and friend flows use your real taste.</p>
                 </div>
               </article>
             </div>
@@ -314,25 +437,50 @@
               </div>
               <span class="wishlist-total" id="wishlist-total">0 saved</span>
             </div>
+            <div class="wishlist-controls" id="wishlist-controls">
+              <div class="filter-chips">
+                <button class="filter-chip active" data-filter="all" type="button">All</button>
+                <button class="filter-chip" data-filter="movie" type="button">Movies</button>
+                <button class="filter-chip" data-filter="series" type="button">Series</button>
+              </div>
+              <select class="wishlist-sort-select" id="wishlist-sort-select">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="az">A → Z</option>
+                <option value="year">By year</option>
+              </select>
+            </div>
             <div class="wishlist-list" id="wishlist-list"></div>
             <div class="wishlist-cta">
-              <p id="wishlist-guidance">Add a few movies you genuinely like. This becomes the base for your first AI recommendation pass.</p>
+              <p id="wishlist-guidance">Add a few titles you genuinely love — this seeds your first AI recommendation pass.</p>
               <button class="auth-submit save-wishlist-button" id="save-wishlist-button" type="button">Save starter shelf</button>
             </div>
           </aside>
         </main>
       </section>
 
+      <!-- Home tabs + content -->
       <section class="home-shell hidden" id="home-shell">
-        <div class="glass-panel home-nav-panel">
+
+        <!-- Tab bar -->
+        <div class="home-nav-panel">
           <div class="home-tabs" id="home-tabs" role="tablist" aria-label="Movie Buddy sections">
             <button class="home-tab active" id="tab-button-home" data-tab="home" type="button" role="tab" aria-selected="true" aria-controls="tab-home">Home</button>
-            <button class="home-tab" id="tab-button-ai" data-tab="ai" type="button" role="tab" aria-selected="false" aria-controls="tab-ai">AI Recommendation</button>
+            <button class="home-tab" id="tab-button-ai" data-tab="ai" type="button" role="tab" aria-selected="false" aria-controls="tab-ai">AI Picks</button>
+            <button class="home-tab" id="tab-button-mood" data-tab="mood" type="button" role="tab" aria-selected="false" aria-controls="tab-mood">Mood</button>
+            <button class="home-tab" id="tab-button-lists" data-tab="lists" type="button" role="tab" aria-selected="false" aria-controls="tab-lists">Lists</button>
             <button class="home-tab" id="tab-button-friends" data-tab="friends" type="button" role="tab" aria-selected="false" aria-controls="tab-friends">Friends</button>
-            <button class="home-tab" id="tab-button-activity" data-tab="activity" type="button" role="tab" aria-selected="false" aria-controls="tab-activity">Requests and activity</button>
+            <button class="home-tab" id="tab-button-activity" data-tab="activity" type="button" role="tab" aria-selected="false" aria-controls="tab-activity">Activity</button>
+            <button class="home-tab" id="tab-button-profile" data-tab="profile" type="button" role="tab" aria-selected="false" aria-controls="tab-profile">Profile</button>
+            <button class="home-tab hidden" id="tab-button-admin" data-tab="admin" type="button" role="tab" aria-selected="false" aria-controls="tab-admin">Admin</button>
+            <button class="home-tab hidden" id="tab-button-requests" data-tab="requests" type="button" role="tab" aria-selected="false" aria-controls="tab-requests">
+              <span>Requests</span>
+              <span class="requests-badge hidden" id="requests-badge">0</span>
+            </button>
           </div>
         </div>
 
+        <!-- Pending request banner -->
         <section class="glass-panel pending-request-banner hidden" id="pending-request-banner">
           <div>
             <p class="eyebrow">Pending request</p>
@@ -340,85 +488,135 @@
             <p class="hero-subtext" id="pending-request-text">Accept to start sharing movie recommendations.</p>
           </div>
           <div class="pending-request-actions">
-            <button class="auth-submit" id="pending-request-accept-button" type="button">Accept</button>
-            <button class="secondary-action" id="pending-request-decline-button" type="button">Decline</button>
+            <button class="friend-accept-btn" id="pending-request-accept-button" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+              Accept
+            </button>
+            <button class="friend-decline-btn" id="pending-request-decline-button" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Decline
+            </button>
           </div>
         </section>
 
+        <!-- Home tab -->
         <section class="tab-panel active" id="tab-home" role="tabpanel" aria-labelledby="tab-button-home">
           <div class="home-dashboard-grid">
+
+            <!-- Now watching -->
             <section class="glass-panel cinematic-banner">
               <div class="section-heading compact">
                 <div>
                   <p class="eyebrow">Your world</p>
-                  <h3>Now showing</h3>
+                  <h3>Now Watching</h3>
                 </div>
                 <button class="tab-action" id="open-library-editor-button" type="button">Manage library</button>
               </div>
+
               <div class="subheading-row section-spaced home-split-row">
                 <h4>Movies</h4>
-                <span class="mini-kicker">Your active or saved movie picks</span>
               </div>
               <div class="movie-grid compact-media-grid movie-rail" id="currently-watching-grid"></div>
+
               <div class="subheading-row section-spaced home-split-row">
                 <h4>Series</h4>
-                <span class="mini-kicker">Your active or saved shows</span>
               </div>
               <div class="movie-grid compact-media-grid movie-rail" id="currently-watching-series-grid"></div>
             </section>
 
+            <!-- Upcoming releases -->
             <section class="glass-panel">
-              <div class="subheading-row section-spaced">
+              <div class="section-heading compact">
                 <div>
-                  <h4>Upcoming releases</h4>
-                  <span class="mini-kicker">Upcoming and reminder-ready</span>
+                  <p class="eyebrow">On the horizon</p>
+                  <h3>Upcoming Releases</h3>
                 </div>
                 <button class="tab-action" id="open-reminder-settings-button" type="button">Reminder settings</button>
               </div>
+              <div class="lang-filter-row">
+                <div class="lang-filter-chips" id="upcoming-lang-filter">
+                  <button class="lang-chip active" data-lang="">All</button>
+                  <button class="lang-chip" data-lang="en">English</button>
+                  <button class="lang-chip" data-lang="hi">Hindi</button>
+                  <button class="lang-chip" data-lang="ko">Korean</button>
+                  <button class="lang-chip" data-lang="ja">Japanese</button>
+                  <button class="lang-chip" data-lang="ta">Tamil</button>
+                  <button class="lang-chip" data-lang="te">Telugu</button>
+                </div>
+              </div>
+
               <div class="subheading-row section-spaced home-split-row">
                 <h4>Upcoming movies</h4>
-                <span class="mini-kicker">Film releases on the horizon</span>
+                <span class="mini-kicker">Films releasing soon</span>
               </div>
               <div class="movie-grid compact-media-grid movie-rail" id="upcoming-grid"></div>
+
               <div class="subheading-row section-spaced home-split-row">
                 <h4>Upcoming series</h4>
-                <span class="mini-kicker">Shows with new episodes or fresh arrivals</span>
+                <span class="mini-kicker">Shows with new seasons</span>
               </div>
               <div class="movie-grid compact-media-grid movie-rail" id="upcoming-series-grid"></div>
             </section>
 
+            <!-- Cinematic Quote Strip -->
+            <div class="cinematic-quote-strip" id="cinematic-quote-strip" aria-live="polite">
+              <span class="quote-mark">"</span>
+              <span class="quote-text" id="quote-text">Loading…</span>
+              <span class="quote-mark">"</span>
+              <span class="quote-source" id="quote-source"></span>
+            </div>
+
+            <!-- Trending -->
             <section class="glass-panel">
-              <div class="subheading-row section-spaced">
-                <h4>Trending now</h4>
-                <span class="mini-kicker">The titles people keep talking about</span>
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Right now</p>
+                  <h3>Trending</h3>
+                </div>
               </div>
+              <div class="lang-filter-row">
+                <div class="lang-filter-chips" id="trending-lang-filter">
+                  <button class="lang-chip active" data-lang="">All</button>
+                  <button class="lang-chip" data-lang="en">English</button>
+                  <button class="lang-chip" data-lang="hi">Hindi</button>
+                  <button class="lang-chip" data-lang="ko">Korean</button>
+                  <button class="lang-chip" data-lang="ja">Japanese</button>
+                  <button class="lang-chip" data-lang="ta">Tamil</button>
+                  <button class="lang-chip" data-lang="te">Telugu</button>
+                </div>
+              </div>
+
               <div class="subheading-row section-spaced home-split-row">
                 <h4>Trending movies</h4>
-                <span class="mini-kicker">Popular films right now</span>
+                <span class="mini-kicker">Popular films this week</span>
               </div>
               <div class="movie-grid compact-media-grid movie-rail" id="trending-grid"></div>
+
               <div class="subheading-row section-spaced home-split-row">
                 <h4>Trending series</h4>
-                <span class="mini-kicker">Popular shows right now</span>
+                <span class="mini-kicker">Popular shows this week</span>
               </div>
               <div class="movie-grid compact-media-grid movie-rail" id="trending-series-grid"></div>
             </section>
 
+            <!-- Hidden liked grid (used internally by JS) -->
             <section class="hidden" aria-hidden="true">
               <div class="movie-grid compact-media-grid movie-rail" id="liked-grid"></div>
             </section>
+
           </div>
         </section>
 
+        <!-- AI tab -->
         <section class="tab-panel" id="tab-ai" role="tabpanel" aria-labelledby="tab-button-ai">
           <div class="panel-grid">
             <section class="glass-panel">
               <div class="section-heading">
                 <div>
-                  <p class="eyebrow">AI Recommendation</p>
-                  <h3>Recommended by AI</h3>
+                  <p class="eyebrow">Curated for you</p>
+                  <h3>AI Recommendations</h3>
                 </div>
-                <button class="text-button refresh-button" id="refresh-ai-button" type="button">Refresh picks</button>
+                <button class="refresh-button text-button" id="refresh-ai-button" type="button">↺ Refresh picks</button>
               </div>
               <div class="movie-grid movie-rail" id="ai-recommendation-grid"></div>
             </section>
@@ -430,23 +628,25 @@
                   <h3>Taste signals</h3>
                 </div>
               </div>
-              <div class="signal-list" id="taste-signal-list"></div>
+              <ul class="signal-list" id="taste-signal-list"></ul>
             </aside>
           </div>
         </section>
 
+        <!-- Friends tab -->
         <section class="tab-panel" id="tab-friends" role="tabpanel" aria-labelledby="tab-button-friends">
           <div class="panel-grid">
             <section class="glass-panel">
               <div class="section-heading">
                 <div>
                   <p class="eyebrow">Find your circle</p>
-                  <h3>Search users and add friends</h3>
+                  <h3>Search Users</h3>
                 </div>
               </div>
+              <p style="font-size:12px;color:var(--text-muted);margin:0 0 10px;">Search by name or unique ID (e.g. <code id="friend-search-example-id" style="color:var(--accent)">mb-xxxxx</code>). Your ID is shown in the top-right corner.</p>
               <label class="search-field" for="friend-search-input">
-                <span>Search by user id or name</span>
-                <input id="friend-search-input" type="search" placeholder="Try mb-7r8x1 or a display name">
+                <span class="visually-hidden">Search by name or @handle</span>
+                <input id="friend-search-input" type="search" placeholder="Search by name or @handle (mb-xxxxx)…">
               </label>
               <div class="social-list" id="friend-search-results"></div>
             </section>
@@ -459,6 +659,12 @@
                 </div>
               </div>
               <div class="social-list compact-list" id="friend-list"></div>
+
+              <div class="friend-overlap-section hidden" id="friend-overlap-section">
+                <p class="eyebrow" style="margin: 16px 0 8px;">Movies you both liked</p>
+                <div class="movie-grid movie-rail" id="friend-overlap-grid"></div>
+              </div>
+
               <div class="recommend-composer">
                 <p class="eyebrow">Send recommendation</p>
                 <label class="form-field" for="recommend-friend-select">
@@ -466,26 +672,38 @@
                   <select id="recommend-friend-select"></select>
                 </label>
                 <label class="form-field" for="recommend-movie-select">
-                  <span>Choose a movie</span>
+                  <span>Choose a title</span>
                   <select id="recommend-movie-select"></select>
                 </label>
                 <label class="form-field" for="recommend-note-input">
-                  <span>Short note</span>
+                  <span>Short note <span class="field-hint">(optional)</span></span>
                   <textarea id="recommend-note-input" rows="3" placeholder="Why should they watch this?"></textarea>
                 </label>
-                <button class="auth-submit" id="send-recommendation-button" type="button">Send recommendation</button>
+                <button class="auth-submit" id="send-recommendation-button" type="button" style="width:auto;padding:0 24px;min-height:44px;justify-self:start;">Send →</button>
               </div>
             </aside>
           </div>
         </section>
 
+        <!-- Activity tab -->
         <section class="tab-panel" id="tab-activity" role="tabpanel" aria-labelledby="tab-button-activity">
           <div class="panel-grid">
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Social timeline</p>
+                  <h3>Activity Feed</h3>
+                </div>
+                <button class="tab-action" id="refresh-activity-button" type="button">↺ Refresh</button>
+              </div>
+              <div id="activity-feed-list" class="activity-feed"></div>
+            </section>
+
             <section class="glass-panel">
               <div class="section-heading">
                 <div>
                   <p class="eyebrow">Incoming</p>
-                  <h3>Friend requests</h3>
+                  <h3>Friend Requests</h3>
                 </div>
               </div>
               <div class="social-list" id="incoming-request-list"></div>
@@ -494,7 +712,7 @@
             <aside class="glass-panel side-panel">
               <div class="section-heading compact">
                 <div>
-                  <p class="eyebrow">Activity</p>
+                  <p class="eyebrow">Latest</p>
                   <h3>Notifications</h3>
                 </div>
               </div>
@@ -502,25 +720,212 @@
             </aside>
           </div>
         </section>
-      </section>
-    </div>
-  </div>
 
+        <!-- Mood tab -->
+        <section class="tab-panel" id="tab-mood" role="tabpanel" aria-labelledby="tab-button-mood">
+          <div class="panel-grid">
+            <section class="glass-panel">
+              <div class="mood-header">
+                <div>
+                  <p class="eyebrow">How are you feeling?</p>
+                  <h3>Mood Discovery</h3>
+                </div>
+                <button class="surprise-me-btn" id="surprise-me-btn" type="button">🎲 Surprise me</button>
+              </div>
+              <div class="mood-grid" id="mood-grid"><!-- rendered by JS --></div>
+              <div class="mood-lang-filter hidden" id="mood-lang-filter">
+                <span class="filter-label">Language:</span>
+                <div class="mood-lang-chips" id="mood-lang-chips"></div>
+              </div>
+              <div id="mood-picks-label" class="mood-picks-label hidden"></div>
+              <div class="movie-grid movie-rail" id="mood-picks-grid"></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Lists tab -->
+        <section class="tab-panel" id="tab-lists" role="tabpanel" aria-labelledby="tab-button-lists">
+          <div class="panel-grid">
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Your collections</p>
+                  <h3>My Lists</h3>
+                </div>
+              </div>
+              <form id="create-list-form" class="create-list-form">
+                <input id="new-list-name-input" type="text" placeholder="New list name…" maxlength="100">
+                <button class="secondary-action" type="submit">Create list</button>
+              </form>
+              <div id="my-lists-grid" class="my-lists-grid"></div>
+            </section>
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">Hand-picked collections</p>
+                  <h3>Curated Lists</h3>
+                </div>
+              </div>
+              <div class="lists-grid" id="curated-lists-grid"></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Profile tab -->
+        <section class="tab-panel" id="tab-profile" role="tabpanel" aria-labelledby="tab-button-profile">
+          <div class="panel-grid" style="padding: 0;">
+            <section class="glass-panel profile-card" style="grid-column: 1 / -1;">
+              <button class="profile-avatar-btn" id="profile-avatar-btn" type="button" aria-label="Change profile photo">
+                <div class="profile-avatar-lg" id="profile-avatar-lg">MB</div>
+                <div class="profile-avatar-overlay">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                </div>
+              </button>
+              <p class="profile-name" id="profile-name" title="Click to edit your ID">—</p>
+              <p class="profile-handle" id="profile-handle">@mb-user</p>
+              <div id="profile-inline-edit" class="profile-inline-edit hidden">
+                <div class="handle-wrap" style="max-width:220px;margin:0 auto 10px;">
+                  <span class="handle-at">@</span>
+                  <input id="profile-edit-handle" type="text" maxlength="30" placeholder="yourhandle" autocomplete="off">
+                  <span class="handle-status" id="profile-handle-status" aria-live="polite"></span>
+                </div>
+                <div style="display:flex;gap:8px;justify-content:center;">
+                  <button class="btn-ghost btn-xs" id="profile-edit-cancel" type="button">Cancel</button>
+                  <button class="btn-primary btn-xs" id="profile-save-settings-btn" type="button">Save ID</button>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <div class="profile-stat"><strong id="profile-stat-watched">0</strong><span>Watched</span></div>
+                <div class="profile-stat"><strong id="profile-stat-liked">0</strong><span>Liked</span></div>
+                <div class="profile-stat"><strong id="profile-stat-wishlist">0</strong><span>Wishlist</span></div>
+                <div class="profile-stat"><strong id="profile-stat-friends">0</strong><span>Friends</span></div>
+              </div>
+            </section>
+            <section class="glass-panel">
+              <div class="section-heading compact">
+                <div><p class="eyebrow">Watch history</p><h3>Recently Watched</h3></div>
+              </div>
+              <div class="movie-grid movie-rail" id="profile-watched-grid"></div>
+            </section>
+            <section class="glass-panel">
+              <div class="section-heading compact">
+                <div><p class="eyebrow">Loved titles</p><h3>Liked Movies</h3></div>
+              </div>
+              <div class="movie-grid movie-rail" id="profile-liked-grid"></div>
+            </section>
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading compact">
+                <div><p class="eyebrow">Your year in film</p><h3>Insights</h3></div>
+              </div>
+              <div class="stats-insight-grid" id="stats-insight-grid">
+                <div class="insight-card"><strong id="stat-hours">—</strong><span>Est. hours watched</span></div>
+                <div class="insight-card"><strong id="stat-this-month">—</strong><span>This month</span></div>
+                <div class="insight-card"><strong id="stat-top-genre">—</strong><span>Top genre</span></div>
+                <div class="insight-card"><strong id="stat-friends-count">—</strong><span>Friends</span></div>
+                <div class="insight-card"><strong id="stat-avg-rating">—</strong><span>Avg rating</span></div>
+                <div class="insight-card"><strong id="stat-recs-watched">—</strong><span>Friend picks watched</span></div>
+              </div>
+              <div class="genre-bars" id="genre-bars"></div>
+              <div class="monthly-chart" id="monthly-chart"></div>
+            </section>
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading compact">
+                <div><p class="eyebrow">Your visibility</p><h3>Friend Privacy</h3></div>
+              </div>
+              <p class="privacy-desc">Choose what friends can see on your profile once they're connected with you.</p>
+              <div class="privacy-toggles">
+                <label class="privacy-toggle-row">
+                  <div>
+                    <span class="privacy-toggle-label">Wishlist</span>
+                    <span class="privacy-toggle-hint">Show your saved movies to friends</span>
+                  </div>
+                  <input type="checkbox" id="privacy-show-wishlist" class="privacy-checkbox" checked>
+                </label>
+                <label class="privacy-toggle-row">
+                  <div>
+                    <span class="privacy-toggle-label">Liked movies</span>
+                    <span class="privacy-toggle-hint">Share the movies you've liked</span>
+                  </div>
+                  <input type="checkbox" id="privacy-show-liked" class="privacy-checkbox" checked>
+                </label>
+                <label class="privacy-toggle-row">
+                  <div>
+                    <span class="privacy-toggle-label">Watch history</span>
+                    <span class="privacy-toggle-hint">Show movies you've marked as watched</span>
+                  </div>
+                  <input type="checkbox" id="privacy-show-watched" class="privacy-checkbox">
+                </label>
+              </div>
+              <button class="save-button" id="save-privacy-btn" type="button" style="margin-top:16px;">Save privacy settings</button>
+            </section>
+
+            <!-- Active devices -->
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading compact">
+                <div>
+                  <p class="eyebrow">Where you're logged in</p>
+                  <h3>Active Devices</h3>
+                </div>
+                <button class="secondary-action" id="signout-all-devices-btn" type="button">Sign out other devices</button>
+              </div>
+              <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">You can have up to 3 devices logged in. Adding a new one automatically signs out the oldest.</p>
+              <div id="active-devices-list"></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Admin tab -->
+        <section class="tab-panel" id="tab-admin" role="tabpanel" aria-labelledby="tab-button-admin">
+          <div class="panel-grid">
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading">
+                <div><p class="eyebrow">Server stats</p><h3>Admin Dashboard</h3></div>
+                <button class="tab-action" id="refresh-admin-button" type="button">↺ Refresh</button>
+              </div>
+              <div class="admin-stats-grid" id="admin-stats-grid"></div>
+              <div>
+                <p class="eyebrow" style="margin-bottom:10px;">Database migrations</p>
+                <div id="admin-migrations-list"></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <!-- Requests tab (creator only) -->
+        <section class="tab-panel" id="tab-requests" role="tabpanel" aria-labelledby="tab-button-requests">
+          <div class="panel-grid">
+            <section class="glass-panel" style="grid-column: 1 / -1;">
+              <div class="section-heading">
+                <div>
+                  <p class="eyebrow">From users</p>
+                  <h3>Feedback &amp; Requests</h3>
+                </div>
+                <button class="tab-action" id="refresh-requests-button" type="button">↺ Refresh</button>
+              </div>
+              <div id="requests-list"></div>
+            </section>
+          </div>
+        </section>
+
+      </section>
+    </div><!-- /#app-shell -->
+  </div><!-- /.page-shell -->
+
+  <!-- ─── TEMPLATES ─── -->
   <template id="movie-card-template">
     <article class="movie-card">
-      <div class="movie-poster"></div>
+      <div class="movie-poster">
+        <p class="movie-type"></p>
+        <span class="movie-year"></span>
+        <button class="quick-watched-btn" type="button" title="Mark as watched" aria-label="Quick mark watched">✓</button>
+      </div>
       <div class="movie-card-body">
-        <div class="movie-card-header">
-          <div>
-            <p class="movie-type"></p>
-            <h4 class="movie-title"></h4>
-          </div>
-          <span class="movie-year"></span>
-        </div>
+        <h4 class="movie-title"></h4>
         <p class="movie-context hidden"></p>
         <p class="movie-meta"></p>
         <p class="movie-summary"></p>
         <div class="movie-card-actions"></div>
+        <div class="movie-ott hidden"></div>
       </div>
     </article>
   </template>
@@ -547,8 +952,9 @@
     </article>
   </template>
 
+  <!-- ─── REVIEW MODAL ─── -->
   <div class="review-modal-overlay hidden" id="review-modal-overlay">
-    <div class="rating-modal glass-panel" role="dialog" aria-modal="true" aria-labelledby="review-target-title">
+    <div class="rating-modal" role="dialog" aria-modal="true" aria-labelledby="review-target-title">
       <button class="rating-modal-close" id="close-review-modal" type="button" aria-label="Close">✕</button>
       <div class="rating-modal-header">
         <p class="eyebrow">Finished watching</p>
@@ -556,7 +962,7 @@
       </div>
       <form id="review-form">
         <p class="rating-question">How would you rate it?</p>
-        <div class="star-rating-group" id="star-rating-group" role="group" aria-label="Rate this movie">
+        <div class="star-rating-group" id="star-rating-group" role="group" aria-label="Rate this title">
           <button class="star-btn" data-rating="1" type="button" aria-label="1 star">★</button>
           <button class="star-btn" data-rating="2" type="button" aria-label="2 stars">★</button>
           <button class="star-btn" data-rating="3" type="button" aria-label="3 stars">★</button>
@@ -567,31 +973,38 @@
           <span>Not for me</span>
           <span>Masterpiece</span>
         </div>
-        <p class="rating-hint" id="rating-hint">Tap a star to rate — 4★ or higher auto-adds to your AI taste anchors.</p>
+        <p class="rating-hint" id="rating-hint">Tap a star to rate — 4★ or higher adds to your AI taste anchors.</p>
         <div class="rating-actions">
           <button class="text-button" id="skip-review-button" type="button">Just mark as watched</button>
-          <button class="auth-submit" id="save-rating-button" type="submit">Save rating</button>
+          <button class="auth-submit" id="save-rating-button" type="submit" style="width:auto;padding:0 22px;min-height:44px;">Save rating</button>
         </div>
       </form>
     </div>
   </div>
 
+  <!-- ─── LIBRARY EDITOR MODAL ─── -->
   <div class="review-modal-overlay hidden" id="library-editor-overlay">
-    <div class="review-modal library-editor-modal glass-panel" role="dialog" aria-modal="true" aria-labelledby="library-editor-title">
+    <div class="rating-modal library-editor-modal" role="dialog" aria-modal="true" aria-labelledby="library-editor-title">
       <div class="provider-modal-header">
         <div>
           <p class="eyebrow">Library editor</p>
           <h3 id="library-editor-title">Shape your shelves</h3>
         </div>
-        <button class="provider-close" id="close-library-editor" type="button">Close</button>
+        <button class="provider-close" id="close-library-editor" type="button">Close ✕</button>
       </div>
-      <p class="provider-modal-text">Move titles between shelves, reorder the active lane, and control when release reminders actually fire.</p>
+      <p class="provider-modal-text">Move titles between shelves, reorder the active lane, and control when release reminders fire.</p>
+
       <div class="library-editor-toolbar" id="library-editor-toolbar">
         <button class="library-filter-button active" data-collection="wishlist" type="button">Wishlist</button>
         <button class="library-filter-button" data-collection="liked" type="button">Liked</button>
         <button class="library-filter-button" data-collection="currentlyWatching" type="button">Watching</button>
         <button class="library-filter-button" data-collection="releaseReminders" type="button">Reminders</button>
       </div>
+
+      <div class="library-search-bar">
+        <input id="library-search-input" type="search" placeholder="Search library…" autocomplete="off" aria-label="Search library">
+      </div>
+
       <div class="library-editor-layout">
         <section class="library-editor-panel">
           <div class="subheading-row section-spaced">
@@ -638,11 +1051,11 @@
             </label>
             <label class="form-field" for="reminder-timezone-input">
               <span>Timezone</span>
-              <input id="reminder-timezone-input" type="text" placeholder="America/New_York" autocomplete="off">
+              <input id="reminder-timezone-input" type="text" placeholder="e.g. America/New_York" autocomplete="off">
             </label>
             <p class="provider-helper-text" id="reminder-preferences-summary"></p>
             <div class="push-status-block">
-              <p class="provider-helper-text" id="browser-push-status">Browser push is checking availability.</p>
+              <p class="provider-helper-text" id="browser-push-status">Checking browser push availability…</p>
               <button class="secondary-action" id="browser-push-button" type="button">Enable browser push</button>
             </div>
             <div class="provider-actions">
@@ -654,9 +1067,153 @@
     </div>
   </div>
 
+  <!-- ─── MOVIE DETAIL DRAWER ─── -->
+  <div class="movie-detail-overlay" id="movie-detail-overlay" role="dialog" aria-modal="true" aria-labelledby="movie-detail-title">
+    <div class="movie-detail-drawer" style="position:relative;">
+      <div class="movie-detail-handle"></div>
+      <button class="movie-detail-close" id="movie-detail-close" type="button" aria-label="Close">✕</button>
+      <div class="movie-detail-hero">
+        <div class="movie-detail-poster" id="movie-detail-poster-wrap">
+          <img id="movie-detail-poster-img" src="" alt="" loading="lazy">
+        </div>
+        <div class="movie-detail-info">
+          <h2 class="movie-detail-title" id="movie-detail-title">—</h2>
+          <p class="movie-detail-meta" id="movie-detail-meta"></p>
+          <div class="movie-detail-badges" id="movie-detail-badges"></div>
+        </div>
+      </div>
+      <p class="movie-detail-summary" id="movie-detail-summary"></p>
+      <div class="movie-detail-providers hidden" id="movie-detail-providers"></div>
+      <div class="movie-detail-cast hidden" id="movie-detail-cast">
+        <p class="movie-detail-cast-label">Cast</p>
+        <div class="movie-detail-cast-list" id="movie-detail-cast-list"></div>
+      </div>
+      <div class="movie-detail-actions" id="movie-detail-actions"></div>
+    </div>
+  </div>
+
+  <!-- ─── MOBILE BOTTOM NAV ─── -->
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Main navigation">
+    <div class="mobile-bottom-nav-items">
+      <button class="mobile-nav-btn active" data-tab="home" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </button>
+      <button class="mobile-nav-btn" data-tab="mood" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        Mood
+      </button>
+      <button class="mobile-nav-btn" data-tab="ai" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        AI Picks
+      </button>
+      <button class="mobile-nav-btn" data-tab="friends" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Friends
+      </button>
+      <button class="mobile-nav-btn" data-tab="profile" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Profile
+      </button>
+    </div>
+  </nav>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="false"></div>
+
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://alcdn.msauth.net/browser/2.38.3/js/msal-browser.min.js" async defer></script>
   <script src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js" async defer></script>
   <script src="./app.js"></script>
+
+  <!-- ─── ADD TO WATCHING MODAL ─── -->
+  <div class="modal-overlay hidden" id="add-watching-overlay" role="dialog" aria-modal="true" aria-label="Add to Now Watching">
+    <div class="modal-card add-watching-modal">
+      <div class="modal-header">
+        <h3 id="add-watching-modal-title">Add to Now Watching</h3>
+        <button class="modal-close" id="add-watching-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <div class="add-watching-search-wrap">
+        <input id="add-watching-input" type="search" class="add-watching-search-input" placeholder="Search any title…" autocomplete="off" aria-label="Search titles">
+      </div>
+      <div class="add-watching-results" id="add-watching-results">
+        <p class="add-watching-empty">Start typing to find a title to watch.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── AVATAR PICKER MODAL ─── -->
+  <div class="modal-overlay hidden" id="avatar-picker-overlay" role="dialog" aria-modal="true" aria-label="Choose avatar">
+    <div class="modal-card avatar-picker-modal" id="avatar-picker-modal">
+      <div class="modal-header">
+        <h3>Choose your avatar</h3>
+        <button class="modal-close" id="avatar-picker-close" type="button" aria-label="Close">✕</button>
+      </div>
+      <p class="avatar-picker-section-label">Presets</p>
+      <div class="avatar-presets" id="avatar-presets-grid" role="radiogroup" aria-label="Preset avatars"></div>
+      <div class="avatar-upload-section">
+        <p class="avatar-picker-section-label">Or upload your own</p>
+        <label class="avatar-upload-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Choose image
+          <input type="file" id="avatar-file-input" accept="image/*" hidden>
+        </label>
+        <canvas id="avatar-resize-canvas" width="200" height="200" hidden></canvas>
+        <div id="avatar-upload-preview" class="avatar-upload-preview hidden">
+          <img id="avatar-preview-img" src="" alt="Preview" width="72" height="72">
+          <span id="avatar-upload-name" class="avatar-upload-filename"></span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-ghost" id="avatar-remove-btn" type="button">Remove photo</button>
+        <button class="btn-primary" id="avatar-save-btn" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Friend profile modal -->
+  <div class="modal-overlay hidden" id="friend-profile-overlay" role="dialog" aria-modal="true" aria-labelledby="friend-profile-name">
+    <div class="modal-card friend-profile-modal">
+      <button class="modal-close" id="close-friend-profile" type="button" aria-label="Close">✕</button>
+      <div class="friend-profile-header">
+        <div class="friend-profile-avatar" id="friend-profile-avatar">?</div>
+        <div>
+          <h3 id="friend-profile-name">—</h3>
+          <p class="friend-profile-handle" id="friend-profile-handle">@—</p>
+        </div>
+      </div>
+      <div id="friend-profile-body"></div>
+    </div>
+  </div>
+
+  <!-- Send to friend modal -->
+  <div class="modal-overlay hidden" id="send-friend-overlay" role="dialog" aria-modal="true" aria-labelledby="send-friend-movie-title">
+    <div class="modal-card">
+      <button class="modal-close" id="close-send-friend" type="button" aria-label="Close">✕</button>
+      <h3 id="send-friend-movie-title">Send movie</h3>
+      <p class="modal-subtitle">Choose a friend to recommend this to</p>
+      <div id="send-friend-list" class="send-friend-list"></div>
+      <textarea id="send-friend-note" placeholder="Add a note (optional)" maxlength="200" rows="2"></textarea>
+      <button class="auth-submit" id="confirm-send-friend" type="button">Send recommendation</button>
+    </div>
+  </div>
+
+  <!-- Share modal -->
+  <div class="modal-overlay hidden" id="share-overlay" role="dialog" aria-modal="true" aria-labelledby="share-movie-title">
+    <div class="modal-card">
+      <button class="modal-close" id="close-share" type="button" aria-label="Close">✕</button>
+      <h3 id="share-movie-title">Share movie</h3>
+      <div class="share-options">
+        <button class="share-option-btn" id="share-text-btn" type="button">
+          <span class="share-icon">🔗</span>
+          <span>Share link</span>
+        </button>
+        <button class="share-option-btn" id="share-image-btn" type="button">
+          <span class="share-icon">🖼️</span>
+          <span>Share card</span>
+        </button>
+      </div>
+      <canvas id="share-canvas" width="400" height="560" style="display:none;border-radius:8px;max-width:100%;"></canvas>
+    </div>
+  </div>
 </body>
 </html>

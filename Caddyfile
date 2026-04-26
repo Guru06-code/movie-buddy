@@ -1,0 +1,7 @@
+# Caddy reverse proxy with automatic HTTPS (Let's Encrypt)
+# Usage: caddy run
+# Replace yourdomain.com with your actual domain name.
+
+yourdomain.com {
+    reverse_proxy localhost:4173
+}

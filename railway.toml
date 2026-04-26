@@ -1,0 +1,18 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "node server.js"
+healthcheckPath = "/api/auth/session"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[variables]
+HOST = "0.0.0.0"
+NODE_ENV = "production"
+LOG_LEVEL = "info"
+TMDB_REGION = "IN"
+REQUEST_BODY_LIMIT_BYTES = "1000000"
+EXTERNAL_FETCH_TIMEOUT_MS = "8000"
+REMINDER_SCHEDULER_INTERVAL_MS = "60000"

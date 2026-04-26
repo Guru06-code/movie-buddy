@@ -3,3 +3,7 @@ node_modules/
 test-results/
 *.db
 *.sqlite
+.env
+*.log
+logs/
+playwright-report/

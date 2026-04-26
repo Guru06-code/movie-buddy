@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07070d"/>
+      <stop offset="100%" style="stop-color:#0f0f1a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8a020;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#f0c060;stop-opacity:0.05"/>
+    </linearGradient>
+    <radialGradient id="center-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#e8a020;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#e8a020;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="blur-soft">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#center-glow)"/>
+
+  <!-- Film strip top -->
+  <rect x="0" y="0" width="1200" height="56" fill="#0a0a14"/>
+  <rect x="0" y="50" width="1200" height="2" fill="rgba(232,160,32,0.15)"/>
+  <rect x="16" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="60" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="104" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="148" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="192" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="236" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="280" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="324" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="368" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="412" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="456" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="500" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="544" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="588" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="632" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="676" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="720" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="764" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="808" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="852" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="896" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="940" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="984" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1028" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1072" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1116" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1160" y="8" width="28" height="36" rx="4" fill="#07070d"/>
+
+  <!-- Film strip bottom -->
+  <rect x="0" y="574" width="1200" height="56" fill="#0a0a14"/>
+  <rect x="0" y="572" width="1200" height="2" fill="rgba(232,160,32,0.15)"/>
+  <rect x="16" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="60" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="104" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="148" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="192" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="236" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="280" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="324" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="368" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="412" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="456" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="500" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="544" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="588" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="632" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="676" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="720" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="764" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="808" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="852" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="896" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="940" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="984" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1028" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1072" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1116" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+  <rect x="1160" y="586" width="28" height="36" rx="4" fill="#07070d"/>
+
+  <!-- Decorative movie cards left -->
+  <rect x="60" y="110" width="110" height="160" rx="10" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.2)" stroke-width="1.5"/>
+  <rect x="76" y="126" width="78" height="90" rx="6" fill="rgba(59,130,246,0.18)"/>
+  <rect x="76" y="226" width="50" height="8" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <rect x="76" y="240" width="34" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+
+  <rect x="40" y="300" width="100" height="145" rx="10" fill="rgba(168,85,247,0.10)" stroke="rgba(168,85,247,0.18)" stroke-width="1.5"/>
+  <rect x="54" y="314" width="72" height="82" rx="6" fill="rgba(168,85,247,0.15)"/>
+  <rect x="54" y="406" width="44" height="7" rx="3" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- Decorative movie cards right -->
+  <rect x="1030" y="110" width="110" height="160" rx="10" fill="rgba(34,197,94,0.10)" stroke="rgba(34,197,94,0.18)" stroke-width="1.5"/>
+  <rect x="1046" y="126" width="78" height="90" rx="6" fill="rgba(34,197,94,0.15)"/>
+  <rect x="1046" y="226" width="50" height="8" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <rect x="1046" y="240" width="34" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
+
+  <rect x="1060" y="300" width="100" height="145" rx="10" fill="rgba(232,160,32,0.10)" stroke="rgba(232,160,32,0.2)" stroke-width="1.5"/>
+  <rect x="1074" y="314" width="72" height="82" rx="6" fill="rgba(232,160,32,0.15)"/>
+  <rect x="1074" y="406" width="44" height="7" rx="3" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- Accent line top of content area -->
+  <rect x="540" y="100" width="120" height="2" rx="1" fill="rgba(232,160,32,0.35)"/>
+
+  <!-- Logo circle -->
+  <circle cx="600" cy="170" r="52" fill="rgba(232,160,32,0.1)" stroke="rgba(232,160,32,0.3)" stroke-width="1.5"/>
+  <!-- Film reel icon -->
+  <circle cx="600" cy="170" r="34" fill="none" stroke="#e8a020" stroke-width="2.5"/>
+  <circle cx="600" cy="170" r="8" fill="#e8a020"/>
+  <circle cx="600" cy="145" r="5.5" fill="none" stroke="#e8a020" stroke-width="2"/>
+  <circle cx="600" cy="195" r="5.5" fill="none" stroke="#e8a020" stroke-width="2"/>
+  <circle cx="577" cy="158" r="5.5" fill="none" stroke="#e8a020" stroke-width="2"/>
+  <circle cx="623" cy="158" r="5.5" fill="none" stroke="#e8a020" stroke-width="2"/>
+  <circle cx="577" cy="182" r="5.5" fill="none" stroke="#e8a020" stroke-width="2"/>
+  <circle cx="623" cy="182" r="5.5" fill="none" stroke="#e8a020" stroke-width="2"/>
+
+  <!-- Main title -->
+  <text x="600" y="268" font-family="Georgia, serif" font-size="72" font-weight="700" text-anchor="middle" fill="#f0ede8" letter-spacing="-2">Movie Buddy</text>
+
+  <!-- Gold underline -->
+  <rect x="420" y="280" width="360" height="3" rx="1.5" fill="url(#glow-line)"/>
+  <defs>
+    <linearGradient id="glow-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e8a020;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#e8a020;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#e8a020;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Tagline -->
+  <text x="600" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="400" text-anchor="middle" fill="#a09890" letter-spacing="0.5">Track · Discover · Share with friends</text>
+
+  <!-- Feature pills -->
+  <rect x="298" y="370" width="130" height="36" rx="18" fill="rgba(232,160,32,0.1)" stroke="rgba(232,160,32,0.25)" stroke-width="1"/>
+  <text x="363" y="393" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#e8a020">🤖 AI Picks</text>
+
+  <rect x="444" y="370" width="130" height="36" rx="18" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+  <text x="509" y="393" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#60a5fa">📚 Smart Library</text>
+
+  <rect x="590" y="370" width="130" height="36" rx="18" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.25)" stroke-width="1"/>
+  <text x="655" y="393" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#c084fc">👥 Friends</text>
+
+  <rect x="736" y="370" width="166" height="36" rx="18" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.25)" stroke-width="1"/>
+  <text x="819" y="393" font-family="Arial, sans-serif" font-size="13" font-weight="600" text-anchor="middle" fill="#4ade80">🎭 Mood Discovery</text>
+
+  <!-- Bottom label -->
+  <text x="600" y="548" font-family="Arial, sans-serif" font-size="14" font-weight="500" text-anchor="middle" fill="rgba(160,152,144,0.6)" letter-spacing="3">PERSONAL CINEMA TRACKING</text>
+</svg>

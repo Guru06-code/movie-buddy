@@ -1,46 +1,3 @@
-const discoveryPool = [
-  { id: "rec-1", title: "Decision to Leave", year: "2022", type: "movie", meta: "Mystery, Romance • Park Chan-wook", summary: "A detective investigating a mountain death becomes entangled with the victim's enigmatic widow.", poster: "linear-gradient(135deg, #203239, #607274)", tags: ["mystery", "romance", "thriller", "korean"] },
-  { id: "rec-2", title: "Past Lives", year: "2023", type: "movie", meta: "Romance, Drama • Celine Song", summary: "Two childhood friends reconnect across decades and continents in a delicate story about timing and longing.", poster: "linear-gradient(135deg, #b06c49, #2d1e18)", tags: ["romance", "drama", "tender"] },
-  { id: "rec-3", title: "Memories of Murder", year: "2003", type: "movie", meta: "Crime, Drama • Bong Joon-ho", summary: "In provincial Korea, detectives chase a serial killer with few clues and little certainty.", poster: "linear-gradient(135deg, #3b2f2f, #0d0a0a)", tags: ["crime", "thriller", "drama", "korean"] },
-  { id: "rec-4", title: "Portrait of a Lady on Fire", year: "2019", type: "movie", meta: "Romance, Drama • Celine Sciamma", summary: "A painter and her subject form an intense bond on an isolated island off eighteenth-century France.", poster: "linear-gradient(135deg, #e6a15f, #5a2f1b)", tags: ["romance", "drama", "french", "art"] },
-  { id: "rec-5", title: "Shoplifters", year: "2018", type: "movie", meta: "Drama, Crime • Hirokazu Kore-eda", summary: "An unconventional family on the margins survives by petty theft until a fragile arrangement is tested.", poster: "linear-gradient(135deg, #78685d, #2f2a28)", tags: ["drama", "family", "japanese"] },
-  { id: "rec-6", title: "Your Name.", year: "2016", type: "movie", meta: "Animation, Fantasy • Makoto Shinkai", summary: "Two teenagers mysteriously swap bodies and form a bond across distance and time.", poster: "linear-gradient(135deg, #5cb7d4, #274156)", tags: ["animation", "fantasy", "romance", "japanese"] },
-  { id: "rec-7", title: "The Farewell", year: "2019", type: "movie", meta: "Comedy, Drama • Lulu Wang", summary: "A Chinese-American writer returns to Changchun under the guise of a family wedding to say goodbye to her grandmother.", poster: "linear-gradient(135deg, #f0bf72, #6c4d2c)", tags: ["drama", "comedy", "family"] },
-  { id: "rec-8", title: "The Secret in Their Eyes", year: "2009", type: "movie", meta: "Mystery, Drama • Juan Jose Campanella", summary: "A retired legal counselor revisits an unresolved murder case and the feelings it never left behind.", poster: "linear-gradient(135deg, #4f566b, #221f29)", tags: ["mystery", "drama", "crime", "spanish"] },
-  { id: "rec-9", title: "RRR", year: "2022", type: "movie", meta: "Action, Drama • S. S. Rajamouli", summary: "Two revolutionaries forge a legendary friendship in a maximalist, high-energy anti-colonial epic.", poster: "linear-gradient(135deg, #c26a38, #4b1f10)", tags: ["action", "drama", "indian", "epic"] },
-  { id: "rec-10", title: "Perfect Days", year: "2023", type: "movie", meta: "Drama • Wim Wenders", summary: "A Tokyo toilet cleaner finds deep meaning in routine, music, and moments of quiet observation.", poster: "linear-gradient(135deg, #708c7f, #29352f)", tags: ["drama", "quiet", "japanese"] },
-  { id: "rec-11", title: "Burning", year: "2018", type: "movie", meta: "Mystery, Drama • Lee Chang-dong", summary: "A young man becomes obsessed with a wealthy stranger whose stories may hide something sinister.", poster: "linear-gradient(135deg, #d27b52, #281211)", tags: ["mystery", "thriller", "drama", "korean"] },
-  { id: "rec-12", title: "The Banshees of Inisherin", year: "2022", type: "movie", meta: "Comedy, Drama • Martin McDonagh", summary: "An abruptly ended friendship spirals into absurd and painful consequences on a remote Irish island.", poster: "linear-gradient(135deg, #a9996a, #2d2617)", tags: ["drama", "comedy", "friendship"] },
-  { id: "rec-13", title: "Drive My Car", year: "2021", type: "movie", meta: "Drama • Ryusuke Hamaguchi", summary: "A theater director processes grief and connection while staging Uncle Vanya in Hiroshima.", poster: "linear-gradient(135deg, #b53c35, #241312)", tags: ["drama", "japanese", "quiet"] },
-  { id: "rec-14", title: "Minari", year: "2020", type: "movie", meta: "Drama • Lee Isaac Chung", summary: "A Korean-American family pursues a fragile dream while trying to grow roots in rural Arkansas.", poster: "linear-gradient(135deg, #9ea564, #36402c)", tags: ["drama", "family", "korean"] },
-  { id: "rec-15", title: "Dil Se..", year: "1998", type: "movie", meta: "Romance, Thriller • Mani Ratnam", summary: "A radio journalist falls for a mysterious woman in a love story shadowed by politics and violence.", poster: "linear-gradient(135deg, #aa3a3a, #290f18)", tags: ["romance", "thriller", "indian"] },
-  { id: "rec-16", title: "Amores Perros", year: "2000", type: "movie", meta: "Drama, Thriller • Alejandro Gonzalez Inarritu", summary: "Three stories collide in Mexico City after a brutal car crash changes each life forever.", poster: "linear-gradient(135deg, #6b5047, #14100f)", tags: ["drama", "thriller", "spanish"] },
-  { id: "rec-17", title: "Monster", year: "2023", type: "movie", meta: "Drama, Mystery • Hirokazu Kore-eda", summary: "A school incident is retold from different perspectives until a more fragile truth appears.", poster: "linear-gradient(135deg, #7c809b, #252837)", tags: ["drama", "mystery", "japanese"] },
-  { id: "rec-18", title: "The Worst Person in the World", year: "2021", type: "movie", meta: "Romance, Comedy • Joachim Trier", summary: "A young woman's relationships and ambitions unfold in sharply observed chapters of uncertainty.", poster: "linear-gradient(135deg, #e1a26c, #493022)", tags: ["romance", "comedy", "drama"] },
-];
-
-const popularSearchPool = [
-  { id: "pop-1", title: "Interstellar", year: "2014", type: "movie", meta: "Adventure, Drama, Sci-Fi • Christopher Nolan", summary: "A team travels through a wormhole in space in an attempt to ensure humanity's survival.", poster: "linear-gradient(135deg, #7689a9, #161b28)", tags: ["space", "sci-fi", "nolan", "epic"], popularityWeight: 100 },
-  { id: "pop-2", title: "Inception", year: "2010", type: "movie", meta: "Action, Sci-Fi, Thriller • Christopher Nolan", summary: "A skilled thief enters dreams to steal secrets and is offered one last job.", poster: "linear-gradient(135deg, #5d6b82, #171d27)", tags: ["dream", "heist", "nolan", "mind-bending"], popularityWeight: 96 },
-  { id: "pop-3", title: "The Dark Knight", year: "2008", type: "movie", meta: "Action, Crime, Drama • Christopher Nolan", summary: "Batman faces the Joker as Gotham descends into chaos.", poster: "linear-gradient(135deg, #4f5667, #11151d)", tags: ["batman", "joker", "nolan", "superhero"], popularityWeight: 94 },
-  { id: "pop-4", title: "Oppenheimer", year: "2023", type: "movie", meta: "Biography, Drama, History • Christopher Nolan", summary: "The story of J. Robert Oppenheimer and the creation of the atomic bomb.", poster: "linear-gradient(135deg, #c97845, #21120f)", tags: ["history", "biography", "nolan", "drama"], popularityWeight: 91 },
-  { id: "pop-5", title: "Dune", year: "2021", type: "movie", meta: "Action, Adventure, Drama • Denis Villeneuve", summary: "Paul Atreides begins a journey that will reshape the fate of Arrakis.", poster: "linear-gradient(135deg, #bb8f5e, #26160f)", tags: ["sci-fi", "desert", "epic", "villeneuve"], popularityWeight: 90 },
-  { id: "pop-6", title: "Avatar", year: "2009", type: "movie", meta: "Action, Adventure, Fantasy • James Cameron", summary: "A marine on Pandora is torn between following orders and protecting his new world.", poster: "linear-gradient(135deg, #4f9db7, #102331)", tags: ["sci-fi", "fantasy", "pandora", "epic"], popularityWeight: 88 },
-  { id: "pop-7", title: "Avengers: Endgame", year: "2019", type: "movie", meta: "Action, Adventure, Drama • Anthony Russo, Joe Russo", summary: "The Avengers assemble for one final stand to reverse the Blip.", poster: "linear-gradient(135deg, #6c5d8d, #1a1121)", tags: ["marvel", "superhero", "epic", "action"], popularityWeight: 89 },
-  { id: "pop-8", title: "Titanic", year: "1997", type: "movie", meta: "Drama, Romance • James Cameron", summary: "A sweeping romance unfolds aboard the ill-fated RMS Titanic.", poster: "linear-gradient(135deg, #5f8fb3, #1a2430)", tags: ["romance", "classic", "disaster", "epic"], popularityWeight: 87 },
-  { id: "pop-9", title: "Fight Club", year: "1999", type: "movie", meta: "Drama • David Fincher", summary: "An insomniac office worker forms an underground fight club with a charismatic soap maker.", poster: "linear-gradient(135deg, #c9878d, #2a1113)", tags: ["fincher", "cult", "drama", "psychological"], popularityWeight: 85 },
-  { id: "pop-10", title: "Forrest Gump", year: "1994", type: "movie", meta: "Drama, Romance • Robert Zemeckis", summary: "A simple man witnesses and influences extraordinary moments in American history.", poster: "linear-gradient(135deg, #cad0d8, #3e4751)", tags: ["classic", "drama", "romance", "popular"], popularityWeight: 84 },
-  { id: "pop-11", title: "The Shawshank Redemption", year: "1994", type: "movie", meta: "Drama • Frank Darabont", summary: "Two imprisoned men bond over decades while hoping for redemption.", poster: "linear-gradient(135deg, #8b6e5d, #1f1713)", tags: ["classic", "prison", "drama", "popular"], popularityWeight: 93 },
-  { id: "pop-12", title: "Parasite", year: "2019", type: "movie", meta: "Drama, Thriller • Bong Joon-ho", summary: "A poor family slowly infiltrates a wealthy household in a sharp class satire.", poster: "linear-gradient(135deg, #57756d, #131716)", tags: ["korean", "thriller", "drama", "popular"], popularityWeight: 86 },
-  { id: "pop-13", title: "Breaking Bad", year: "2008", type: "series", meta: "Crime, Drama, Thriller • Vince Gilligan", summary: "A chemistry teacher turned meth producer descends deeper into crime.", poster: "linear-gradient(135deg, #6d8a3d, #18210d)", tags: ["crime", "drama", "series", "popular"], popularityWeight: 97 },
-  { id: "pop-14", title: "Stranger Things", year: "2016", type: "series", meta: "Drama, Fantasy, Horror • The Duffer Brothers", summary: "A group of kids uncover a supernatural mystery in small-town Indiana.", poster: "linear-gradient(135deg, #913a30, #180d10)", tags: ["series", "horror", "fantasy", "popular"], popularityWeight: 92 },
-  { id: "pop-15", title: "Game of Thrones", year: "2011", type: "series", meta: "Action, Adventure, Drama • David Benioff, D. B. Weiss", summary: "Noble families vie for control of the Iron Throne in a brutal fantasy world.", poster: "linear-gradient(135deg, #59606a, #13161b)", tags: ["series", "fantasy", "epic", "popular"], popularityWeight: 95 },
-  { id: "pop-16", title: "Dark", year: "2017", type: "series", meta: "Crime, Drama, Mystery • Baran bo Odar, Jantje Friese", summary: "A missing child case unravels a time-travel mystery across generations.", poster: "linear-gradient(135deg, #5f6a60, #121512)", tags: ["series", "mystery", "german", "popular"], popularityWeight: 90 },
-  { id: "pop-17", title: "The Office", year: "2005", type: "series", meta: "Comedy • Greg Daniels", summary: "A mockumentary follows the everyday lives of office employees in Scranton.", poster: "linear-gradient(135deg, #c7c3b4, #37404a)", tags: ["series", "comedy", "popular", "sitcom"], popularityWeight: 89 },
-  { id: "pop-18", title: "Friends", year: "1994", type: "series", meta: "Comedy, Romance • David Crane, Marta Kauffman", summary: "Six friends navigate love, life, and work in New York City.", poster: "linear-gradient(135deg, #f0bf7f, #6e452b)", tags: ["series", "comedy", "sitcom", "popular"], popularityWeight: 88 },
-];
-
-const searchSuggestionPool = dedupeMoviesByNormalizedTitle([...popularSearchPool, ...discoveryPool]);
 const posterFallbackCache = new Map();
 const posterFallbackRequests = new Map();
 
@@ -60,7 +17,7 @@ function createInitialPushState() {
 }
 
 const state = {
-  authMode: "welcome",
+  authMode: "login",
   resetMethod: "email",
   pendingReset: null,
   profiles: {},
@@ -82,11 +39,20 @@ const state = {
   homeData: createEmptyHomeData(),
   homeDataLoading: false,
   homeDataRequestId: 0,
+  trendingLang: "",
+  upcomingLang: "",
+  authShellVisible: false,
   libraryEditor: {
     open: false,
     collection: "wishlist",
   },
   push: createInitialPushState(),
+  wishlistFilter: "all",
+  wishlistSort: "newest",
+  activeMoodLang: "",
+  shareTarget: null,
+  sendFriendTarget: null,
+  sendFriendSelectedUserId: null,
 };
 
 const authShell = document.querySelector("#auth-shell");
@@ -137,8 +103,6 @@ const homeTabs = document.querySelector("#home-tabs");
 const likedGrid = document.querySelector("#liked-grid");
 const currentlyWatchingGrid = document.querySelector("#currently-watching-grid");
 const currentlyWatchingSeriesGrid = document.querySelector("#currently-watching-series-grid");
-const homeWishlistGrid = document.querySelector("#home-wishlist-grid");
-const homeAiRecommendationGrid = document.querySelector("#home-ai-recommendation-grid");
 const upcomingGrid = document.querySelector("#upcoming-grid");
 const upcomingSeriesGrid = document.querySelector("#upcoming-series-grid");
 const trendingGrid = document.querySelector("#trending-grid");
@@ -271,12 +235,70 @@ searchInput?.addEventListener("input", handleSearchInput);
 closeSearchButton?.addEventListener("click", handleCloseSearch);
 loginToggle?.addEventListener("click", () => setAuthMode("login"));
 signupToggle?.addEventListener("click", () => setAuthMode("signup"));
-document.querySelector("#go-to-signin")?.addEventListener("click", () => setAuthMode("login"));
-document.querySelector("#go-to-signup")?.addEventListener("click", () => setAuthMode("signup"));
-document.querySelector("#signin-back")?.addEventListener("click", () => setAuthMode("welcome"));
-document.querySelector("#signup-back")?.addEventListener("click", () => setAuthMode("welcome"));
+document.querySelector("#signup-back")?.addEventListener("click", () => setAuthMode("login"));
 document.querySelector("#signin-to-signup")?.addEventListener("click", () => setAuthMode("signup"));
 document.querySelector("#signup-to-signin")?.addEventListener("click", () => setAuthMode("login"));
+document.querySelector("#verify-back")?.addEventListener("click", () => setAuthMode("signup"));
+document.querySelector("#verify-form")?.addEventListener("submit", handleVerifySubmit);
+document.querySelector("#resend-verify-otp")?.addEventListener("click", handleResendVerify);
+
+// Login method tab toggle
+document.querySelector("#tab-email")?.addEventListener("click", () => {
+  document.querySelector("#login-email-panel")?.classList.remove("hidden");
+  document.querySelector("#login-phone-panel")?.classList.add("hidden");
+  document.querySelector("#tab-email")?.classList.add("active");
+  document.querySelector("#tab-phone")?.classList.remove("active");
+  resetPhoneLoginPanel();
+});
+document.querySelector("#tab-phone")?.addEventListener("click", () => {
+  document.querySelector("#login-phone-panel")?.classList.remove("hidden");
+  document.querySelector("#login-email-panel")?.classList.add("hidden");
+  document.querySelector("#tab-phone")?.classList.add("active");
+  document.querySelector("#tab-email")?.classList.remove("active");
+});
+
+// Phone login mode sub-tabs
+document.querySelector("#phone-mode-otp")?.addEventListener("click", () => {
+  document.querySelector("#phone-otp-panel")?.classList.remove("hidden");
+  document.querySelector("#phone-password-panel")?.classList.add("hidden");
+  document.querySelector("#phone-mode-otp")?.classList.add("active");
+  document.querySelector("#phone-mode-password")?.classList.remove("active");
+});
+document.querySelector("#phone-mode-password")?.addEventListener("click", () => {
+  document.querySelector("#phone-password-panel")?.classList.remove("hidden");
+  document.querySelector("#phone-otp-panel")?.classList.add("hidden");
+  document.querySelector("#phone-mode-password")?.classList.add("active");
+  document.querySelector("#phone-mode-otp")?.classList.remove("active");
+});
+
+document.querySelector("#send-phone-otp-btn")?.addEventListener("click", handleSendPhoneOtp);
+
+// Handle real-time availability check on signup form
+let _handleCheckTimer = null;
+document.querySelector("#signup-handle")?.addEventListener("input", (e) => {
+  const val = e.target.value.trim().toLowerCase().replace(/[^a-z0-9_.-]/g, "");
+  e.target.dataset.userEdited = "true";
+  const status = document.querySelector("#handle-status");
+  if (!status) return;
+  status.textContent = "";
+  delete status.dataset.available;
+  clearTimeout(_handleCheckTimer);
+  if (!val || val.length < 3) return;
+  _handleCheckTimer = setTimeout(async () => {
+    const data = await apiRequest(`/api/auth/check-handle?handle=${encodeURIComponent(val)}`, { method: "GET" }).catch(() => null);
+    if (!data) return;
+    status.textContent = data.available ? "✓ Available" : "✗ Taken";
+    status.dataset.available = String(data.available);
+  }, 400);
+});
+document.querySelector("#signup-name")?.addEventListener("input", (e) => {
+  const handleEl = document.querySelector("#signup-handle");
+  if (!handleEl || handleEl.dataset.userEdited === "true") return;
+  const suggested = e.target.value.trim().toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 20);
+  handleEl.value = suggested;
+  handleEl.dispatchEvent(new Event("input"));
+});
+
 loginForm?.addEventListener("submit", handleLoginSubmit);
 signupForm?.addEventListener("submit", handleSignupSubmit);
 resetForm?.addEventListener("submit", handleResetSubmit);
@@ -289,6 +311,12 @@ socialButtons.forEach((button) => {
   button.addEventListener("click", () => handleSocialLogin(button.dataset.provider || "provider"));
 });
 logoutButton?.addEventListener("click", handleLogout);
+document.querySelector("#brand-home-btn")?.addEventListener("click", () => {
+  if (!state.currentUser) return;
+  state.activeTab = "home";
+  renderHomeTabs();
+  syncMobileBottomNav();
+});
 saveWishlistButton?.addEventListener("click", handleSaveWishlist);
 homeSaveStarterButton?.addEventListener("click", handleSaveWishlist);
 homeTabs?.addEventListener("click", handleTabClick);
@@ -349,12 +377,13 @@ function createEmptyHomeData() {
 function renderAuthState() {
   const isAuthenticated = Boolean(state.currentUser);
 
-  authShell?.classList.toggle("hidden", isAuthenticated);
+  authShell?.classList.toggle("hidden", !state.authShellVisible || isAuthenticated);
   appShell?.classList.toggle("hidden", !isAuthenticated);
 
   document.getElementById("auth-welcome")?.classList.toggle("hidden", state.authMode !== "welcome");
   document.getElementById("auth-signin")?.classList.toggle("hidden", state.authMode !== "login");
   document.getElementById("auth-signup")?.classList.toggle("hidden", state.authMode !== "signup");
+  document.getElementById("auth-verify")?.classList.toggle("hidden", state.authMode !== "verify");
   document.getElementById("auth-reset-screen")?.classList.toggle("hidden", state.authMode !== "reset");
 
   resetViaEmailButton?.classList.toggle("active", state.resetMethod === "email");
@@ -395,9 +424,13 @@ function renderAppState() {
   const profile = getCurrentProfile();
   if (currentUserName) currentUserName.textContent = state.currentUser.name;
   if (currentUserId) currentUserId.textContent = state.currentUser.handle;
+  const exampleIdEl = document.getElementById("friend-search-example-id");
+  if (exampleIdEl && state.currentUser.handle) exampleIdEl.textContent = state.currentUser.handle;
   if (friendsCount) friendsCount.textContent = profile.friendIds.length;
   if (notificationsCount) notificationsCount.textContent = profile.notifications.filter((item) => !item.read).length + profile.incomingRequests.length;
   if (watchedCount) watchedCount.textContent = profile.watched.length;
+  updateAvatarBubble(state.currentUser.name);
+  syncMobileBottomNav();
   topbarFriendSearchShell?.classList.remove("hidden");
   homeSaveStarterButton?.classList.add("hidden");
   if (topbarFriendSearchInput && friendSearchInput && topbarFriendSearchInput.value !== friendSearchInput.value) {
@@ -423,7 +456,9 @@ function renderAppState() {
   renderNotifications();
   renderLibraryEditor();
 
-  if (profile.wishlistSaved && !state.homeDataLoading && state.homeDataRequestId === 0) {
+  const sectionsEmpty = !state.homeData.sections.trending.length && !state.homeData.sections.upcoming.length;
+  console.log("[dashboard] renderAppState check: sectionsEmpty=", sectionsEmpty, "homeDataLoading=", state.homeDataLoading);
+  if (!state.homeDataLoading && sectionsEmpty) {
     void loadHomeDashboard();
   }
 }
@@ -449,60 +484,89 @@ async function handleSignupSubmit(event) {
 
   const formData = new FormData(event.currentTarget);
   const name = String(formData.get("name") || "").trim();
+  const handle = String(formData.get("handle") || "").trim().toLowerCase().replace(/[^a-z0-9_.-]/g, "");
   const email = normalizeEmail(formData.get("email"));
   const phone = normalizePhone(formData.get("phone"));
   const password = String(formData.get("password") || "");
 
-  const existing = getLocalUsers().find(u => u.email === email);
-  if (existing) {
-    setAuthMessage("An account with this email already exists. Try signing in.");
+  // Validate handle status indicator
+  const handleStatus = document.querySelector("#handle-status");
+  if (handleStatus?.dataset.available === "false") {
+    setAuthMessage("That username is taken. Please choose another.");
+    document.querySelector("#signup-handle")?.focus();
     return;
   }
 
-  const localUser = {
-    id: `local-${Date.now()}`,
-    name,
-    email,
-    password,
-    handle: `mb-${Math.random().toString(36).slice(2, 8)}`,
-  };
-  saveLocalUser(localUser);
-  setLocalSession(localUser.id);
-
   try {
-    await apiRequest("/api/auth/signup", {
+    const payload = await apiRequest("/api/auth/signup", {
       method: "POST",
-      body: { name, email, phone, password },
+      body: { name, handle, email, phone, password },
     });
-    const loginPayload = await apiRequest("/api/auth/login", {
+    // Save pending signup state so verify step can resend if needed
+    state.pendingSignup = { name, handle, email, phone, password, verifyId: payload.verifyId };
+    const verifyDesc = document.querySelector("#verify-desc");
+    if (verifyDesc) verifyDesc.textContent = `We sent a 6-digit code to ${email}.`;
+    if (payload.previewOtp) {
+      setAuthMessage(`Dev mode — code: ${payload.previewOtp}`, "success");
+    } else {
+      setAuthMessage(payload.message || "Check your email for the verification code.", "success");
+    }
+    setAuthMode("verify");
+  } catch (error) {
+    setAuthMessage(error.message);
+  }
+}
+
+async function handleVerifySubmit(event) {
+  event.preventDefault();
+  const otp = String(document.querySelector("#verify-otp")?.value || "").trim();
+  if (!otp || !state.pendingSignup?.verifyId) {
+    setAuthMessage("Enter the 6-digit code from your email.");
+    return;
+  }
+  try {
+    const payload = await apiRequest("/api/auth/signup/verify", {
       method: "POST",
-      body: { email, password },
+      body: { verifyId: state.pendingSignup.verifyId, otp },
     });
-    const serverUser = {
-      ...localUser,
-      id: loginPayload.user.id,
-      handle: loginPayload.user.handle,
-    };
-    const users = getLocalUsers().filter(u => u.email !== email);
-    users.push(serverUser);
-    saveLocalUsers(users);
-    setLocalSession(serverUser.id);
-    signupForm?.reset();
+    state.pendingSignup = null;
+    document.querySelector("#verify-form")?.reset();
     setAuthMessage("");
-    applyServerState(loginPayload);
-  } catch {
-    signupForm?.reset();
-    setAuthMessage("");
-    applyLocalSession(localUser);
+    applyServerState(payload);
+  } catch (error) {
+    setAuthMessage(error.message);
+  }
+}
+
+async function handleResendVerify() {
+  if (!state.pendingSignup) return;
+  const { name, handle, email, phone, password } = state.pendingSignup;
+  try {
+    const payload = await apiRequest("/api/auth/signup", {
+      method: "POST",
+      body: { name, handle, email, phone, password },
+    });
+    state.pendingSignup.verifyId = payload.verifyId;
+    setAuthMessage(payload.previewOtp ? `Dev code: ${payload.previewOtp}` : "New code sent — check your email.", "success");
+  } catch (error) {
+    setAuthMessage(error.message);
   }
 }
 
 async function handleLoginSubmit(event) {
   event.preventDefault();
 
-  const formData = new FormData(event.currentTarget);
-  const email = normalizeEmail(formData.get("email"));
-  const password = String(formData.get("password") || "");
+  // Detect active login mode
+  const isPhoneMode = !document.querySelector("#login-phone-panel")?.classList.contains("hidden");
+
+  if (isPhoneMode) {
+    await handlePhoneLoginSubmit();
+    return;
+  }
+
+  // Email + password
+  const email = normalizeEmail(document.querySelector("#login-email")?.value || "");
+  const password = String(document.querySelector("#login-password")?.value || "");
 
   const localUser = findLocalUser(email, password);
   if (localUser) {
@@ -514,25 +578,75 @@ async function handleLoginSubmit(event) {
   }
 
   try {
-    const payload = await apiRequest("/api/auth/login", {
-      method: "POST",
-      body: { email, password },
-    });
-    const serverUser = {
-      id: payload.user.id,
-      name: payload.user.name,
-      email,
-      password,
-      handle: payload.user.handle,
-    };
-    saveLocalUser(serverUser);
-    setLocalSession(serverUser.id);
+    const payload = await apiRequest("/api/auth/login", { method: "POST", body: { email, password } });
+    saveLocalUser({ id: payload.user.id, name: payload.user.name, email, password, handle: payload.user.handle });
+    setLocalSession(payload.user.id);
     loginForm?.reset();
     setAuthMessage("");
     applyServerState(payload);
   } catch (error) {
     setAuthMessage(error.message);
   }
+}
+
+async function handleSendPhoneOtp() {
+  const phone = String(document.querySelector("#login-phone")?.value || "").trim();
+  if (!phone) { setAuthMessage("Enter your phone number first."); return; }
+  try {
+    const payload = await apiRequest("/api/auth/phone-otp", { method: "POST", body: { phone } });
+    state.pendingPhoneLogin = { loginId: payload.loginId, phone };
+    const otpField = document.querySelector("#phone-otp-field");
+    otpField?.classList.remove("hidden");
+    document.querySelector("#send-phone-otp-btn")?.classList.add("hidden");
+    if (payload.previewOtp) {
+      setAuthMessage(`Dev mode — code: ${payload.previewOtp}`, "success");
+    } else {
+      setAuthMessage(payload.message || "Code sent.", "success");
+    }
+  } catch (error) {
+    setAuthMessage(error.message);
+  }
+}
+
+async function handlePhoneLoginSubmit() {
+  const phone = String(document.querySelector("#login-phone")?.value || "").trim();
+  const isOtpMode = !document.querySelector("#phone-otp-panel")?.classList.contains("hidden") &&
+                    document.querySelector("#phone-mode-otp")?.classList.contains("active");
+
+  if (isOtpMode) {
+    const otp = String(document.querySelector("#phone-otp-code")?.value || "").trim();
+    const loginId = state.pendingPhoneLogin?.loginId;
+    if (!otp) { setAuthMessage("Enter the code sent to your phone."); return; }
+    if (!loginId) { setAuthMessage("Send a code first."); return; }
+    try {
+      const payload = await apiRequest("/api/auth/login", { method: "POST", body: { phone, otp, loginId } });
+      loginForm?.reset();
+      resetPhoneLoginPanel();
+      setAuthMessage("");
+      applyServerState(payload);
+    } catch (error) {
+      setAuthMessage(error.message);
+    }
+  } else {
+    const password = String(document.querySelector("#login-phone-password")?.value || "");
+    try {
+      const payload = await apiRequest("/api/auth/login", { method: "POST", body: { phone, password } });
+      saveLocalUser({ id: payload.user.id, name: payload.user.name, email: payload.user.email, password, handle: payload.user.handle });
+      setLocalSession(payload.user.id);
+      loginForm?.reset();
+      resetPhoneLoginPanel();
+      setAuthMessage("");
+      applyServerState(payload);
+    } catch (error) {
+      setAuthMessage(error.message);
+    }
+  }
+}
+
+function resetPhoneLoginPanel() {
+  state.pendingPhoneLogin = null;
+  document.querySelector("#phone-otp-field")?.classList.add("hidden");
+  document.querySelector("#send-phone-otp-btn")?.classList.remove("hidden");
 }
 
 function handleSocialLogin(provider) {
@@ -813,7 +927,7 @@ function handleCancelReset() {
 }
 
 function signInUser(user) {
-  state.currentUser = { id: user.id, name: user.name, email: user.email, handle: user.handle || "mb-user" };
+  state.currentUser = { id: user.id, name: user.name, email: user.email, handle: user.handle || "mb-user", avatarUrl: user.avatarUrl || "" };
   ensureProfile(user.id);
   state.query = "";
   state.searchResults = [];
@@ -828,8 +942,9 @@ function signInUser(user) {
   state.homeData = createEmptyHomeData();
   state.homeDataLoading = false;
   state.homeDataRequestId = 0;
+  state.trendingLang = "";
+  state.upcomingLang = "";
   if (searchInput) searchInput.value = "";
-  render();
 }
 
 async function handleLogout() {
@@ -855,6 +970,9 @@ async function handleLogout() {
   state.homeData = createEmptyHomeData();
   state.homeDataLoading = false;
   state.homeDataRequestId = 0;
+  state.trendingLang = "";
+  state.upcomingLang = "";
+  state.authShellVisible = true;
   stopSessionRefreshLoop();
   clearLocalSession();
   setAuthMessage("");
@@ -971,10 +1089,17 @@ function handleTabClick(event) {
 
   state.activeTab = button.dataset.tab;
   renderHomeTabs();
+  syncMobileBottomNav();
 
   if (state.activeTab === "activity") {
     void refreshSessionState({ preserveInputs: true });
+    void loadActivityFeed();
   }
+  if (state.activeTab === "mood") { renderMoodTab(); void loadMoodPicks(state.activeMood); }
+  if (state.activeTab === "lists") { void loadCuratedLists(); void loadUserLists(); }
+  if (state.activeTab === "profile") void loadProfilePage();
+  if (state.activeTab === "admin") void loadAdminStats();
+  if (state.activeTab === "requests") void loadRequestsTab();
 }
 
 function handleTabKeydown(event) {
@@ -1066,7 +1191,7 @@ function renderSearchResults() {
 
   state.searchResults.forEach((movie) => {
     movieGrid.append(buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
-      context: movie.releaseLabel || movie.availabilityLabel || "Use wishlist for later, like for AI, and start watching when you are ready.",
+      context: movie.releaseLabel || movie.availabilityLabel || "Wishlist for later, or like to shape your AI picks.",
       includeWatched: false,
       includeReminder: Boolean(movie.releaseLabel),
     })));
@@ -1096,15 +1221,62 @@ function renderWishlist() {
     return;
   }
 
-  profile.wishlist.forEach((movie) => {
+  let items = [...profile.wishlist];
+
+  // Apply filter
+  if (state.wishlistFilter !== "all") {
+    items = items.filter((m) => (m.type || "movie") === state.wishlistFilter);
+  }
+
+  // Apply sort
+  if (state.wishlistSort === "oldest") {
+    items = [...items].reverse();
+  } else if (state.wishlistSort === "az") {
+    items = [...items].sort((a, b) => (a.title || "").localeCompare(b.title || ""));
+  } else if (state.wishlistSort === "year") {
+    items = [...items].sort((a, b) => Number(b.year || 0) - Number(a.year || 0));
+  }
+
+  if (items.length === 0) {
+    wishlistList.append(createEmptyCard("No matches", "Try a different filter."));
+    return;
+  }
+
+  items.forEach((movie) => {
     const node = wishlistTemplate.content.firstElementChild.cloneNode(true);
     node.querySelector(".wishlist-language").textContent = formatTypeLabel(movie.type);
     node.querySelector(".wishlist-title").textContent = movie.title;
     node.querySelector(".wishlist-meta").textContent = `${movie.year} • ${movie.meta}`;
     node.querySelector(".remove-button").addEventListener("click", () => removeMovieFromWishlist(movie.id));
+    // Quick-watched button on wishlist item
+    const quickBtn = document.createElement("button");
+    quickBtn.type = "button";
+    quickBtn.className = "quick-watched-btn";
+    quickBtn.title = "Mark as watched";
+    quickBtn.textContent = "✓";
+    quickBtn.addEventListener("click", () => {
+      state.reviewTarget = { source: "library", movie };
+      openReviewModal({ source: "library", movie });
+    });
+    node.appendChild(quickBtn);
     wishlistList.append(node);
   });
 }
+
+// Wire wishlist controls once DOM is ready
+document.querySelector("#wishlist-controls")?.addEventListener("click", (e) => {
+  const chip = e.target.closest(".filter-chip");
+  if (chip) {
+    document.querySelectorAll("#wishlist-controls .filter-chip").forEach((c) => c.classList.remove("active"));
+    chip.classList.add("active");
+    state.wishlistFilter = chip.dataset.filter || "all";
+    renderWishlist();
+  }
+});
+document.querySelector("#wishlist-sort-select")?.addEventListener("change", (e) => {
+  state.wishlistSort = e.target.value || "newest";
+  renderWishlist();
+});
 
 function renderAiRecommendations() {
   aiRecommendationGrid.replaceChildren();
@@ -1124,13 +1296,16 @@ function renderAiRecommendations() {
   }
 
   if (aiMovies.length === 0) {
-    aiRecommendationGrid.append(createEmptyCard("No recommendations yet", "Hit Refresh to generate AI picks from your taste anchors."));
+    aiRecommendationGrid.append(createEmptyCard("No recommendations yet", "Add TMDB_API_KEY to your server env to power dynamic picks, or hit Refresh to use Claude AI directly."));
     return;
   }
 
   aiMovies.forEach((movie) => {
+    const context = movie.basedOn
+      ? `Because you liked ${movie.basedOn}`
+      : "Matched to your taste profile";
     aiRecommendationGrid.append(buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
-      context: "Based only on the genres, moods, and creators inside your liked titles",
+      context,
       includeWatched: true,
       watchSource: "ai",
     })));
@@ -1144,7 +1319,7 @@ function createAiProgressCard(current, needed) {
   card.innerHTML = `
     <div class="ai-progress-icon">✦</div>
     <h3 class="ai-progress-title">AI picks unlock at ${needed} taste anchors</h3>
-    <p class="ai-progress-body">Rate or like movies to build your taste profile. Start watching a movie and mark it finished to rate it.</p>
+    <p class="ai-progress-body">Rate or like movies to build your taste profile. Mark a movie as watched to rate it.</p>
     <div class="ai-progress-bar-wrap" role="progressbar" aria-valuenow="${current}" aria-valuemin="0" aria-valuemax="${needed}" aria-label="Taste anchors progress">
       <div class="ai-progress-bar" style="width:${pct}%"></div>
     </div>
@@ -1154,6 +1329,7 @@ function createAiProgressCard(current, needed) {
 }
 
 function renderFriendRecommendations() {
+  if (!friendRecommendationGrid) return;
   friendRecommendationGrid.replaceChildren();
   const profile = getCurrentProfile();
   if (!profile) {
@@ -1208,22 +1384,23 @@ function renderHomeCollections() {
     ? homeData.library.currentlyWatching
     : (profile.currentlyWatching.length > 0 ? profile.currentlyWatching : profile.wishlist.slice(0, 10));
   const releaseReminderItems = homeData.library.releaseReminders.length > 0 ? homeData.library.releaseReminders : profile.releaseReminders;
-  const releaseRadar = dedupeMovies([...releaseReminderItems, ...(homeData.sections.upcoming || [])]);
-  const trendingItems = homeData.sections.trending || [];
-  const anticipatedItems = homeData.sections.anticipated || [];
+  const upcomingFiltered = (homeData.sections.upcoming || []).filter((m) => !state.upcomingLang || m.originalLanguage === state.upcomingLang);
+  const releaseRadar = dedupeMovies([...releaseReminderItems, ...upcomingFiltered]);
+  const trendingItems = (homeData.sections.trending || []).filter((m) => !state.trendingLang || m.originalLanguage === state.trendingLang);
+  const anticipatedItems = (homeData.sections.anticipated || []).filter((m) => !state.upcomingLang || m.originalLanguage === state.upcomingLang);
   const splitWatching = splitMoviesByType(watchingItems);
   const splitUpcoming = splitMoviesByType(releaseRadar);
   const splitTrending = splitMoviesByType(trendingItems);
   const splitAnticipated = splitMoviesByType(anticipatedItems);
   const upcomingMovieItems = splitUpcoming.movies.length > 0
     ? splitUpcoming.movies
-    : dedupeMovies([...splitAnticipated.movies, ...splitTrending.movies, ...splitMoviesByType(discoveryPool).movies]).slice(0, 6);
+    : dedupeMovies([...splitAnticipated.movies, ...splitTrending.movies]).slice(0, 6);
 
   renderMovieCollection(likedGrid, likedItems, (movie) => buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
-    context: "These titles are actively shaping AI recommendations.",
+    context: "These titles are shaping your AI recommendations.",
     allowUnlike: true,
     includeReminder: false,
-  })), "No liked titles yet", "Mark the titles you truly love with Like for AI so recommendations stop guessing.");
+  })), "No liked titles yet", "Mark the titles you truly love with Like so recommendations stop guessing.");
 
   renderMovieCollection(currentlyWatchingGrid, splitWatching.movies, (movie) => buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
     context: profile.currentlyWatching.length > 0 ? "Kept in progress until you finish and review it." : "Start from wishlist picks now, then move them into your active watch row.",
@@ -1238,13 +1415,15 @@ function renderHomeCollections() {
   })), "No series yet", "Your tracked shows will appear here once you add them.");
 
   renderMovieCollection(upcomingGrid, upcomingMovieItems, (movie) => buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
-    context: movie.releaseLabel || movie.availabilityLabel || "Add a reminder or jump out to OTT search.",
+    context: movie.releaseLabel || "Releasing soon — add to wishlist or set a reminder.",
     includeWatched: false,
+    includeLike: false,
     includeReminder: true,
   })), "No upcoming movies", state.homeDataLoading ? "Loading upcoming movies now." : "Upcoming movies will appear here.");
   renderMovieCollection(upcomingSeriesGrid, splitUpcoming.series, (movie) => buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
-    context: movie.releaseLabel || movie.availabilityLabel || "Add a reminder or jump out to OTT search.",
+    context: movie.releaseLabel || "Releasing soon — add to wishlist or set a reminder.",
     includeWatched: false,
+    includeLike: false,
     includeReminder: true,
   })), "No upcoming series", state.homeDataLoading ? "Loading upcoming series now." : "Upcoming series will appear here.");
   renderMovieCollection(trendingGrid, splitTrending.movies, (movie) => buildMovieCard(movie, buildEditorialCardOptions(profile, movie)), "No trending movies", state.homeDataLoading ? "Loading movie trends now." : "Trending movies will appear here.");
@@ -1317,6 +1496,14 @@ function renderFriendSearchResults() {
     if (profile.friendIds.includes(user.id)) {
       actionButton.textContent = "Already friends";
       actionButton.disabled = true;
+      // View profile button for connected users
+      const viewBtn = document.createElement("button");
+      viewBtn.type = "button";
+      viewBtn.className = "save-button";
+      viewBtn.style.marginLeft = "6px";
+      viewBtn.textContent = "View profile";
+      viewBtn.addEventListener("click", () => openFriendProfile(user.id));
+      actions.append(viewBtn);
     } else if (profile.outgoingRequests.some((request) => request.toUserId === user.id)) {
       actionButton.textContent = "Request sent";
       actionButton.disabled = true;
@@ -1354,14 +1541,41 @@ function renderFriendList() {
       item.querySelector(".social-title").textContent = user.name;
       item.querySelector(".social-meta").textContent = `${getSentRecommendationCount(user.id)} recommendation${getSentRecommendationCount(user.id) === 1 ? "" : "s"} sent by you`;
       const actions = item.querySelector(".social-actions");
-      const status = document.createElement("button");
-      status.type = "button";
-      status.className = "secondary-action";
-      status.textContent = "Connected";
-      status.disabled = true;
-      actions.append(status);
+      const viewBtn = document.createElement("button");
+      viewBtn.type = "button";
+      viewBtn.className = "save-button";
+      viewBtn.textContent = "View profile";
+      viewBtn.addEventListener("click", () => openFriendProfile(user.id));
+      actions.append(viewBtn);
+      const overlapBtn = document.createElement("button");
+      overlapBtn.type = "button";
+      overlapBtn.className = "secondary-action";
+      overlapBtn.textContent = "Overlap →";
+      overlapBtn.addEventListener("click", () => loadFriendOverlap(user.id));
+      actions.append(overlapBtn);
       friendList.append(item);
     });
+}
+
+async function loadFriendOverlap(friendId) {
+  const section = document.getElementById("friend-overlap-section");
+  const grid = document.getElementById("friend-overlap-grid");
+  if (!section || !grid) return;
+  section.classList.remove("hidden");
+  grid.innerHTML = buildSkeletonCards(3);
+  try {
+    const payload = await apiRequest(`/api/friends/overlap?friendId=${encodeURIComponent(friendId)}`, { method: "GET" });
+    grid.innerHTML = "";
+    const movies = [...(payload.bothLiked || [])];
+    if (!movies.length) {
+      grid.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">No movies in common yet.</p>';
+      return;
+    }
+    const profile = getCurrentProfile();
+    movies.forEach((m) => grid.appendChild(buildMovieCard(m, buildLibraryCardOptions(profile, m, {}))));
+  } catch {
+    grid.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Could not load overlap.</p>';
+  }
 }
 
 function renderRecommendationComposer() {
@@ -1435,14 +1649,14 @@ function renderIncomingRequests() {
     const actions = item.querySelector(".social-actions");
     const acceptButton = document.createElement("button");
     acceptButton.type = "button";
-    acceptButton.className = "auth-submit";
-    acceptButton.textContent = "Accept";
+    acceptButton.className = "friend-accept-btn";
+    acceptButton.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Accept`;
     acceptButton.addEventListener("click", () => respondToFriendRequest(request.id, true));
 
     const rejectButton = document.createElement("button");
     rejectButton.type = "button";
-    rejectButton.className = "secondary-action";
-    rejectButton.textContent = "Reject";
+    rejectButton.className = "friend-decline-btn";
+    rejectButton.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Decline`;
     rejectButton.addEventListener("click", () => respondToFriendRequest(request.id, false));
 
     actions.append(acceptButton, rejectButton);
@@ -1504,14 +1718,14 @@ function renderIncomingRequestsPreview(container, limit) {
     const actions = item.querySelector(".social-actions");
     const acceptButton = document.createElement("button");
     acceptButton.type = "button";
-    acceptButton.className = "auth-submit";
-    acceptButton.textContent = "Accept";
+    acceptButton.className = "friend-accept-btn";
+    acceptButton.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Accept`;
     acceptButton.addEventListener("click", () => respondToFriendRequest(request.id, true));
 
     const rejectButton = document.createElement("button");
     rejectButton.type = "button";
-    rejectButton.className = "secondary-action";
-    rejectButton.textContent = "Reject";
+    rejectButton.className = "friend-decline-btn";
+    rejectButton.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Decline`;
     rejectButton.addEventListener("click", () => respondToFriendRequest(request.id, false));
 
     actions.append(acceptButton, rejectButton);
@@ -1584,6 +1798,7 @@ function buildLibraryCardOptions(profile, movie, options = {}) {
   const allowUnlike = Boolean(options.allowUnlike);
   const includeWatching = options.includeWatching !== false;
   const includeWatched = options.includeWatched !== false;
+  const includeLike = options.includeLike !== false;
   const includeReminder = Boolean(options.includeReminder);
   const watchedSource = options.watchSource || "library";
 
@@ -1594,35 +1809,29 @@ function buildLibraryCardOptions(profile, movie, options = {}) {
     onClick: () => addMovieToWishlist(movie),
   });
 
-  if (allowUnlike && isMovieLiked(profile, movie.id)) {
-    actions.push({
-      label: "Unlike",
-      kind: "secondary",
-      onClick: () => removeMovieFromLiked(movie.id),
-    });
-  } else {
-    actions.push({
-      label: isMovieLiked(profile, movie.id) ? "Liked for AI" : "Like for AI",
-      kind: isMovieLiked(profile, movie.id) ? "saved" : "secondary",
-      disabled: isMovieLiked(profile, movie.id),
-      onClick: () => addMovieToLiked(movie),
-    });
-  }
-
-  if (includeWatching) {
-    if (isMovieCurrentlyWatching(profile, movie.id)) {
+  if (includeLike) {
+    if (allowUnlike && isMovieLiked(profile, movie.id)) {
       actions.push({
-        label: "Finished",
-        kind: "accent",
-        onClick: () => openReviewModal({ source: watchedSource, movie }),
+        label: "Unlike",
+        kind: "secondary",
+        onClick: () => removeMovieFromLiked(movie.id),
       });
     } else {
       actions.push({
-        label: "Start watching",
-        kind: "secondary",
-        onClick: () => addMovieToCurrentlyWatching(movie),
+        label: isMovieLiked(profile, movie.id) ? "Liked" : "Like",
+        kind: isMovieLiked(profile, movie.id) ? "saved" : "secondary",
+        disabled: isMovieLiked(profile, movie.id),
+        onClick: () => addMovieToLiked(movie),
       });
     }
+  }
+
+  if (includeWatching && isMovieCurrentlyWatching(profile, movie.id)) {
+    actions.push({
+      label: "Finished",
+      kind: "accent",
+      onClick: () => openReviewModal({ source: watchedSource, movie }),
+    });
   }
 
   if (includeWatched) {
@@ -1643,15 +1852,20 @@ function buildLibraryCardOptions(profile, movie, options = {}) {
     });
   }
 
-  actions.push({
-    label: movie.availabilityLabel || "Find OTT",
-    kind: "link",
-    href: buildOttSearchUrl(movie),
-  });
+  const includeSend = Boolean(options.includeSend);
+  if (includeSend && (profile.friendIds || []).length > 0) {
+    actions.push({
+      label: "Send to friend",
+      kind: "secondary",
+      onClick: () => openSendToFriend(movie),
+    });
+  }
 
   return {
     context: options.context || "",
     actions,
+    ottLabel: movie.availabilityLabel || "Search OTT",
+    ottHref: buildOttSearchUrl(movie),
   };
 }
 
@@ -1884,10 +2098,17 @@ function removeMovieFromLiked(movieId) {
     return;
   }
 
+  const removed = profile.liked.find((movie) => movie.id === movieId);
   profile.liked = profile.liked.filter((movie) => movie.id !== movieId);
   persistProfiles();
   renderAppState();
   void flushProfileSync();
+  if (removed) {
+    showToast("Removed from Liked", "info", 4000, () => {
+      const p = getCurrentProfile();
+      if (p) { p.liked.unshift(removed); persistProfiles(); renderAppState(); void flushProfileSync(); }
+    });
+  }
 }
 
 function addMovieToCurrentlyWatching(movie) {
@@ -1908,8 +2129,15 @@ function removeMovieFromCurrentlyWatching(movieId) {
     return;
   }
 
+  const removed = profile.currentlyWatching.find((movie) => movie.id === movieId);
   profile.currentlyWatching = profile.currentlyWatching.filter((movie) => movie.id !== movieId);
   persistProfiles();
+  if (removed) {
+    showToast("Removed from Watching", "info", 4000, () => {
+      const p = getCurrentProfile();
+      if (p) { p.currentlyWatching.unshift(removed); persistProfiles(); renderAppState(); }
+    });
+  }
 }
 
 function saveReleaseReminder(movie) {
@@ -1927,6 +2155,11 @@ function saveReleaseReminder(movie) {
   persistProfiles();
   renderAppState();
   void flushProfileSync();
+
+  showToast(`Reminder set for "${movie.title}". Enable push to get notified on release day.`, "success", 5000);
+  if (state.push.supported && !state.push.subscribed) {
+    setTimeout(() => handleBrowserPushToggle(), 1200);
+  }
 }
 
 function openLibraryEditor(collection = "wishlist") {
@@ -1968,12 +2201,54 @@ function renderLibraryEditor() {
   Array.from(libraryEditorToolbar.querySelectorAll("[data-collection]"))
     .forEach((button) => button.classList.toggle("active", button.dataset.collection === collectionKey));
 
+  const searchQuery = (document.getElementById("library-search-input")?.value || "").trim().toLowerCase();
+  const filteredItems = searchQuery ? items.filter((m) => m.title.toLowerCase().includes(searchQuery)) : items;
+
   libraryEditorList.replaceChildren();
-  if (items.length === 0) {
-    libraryEditorList.append(createEmptyCard(`No titles in ${collectionConfig.label.toLowerCase()}`, collectionConfig.emptyMessage));
+  if (filteredItems.length === 0) {
+    libraryEditorList.append(createEmptyCard(
+      searchQuery ? "No matching titles" : `No titles in ${collectionConfig.label.toLowerCase()}`,
+      searchQuery ? "Try a different search term." : collectionConfig.emptyMessage
+    ));
   } else {
-    items.forEach((movie, index) => {
-      libraryEditorList.append(buildLibraryEditorItem(profile, movie, collectionKey, index, items.length));
+    let dragSrcIndex = null;
+    filteredItems.forEach((movie, index) => {
+      const itemEl = buildLibraryEditorItem(profile, movie, collectionKey);
+      itemEl.setAttribute("draggable", "true");
+      itemEl.addEventListener("dragstart", (e) => {
+        dragSrcIndex = index;
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", String(index));
+      });
+      itemEl.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        itemEl.classList.add("drag-over");
+      });
+      itemEl.addEventListener("dragleave", () => itemEl.classList.remove("drag-over"));
+      itemEl.addEventListener("dragend", () => itemEl.classList.remove("drag-over"));
+      itemEl.addEventListener("drop", (e) => {
+        e.preventDefault();
+        itemEl.classList.remove("drag-over");
+        if (dragSrcIndex === null || dragSrcIndex === index) return;
+        const p = getCurrentProfile();
+        if (!p) return;
+        const normalizedKey = getNormalizedLibraryCollectionKey(state.libraryEditor.collection);
+        const arr = getProfileCollection(p, normalizedKey).slice();
+        const srcId = filteredItems[dragSrcIndex]?.id;
+        const tgtId = filteredItems[index]?.id;
+        const srcIdx = arr.findIndex((m) => m.id === srcId);
+        const tgtIdx = arr.findIndex((m) => m.id === tgtId);
+        if (srcIdx === -1 || tgtIdx === -1) return;
+        const [moved] = arr.splice(srcIdx, 1);
+        arr.splice(tgtIdx, 0, moved);
+        p[normalizedKey] = arr;
+        persistProfiles();
+        void scheduleProfileSync();
+        renderAppState();
+        dragSrcIndex = null;
+      });
+      libraryEditorList.append(itemEl);
     });
   }
 
@@ -2182,7 +2457,7 @@ function urlBase64ToUint8Array(value) {
   return Uint8Array.from(raw, (character) => character.charCodeAt(0));
 }
 
-function buildLibraryEditorItem(profile, movie, collectionKey, index, total) {
+function buildLibraryEditorItem(profile, movie, collectionKey) {
   const item = document.createElement("article");
   item.className = "library-editor-item";
 
@@ -2215,25 +2490,6 @@ function buildLibraryEditorItem(profile, movie, collectionKey, index, total) {
     membershipActions.append(button);
   });
 
-  const orderingActions = document.createElement("div");
-  orderingActions.className = "library-editor-actions";
-
-  const moveUpButton = document.createElement("button");
-  moveUpButton.type = "button";
-  moveUpButton.className = "tab-action";
-  moveUpButton.textContent = "Move up";
-  moveUpButton.disabled = index === 0;
-  moveUpButton.setAttribute("aria-label", `Move ${movie.title} up in ${getLibraryCollectionConfig(collectionKey).label}`);
-  moveUpButton.addEventListener("click", () => moveMovieWithinCollection(collectionKey, movie.id, -1));
-
-  const moveDownButton = document.createElement("button");
-  moveDownButton.type = "button";
-  moveDownButton.className = "tab-action";
-  moveDownButton.textContent = "Move down";
-  moveDownButton.disabled = index === total - 1;
-  moveDownButton.setAttribute("aria-label", `Move ${movie.title} down in ${getLibraryCollectionConfig(collectionKey).label}`);
-  moveDownButton.addEventListener("click", () => moveMovieWithinCollection(collectionKey, movie.id, 1));
-
   const removeButton = document.createElement("button");
   removeButton.type = "button";
   removeButton.className = "secondary-action";
@@ -2241,7 +2497,10 @@ function buildLibraryEditorItem(profile, movie, collectionKey, index, total) {
   removeButton.setAttribute("aria-label", `Remove ${movie.title} from ${getLibraryCollectionConfig(collectionKey).label}`);
   removeButton.addEventListener("click", () => removeMovieFromCollection(collectionKey, movie.id));
 
-  orderingActions.append(moveUpButton, moveDownButton, removeButton);
+  const orderingActions = document.createElement("div");
+  orderingActions.className = "library-editor-actions";
+  orderingActions.append(removeButton);
+
   item.append(copy, membershipActions, orderingActions);
   return item;
 }
@@ -2300,9 +2559,17 @@ function removeMovieFromCollection(collectionKey, movieId) {
   }
 
   const normalizedKey = getNormalizedLibraryCollectionKey(collectionKey);
+  const removed = getProfileCollection(profile, normalizedKey).find((movie) => movie.id === movieId);
   profile[normalizedKey] = getProfileCollection(profile, normalizedKey).filter((movie) => movie.id !== movieId);
   persistProfiles();
   renderAppState();
+  if (removed) {
+    const label = getLibraryCollectionConfig(normalizedKey).label;
+    showToast(`Removed from ${label}`, "info", 4000, () => {
+      const p = getCurrentProfile();
+      if (p) { p[normalizedKey].unshift(removed); persistProfiles(); renderAppState(); }
+    });
+  }
 }
 
 function removeMovieFromWishlist(movieId) {
@@ -2311,12 +2578,19 @@ function removeMovieFromWishlist(movieId) {
     return;
   }
 
+  const removed = profile.wishlist.find((movie) => movie.id === movieId);
   profile.wishlist = profile.wishlist.filter((movie) => movie.id !== movieId);
   persistProfiles();
   renderWishlist();
   renderSearchResults();
   renderRecommendationComposer();
   void flushProfileSync();
+  if (removed) {
+    showToast("Removed from Wishlist", "info", 4000, () => {
+      const p = getCurrentProfile();
+      if (p) { p.wishlist.unshift(removed); persistProfiles(); renderWishlist(); renderSearchResults(); renderRecommendationComposer(); void flushProfileSync(); }
+    });
+  }
 }
 
 async function runSearch(query) {
@@ -2364,18 +2638,19 @@ async function runSearch(query) {
 
 function getInstantSuggestions(query) {
   const normalizedQuery = String(query || "").trim().toLowerCase();
-  if (!normalizedQuery) {
-    return [];
-  }
-
-  return searchSuggestionPool
-    .map((movie) => ({
-      ...movie,
-      matchScore: calculateSuggestionMatchScore(movie, normalizedQuery),
-    }))
+  if (!normalizedQuery || normalizedQuery.length < 2) return [];
+  const profile = getCurrentProfile();
+  if (!profile) return [];
+  const pool = dedupeMoviesByNormalizedTitle([
+    ...(profile.liked || []),
+    ...(profile.wishlist || []),
+    ...(profile.currentlyWatching || []),
+  ]);
+  return pool
+    .map((movie) => ({ ...movie, matchScore: calculateSuggestionMatchScore(movie, normalizedQuery) }))
     .filter((movie) => movie.matchScore > 0)
     .sort(compareSuggestionEntries)
-    .slice(0, 8)
+    .slice(0, 6)
     .map(({ matchScore, ...movie }) => movie);
 }
 
@@ -2559,6 +2834,8 @@ function collectTasteSignals(profile) {
 function buildMovieCard(movie, options) {
   const node = movieCardTemplate.content.firstElementChild.cloneNode(true);
   node.dataset.ambientCopy = String(movie.summary || movie.title || "").slice(0, 180);
+  node.dataset.movieId = movie.id || "";
+  if (movie.ids?.tmdb) node.dataset.tmdbId = String(movie.ids.tmdb);
   const posterNode = node.querySelector(".movie-poster");
   posterNode.style.setProperty("--poster", buildPosterBackground(movie));
   updatePosterFallbackState(movie, posterNode);
@@ -2622,6 +2899,36 @@ function buildMovieCard(movie, options) {
     button.textContent = action.label;
     actions.append(button);
   });
+
+  const ottEl = node.querySelector(".movie-ott");
+  if (ottEl && options.ottLabel) {
+    const ottLink = document.createElement("a");
+    ottLink.href = options.ottHref || "#";
+    ottLink.target = "_blank";
+    ottLink.rel = "noreferrer noopener";
+    ottLink.className = "movie-ott-link";
+    ottLink.textContent = options.ottLabel;
+    ottEl.classList.remove("hidden");
+    ottEl.append(ottLink);
+  }
+
+  // Quick-watched overlay button
+  if (options.includeQuickWatch) {
+    const profile = getCurrentProfile();
+    if (!profile || !hasWatchedMovie(profile, movie.id)) {
+      const quickBtn = document.createElement("button");
+      quickBtn.type = "button";
+      quickBtn.className = "quick-watched-btn";
+      quickBtn.title = "Mark as watched";
+      quickBtn.setAttribute("aria-label", "Quick mark watched");
+      quickBtn.textContent = "✓";
+      quickBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openReviewModal({ source: "library", movie });
+      });
+      posterNode.appendChild(quickBtn);
+    }
+  }
 
   return node;
 }
@@ -2991,15 +3298,28 @@ async function fetchDedicatedPoster(movie) {
   const preferredType = String(movie.type || "movie").toLowerCase();
   const posterLoaders = preferredType === "series"
     ? [
+      () => fetchServerPoster(movie.title, movie.year, "series"),
       () => fetchTvMazePoster(movie.title, movie.year),
       () => fetchItunesPoster(movie.title, movie.year),
     ]
     : [
+      () => fetchServerPoster(movie.title, movie.year, "movie"),
       () => fetchItunesPoster(movie.title, movie.year),
       () => fetchTvMazePoster(movie.title, movie.year),
     ];
 
   return pickFastestPosterSource(posterLoaders);
+}
+
+async function fetchServerPoster(title, year, type) {
+  try {
+    const params = new URLSearchParams({ title, type });
+    if (year) params.set("year", String(year));
+    const payload = await apiRequest(`/api/catalog/poster?${params}`, { method: "GET" });
+    return payload?.poster || "";
+  } catch {
+    return "";
+  }
 }
 
 async function fetchItunesPoster(title, year) {
@@ -3147,7 +3467,7 @@ function escapeCssUrl(value) {
 }
 
 function escapeHtml(value) {
-  return String(value)
+  return String(value || "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -3168,10 +3488,11 @@ async function bootstrapApplication() {
     const localUser = getLocalUsers().find(u => u.id === sessionUserId);
     if (localUser) {
       applyLocalSession(localUser);
+      render(); // show app shell immediately — no flash
       try {
         const payload = await apiRequest("/api/auth/session", { method: "GET" }, { allowUnauthorized: true });
         if (payload?.user) {
-          applyServerState(payload);
+          applyServerState(payload, { preserveInputs: true });
         }
       } catch {}
       return;
@@ -3181,11 +3502,12 @@ async function bootstrapApplication() {
   try {
     const payload = await apiRequest("/api/auth/session", { method: "GET" }, { allowUnauthorized: true });
     if (payload?.user) {
-      applyServerState(payload);
+      applyServerState(payload, { preserveInputs: true });
       return;
     }
   } catch {}
 
+  state.authShellVisible = true;
   render();
 }
 
@@ -3216,8 +3538,12 @@ function applyServerState(payload, options = {}) {
   const preservedFriendSearch = options.preserveInputs ? state.friendSearchResults : [];
   const preservedActiveTab = options.preserveInputs ? state.activeTab : "home";
   const preservedSearchPanelOpen = options.preserveInputs ? state.searchPanelOpen : false;
+  const preservedHomeData = options.preserveInputs ? state.homeData : null;
+  const preservedHomeDataLoading = options.preserveInputs ? state.homeDataLoading : false;
+  const preservedHomeDataRequestId = options.preserveInputs ? state.homeDataRequestId : 0;
 
   signInUser(payload.user);
+  setLocalSession(payload.user.id);
   state.profiles[state.currentUser.id] = payload.profile || createEmptyProfile();
   state.userDirectory = {};
   mergeUsers([payload.user, ...(payload.relatedUsers || []), ...preservedFriendSearch]);
@@ -3227,6 +3553,11 @@ function applyServerState(payload, options = {}) {
   state.friendSearchResults = preservedFriendSearch;
   state.activeTab = preservedActiveTab;
   state.searchPanelOpen = preservedSearchPanelOpen;
+  if (preservedHomeData) {
+    state.homeData = preservedHomeData;
+    state.homeDataLoading = preservedHomeDataLoading;
+    state.homeDataRequestId = preservedHomeDataRequestId;
+  }
   render();
   void syncBrowserPushState();
 }
@@ -3413,6 +3744,7 @@ async function searchUsers(query) {
 async function loadHomeDashboard(force = false) {
   const profile = getCurrentProfile();
   if (!state.currentUser || !profile) {
+    console.log("[dashboard] skip: no user/profile");
     state.homeData = createEmptyHomeData();
     state.homeDataLoading = false;
     state.homeDataRequestId = 0;
@@ -3420,26 +3752,27 @@ async function loadHomeDashboard(force = false) {
   }
 
   if (state.homeDataLoading && !force) {
+    console.log("[dashboard] skip: already loading");
     return;
   }
 
-  const requestId = force ? state.homeDataRequestId + 1 : state.homeDataRequestId + 1;
+  const requestId = ++state.homeDataRequestId;
   state.homeDataLoading = true;
-  state.homeDataRequestId = requestId;
+  console.log("[dashboard] fetching, requestId=", requestId);
 
   try {
     const payload = await apiRequest("/api/home/dashboard", { method: "GET" });
-    if (requestId !== state.homeDataRequestId) {
-      return;
-    }
+    console.log("[dashboard] got payload, requestId=", requestId, "current=", state.homeDataRequestId, "trending=", payload.dashboard?.sections?.trending?.length, "upcoming=", payload.dashboard?.sections?.upcoming?.length);
+    if (requestId !== state.homeDataRequestId) { console.log("[dashboard] stale, discarding"); return; }
     state.homeData = payload.dashboard || createEmptyHomeData();
-  } catch {
-    if (requestId !== state.homeDataRequestId) {
-      return;
-    }
+  } catch (err) {
+    console.error("[dashboard] error:", err?.message || err);
+    if (requestId !== state.homeDataRequestId) return;
     state.homeData = createEmptyHomeData();
+    // Reset so the next render can retry
+    state.homeDataRequestId = 0;
   } finally {
-    if (requestId === state.homeDataRequestId) {
+    if (requestId === state.homeDataRequestId || state.homeDataRequestId === 0) {
       state.homeDataLoading = false;
       renderHomeCollections();
       renderAiRecommendations();
@@ -3489,7 +3822,7 @@ function ensureSessionRefreshLoop() {
     }
 
     void refreshSessionState({ preserveInputs: true });
-  }, 1500);
+  }, 30_000);
 }
 
 function stopSessionRefreshLoop() {
@@ -3582,4 +3915,1875 @@ function persistArray(key, values) {
 
 function persistObject(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+(function initTheme() {
+  const stored = localStorage.getItem("mb_theme") || "dark";
+  document.documentElement.dataset.theme = stored === "light" ? "light" : "dark";
+})();
+
+document.querySelector("#theme-toggle")?.addEventListener("click", () => {
+  const isLight = document.documentElement.dataset.theme === "light";
+  const next = isLight ? "dark" : "light";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("mb_theme", next);
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.content = next === "light" ? "#f4f4f8" : "#07070d";
+});
+
+/* ============================================================
+   USER AVATAR BUBBLE
+   ============================================================ */
+const AVATAR_PRESETS = [
+  { id: "p1",  gradient: "135deg, #e8a020, #a05010" },
+  { id: "p2",  gradient: "135deg, #3ecf88, #0d6e40" },
+  { id: "p3",  gradient: "135deg, #6bb8ff, #1e50a0" },
+  { id: "p4",  gradient: "135deg, #ff7f7f, #a02020" },
+  { id: "p5",  gradient: "135deg, #c084fc, #6020a0" },
+  { id: "p6",  gradient: "135deg, #fb923c, #a04010" },
+  { id: "p7",  gradient: "135deg, #34d399, #065f46" },
+  { id: "p8",  gradient: "135deg, #818cf8, #3730a3" },
+  { id: "p9",  gradient: "135deg, #f472b6, #9d174d" },
+  { id: "p10", gradient: "135deg, #fbbf24, #92400e" },
+  { id: "p11", gradient: "135deg, #60a5fa, #1e40af" },
+  { id: "p12", gradient: "135deg, #a78bfa, #4c1d95" },
+];
+
+function updateAvatarBubble(name) {
+  const bubble = document.querySelector("#user-avatar-bubble");
+  if (!bubble) return;
+  const avatarUrl = state.currentUser?.avatarUrl || "";
+
+  if (avatarUrl.startsWith("data:image/")) {
+    bubble.style.backgroundImage = `url(${avatarUrl})`;
+    bubble.style.backgroundSize = "cover";
+    bubble.style.backgroundPosition = "center";
+    bubble.style.backgroundRepeat = "no-repeat";
+    bubble.style.borderColor = "transparent";
+    bubble.style.color = "transparent";
+    bubble.style.background = "";
+    bubble.textContent = "";
+    return;
+  }
+
+  if (avatarUrl.startsWith("preset:")) {
+    const presetId = avatarUrl.slice(7);
+    const preset = AVATAR_PRESETS.find((p) => p.id === presetId);
+    bubble.style.backgroundImage = "";
+    bubble.style.background = preset ? `linear-gradient(${preset.gradient})` : "";
+    bubble.style.borderColor = "transparent";
+    bubble.style.color = "transparent";
+    bubble.textContent = "";
+    return;
+  }
+
+  // Initials fallback
+  bubble.style.backgroundImage = "";
+  bubble.style.background = "";
+  const displayName = name || state.currentUser?.name || "MB";
+  const initials = displayName.split(" ").map((w) => w[0] || "").join("").slice(0, 2).toUpperCase() || "MB";
+  bubble.textContent = initials;
+  const colors = ["#e8a020", "#3ecf88", "#6bb8ff", "#ff7f7f", "#c084fc", "#fb923c"];
+  const idx = displayName.charCodeAt(0) % colors.length;
+  bubble.style.borderColor = colors[idx];
+  bubble.style.color = colors[idx];
+  bubble.style.background = `${colors[idx]}22`;
+}
+
+/* ============================================================
+   AVATAR PICKER
+   ============================================================ */
+let _avatarPickerSelection = null; // { type: "preset"|"upload", value }
+
+function openAvatarPicker() {
+  const overlay = document.querySelector("#avatar-picker-overlay");
+  if (!overlay) return;
+  _avatarPickerSelection = null;
+
+  // Populate presets grid
+  const grid = document.querySelector("#avatar-presets-grid");
+  if (grid) {
+    grid.innerHTML = "";
+    const currentAvatar = state.currentUser?.avatarUrl || "";
+    AVATAR_PRESETS.forEach((preset) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "avatar-preset-btn";
+      btn.setAttribute("role", "radio");
+      btn.setAttribute("aria-label", `Preset ${preset.id}`);
+      btn.style.background = `linear-gradient(${preset.gradient})`;
+      if (currentAvatar === `preset:${preset.id}`) {
+        btn.classList.add("selected");
+        btn.setAttribute("aria-checked", "true");
+      }
+      btn.addEventListener("click", () => {
+        grid.querySelectorAll(".avatar-preset-btn").forEach((b) => { b.classList.remove("selected"); b.setAttribute("aria-checked", "false"); });
+        btn.classList.add("selected");
+        btn.setAttribute("aria-checked", "true");
+        _avatarPickerSelection = { type: "preset", value: preset.id };
+        document.querySelector("#avatar-upload-preview")?.classList.add("hidden");
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  // Reset upload section
+  document.querySelector("#avatar-upload-preview")?.classList.add("hidden");
+  document.querySelector("#avatar-file-input") && (document.querySelector("#avatar-file-input").value = "");
+
+  overlay.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeAvatarPicker() {
+  document.querySelector("#avatar-picker-overlay")?.classList.add("hidden");
+  document.body.style.overflow = "";
+  _avatarPickerSelection = null;
+}
+
+function onAvatarFileChange(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) { alert("Please choose an image file."); return; }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.querySelector("#avatar-resize-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      canvas.width = 200;
+      canvas.height = 200;
+      // Center-crop to square
+      const minDim = Math.min(img.width, img.height);
+      const sx = (img.width - minDim) / 2;
+      const sy = (img.height - minDim) / 2;
+      ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, 200, 200);
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
+      _avatarPickerSelection = { type: "upload", value: dataUrl };
+
+      // Show preview
+      const preview = document.querySelector("#avatar-upload-preview");
+      const previewImg = document.querySelector("#avatar-preview-img");
+      const previewName = document.querySelector("#avatar-upload-filename");
+      if (previewImg) previewImg.src = dataUrl;
+      if (previewName) previewName.textContent = file.name;
+      preview?.classList.remove("hidden");
+
+      // Deselect presets
+      document.querySelectorAll(".avatar-preset-btn").forEach((b) => { b.classList.remove("selected"); b.setAttribute("aria-checked", "false"); });
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function saveAvatar() {
+  if (!_avatarPickerSelection) { closeAvatarPicker(); return; }
+  try {
+    const data = await apiRequest("/api/profile/avatar", {
+      method: "PUT",
+      body: { avatarType: _avatarPickerSelection.type, value: _avatarPickerSelection.value },
+    });
+    if (state.currentUser) state.currentUser.avatarUrl = data.user?.avatarUrl || "";
+    updateAvatarBubble(state.currentUser?.name || "");
+    closeAvatarPicker();
+  } catch (error) {
+    alert(`Could not save avatar: ${error.message}`);
+  }
+}
+
+async function removeAvatar() {
+  try {
+    await apiRequest("/api/profile/avatar", { method: "PUT", body: { avatarType: "clear" } });
+    if (state.currentUser) state.currentUser.avatarUrl = "";
+    updateAvatarBubble(state.currentUser?.name || "");
+    closeAvatarPicker();
+  } catch (error) {
+    alert(`Could not remove avatar: ${error.message}`);
+  }
+}
+
+// Avatar picker event wiring
+document.querySelector("#avatar-picker-close")?.addEventListener("click", closeAvatarPicker);
+document.querySelector("#avatar-picker-overlay")?.addEventListener("click", (e) => { if (e.target === e.currentTarget) closeAvatarPicker(); });
+document.querySelector("#avatar-save-btn")?.addEventListener("click", saveAvatar);
+document.querySelector("#avatar-remove-btn")?.addEventListener("click", removeAvatar);
+document.querySelector("#avatar-file-input")?.addEventListener("change", onAvatarFileChange);
+
+/* ============================================================
+   ADD TO WATCHING MODAL
+   ============================================================ */
+
+let _addWatchingSearchTimer = null;
+let _addWatchingRequestId = 0;
+let _addWatchingType = null;
+let _addWatchingWired = false;
+
+function _wireAddWatchingModal() {
+  if (_addWatchingWired) return;
+  _addWatchingWired = true;
+  document.querySelector("#add-watching-close")?.addEventListener("click", closeAddToWatchingModal);
+  document.querySelector("#add-watching-overlay")?.addEventListener("click", (e) => { if (e.target === e.currentTarget) closeAddToWatchingModal(); });
+  document.querySelector("#add-watching-input")?.addEventListener("input", (e) => {
+    const q = e.target.value.trim();
+    clearTimeout(_addWatchingSearchTimer);
+    if (q.length < 2) { renderAddToWatchingResults([], false, q); return; }
+    const _awContainer = document.querySelector("#add-watching-results");
+    if (_awContainer) _awContainer.innerHTML = '<p class="add-watching-empty">Searching…</p>';
+    _addWatchingSearchTimer = setTimeout(() => void runAddWatchingSearch(q), 350);
+  });
+}
+
+function openAddToWatchingModal(type) {
+  _addWatchingType = type || null;
+  _wireAddWatchingModal();
+  const overlay = document.querySelector("#add-watching-overlay");
+  if (!overlay) return;
+  const titleEl = document.querySelector("#add-watching-modal-title");
+  if (titleEl) titleEl.textContent = type === "movie" ? "Add Movie" : type === "series" ? "Add Series" : "Add to Now Watching";
+  const input = document.querySelector("#add-watching-input");
+  if (input) input.placeholder = type === "movie" ? "Search movies…" : type === "series" ? "Search series…" : "Search any title…";
+  overlay.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+  if (input) { input.value = ""; }
+  renderAddToWatchingResults([], false, "");
+  requestAnimationFrame(() => { document.querySelector("#add-watching-input")?.focus(); });
+}
+
+function closeAddToWatchingModal() {
+  document.querySelector("#add-watching-overlay")?.classList.add("hidden");
+  document.body.style.overflow = "";
+  clearTimeout(_addWatchingSearchTimer);
+}
+
+function renderAddToWatchingResults(results, isLoading, query) {
+  const container = document.querySelector("#add-watching-results");
+  if (!container) return;
+  if (isLoading) {
+    container.innerHTML = '<p class="add-watching-empty">Searching…</p>';
+    return;
+  }
+  if (!query || query.length < 2) {
+    container.innerHTML = '<p class="add-watching-empty">Start typing to find a title to watch.</p>';
+    return;
+  }
+  if (results.length === 0) {
+    container.innerHTML = `<p class="add-watching-empty">No results for "${query}".</p>`;
+    return;
+  }
+  const profile = getCurrentProfile();
+  container.innerHTML = "";
+  const filtered = _addWatchingType ? results.filter((m) => m.type === _addWatchingType) : results;
+  if (filtered.length === 0) {
+    container.innerHTML = `<p class="add-watching-empty">No ${_addWatchingType || "results"} found for "${query}".</p>`;
+    return;
+  }
+  filtered.slice(0, 12).forEach((movie) => {
+    const alreadyWatching = profile ? isMovieCurrentlyWatching(profile, movie.id) : false;
+    const item = document.createElement("div");
+    item.className = "add-watching-result-item";
+
+    const poster = document.createElement("img");
+    poster.className = "add-watching-result-poster";
+    poster.alt = movie.title || "";
+    poster.src = movie.poster || "";
+    poster.onerror = () => { poster.style.visibility = "hidden"; };
+
+    const info = document.createElement("div");
+    info.className = "add-watching-result-info";
+
+    const title = document.createElement("div");
+    title.className = "add-watching-result-title";
+    title.textContent = movie.title || "";
+
+    const meta = document.createElement("div");
+    meta.className = "add-watching-result-meta";
+    const parts = [];
+    if (movie.year) parts.push(movie.year);
+    if (movie.type) parts.push(movie.type === "series" ? "Series" : "Movie");
+    if (movie.meta && movie.meta.includes("TMDb")) parts.push(movie.meta.match(/TMDb[\s]?[\d.]+/)?.[0] || "");
+    meta.textContent = parts.filter(Boolean).join(" · ");
+
+    const desc = document.createElement("div");
+    desc.className = "add-watching-result-desc";
+    desc.textContent = movie.summary || "";
+
+    info.append(title, meta, desc);
+
+    const addBtn = document.createElement("button");
+    addBtn.className = alreadyWatching ? "add-watching-result-add added" : "add-watching-result-add";
+    addBtn.textContent = alreadyWatching ? "Watching" : "+ Add";
+    addBtn.disabled = alreadyWatching;
+    addBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (alreadyWatching) return;
+      addMovieToCurrentlyWatching(movie);
+      addBtn.textContent = "Watching";
+      addBtn.disabled = true;
+      addBtn.classList.add("added");
+      showToast(`Added "${movie.title}" to Now Watching`, "success");
+    });
+
+    item.append(poster, info, addBtn);
+    item.addEventListener("click", () => { if (!alreadyWatching) addBtn.click(); });
+    container.appendChild(item);
+  });
+}
+
+async function runAddWatchingSearch(query) {
+  const reqId = ++_addWatchingRequestId;
+  renderAddToWatchingResults([], true, query);
+  try {
+    const payload = await apiRequest(`/api/catalog/search?q=${encodeURIComponent(query)}`, { method: "GET" });
+    if (reqId !== _addWatchingRequestId) return;
+    const results = Array.isArray(payload?.titles) ? payload.titles : [];
+    renderAddToWatchingResults(results, false, query);
+  } catch {
+    if (reqId !== _addWatchingRequestId) return;
+    renderAddToWatchingResults([], false, query);
+  }
+}
+
+
+document.querySelector("#trending-lang-filter")?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".lang-chip");
+  if (!btn) return;
+  state.trendingLang = btn.dataset.lang || "";
+  document.querySelectorAll("#trending-lang-filter .lang-chip").forEach((b) => b.classList.toggle("active", b === btn));
+  renderHomeCollections();
+});
+
+document.querySelector("#upcoming-lang-filter")?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".lang-chip");
+  if (!btn) return;
+  state.upcomingLang = btn.dataset.lang || "";
+  document.querySelectorAll("#upcoming-lang-filter .lang-chip").forEach((b) => b.classList.toggle("active", b === btn));
+  renderHomeCollections();
+});
+
+/* ============================================================
+   MOBILE BOTTOM NAV
+   ============================================================ */
+document.querySelector("#mobile-bottom-nav")?.addEventListener("click", (event) => {
+  const btn = event.target.closest("[data-tab]");
+  if (!btn) return;
+  state.activeTab = btn.dataset.tab;
+  renderHomeTabs();
+  syncMobileBottomNav();
+  if (state.activeTab === "mood") { renderMoodTab(); void loadMoodPicks(state.activeMood); }
+  if (state.activeTab === "lists") { void loadCuratedLists(); void loadUserLists(); }
+  if (state.activeTab === "profile") void loadProfilePage();
+  if (state.activeTab === "admin") void loadAdminStats();
+  if (state.activeTab === "requests") void loadRequestsTab();
+  if (state.activeTab === "activity") void loadActivityFeed();
+});
+
+function syncMobileBottomNav() {
+  document.querySelectorAll("#mobile-bottom-nav .mobile-nav-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.tab === state.activeTab);
+  });
+}
+
+/* ============================================================
+   TAB CLICK — extend to load new tabs
+   ============================================================ */
+/* ============================================================
+   PROFILE PAGE
+   ============================================================ */
+document.querySelector("#open-profile-button")?.addEventListener("click", () => {
+  state.activeTab = "profile";
+  renderHomeTabs();
+  syncMobileBottomNav();
+  void loadProfilePage();
+});
+
+async function handleSaveProfileSettings() {
+  const nameInput = document.querySelector("#profile-edit-name");
+  const handleInput = document.querySelector("#profile-edit-handle");
+  const name = String(nameInput?.value || "").trim();
+  const handle = String(handleInput?.value || "").trim().toLowerCase().replace(/[^a-z0-9_.-]/g, "");
+  if (!name || !handle) return;
+  try {
+    const payload = await apiRequest("/api/profile/settings", { method: "PUT", body: { name, handle } });
+    if (state.currentUser) {
+      state.currentUser.name = payload.user?.name || name;
+      state.currentUser.handle = payload.user?.handle || handle;
+    }
+    updateAvatarBubble(state.currentUser?.name || "");
+    void loadProfilePage();
+  } catch (error) {
+    alert(`Could not save: ${error.message}`);
+  }
+}
+
+async function loadProfilePage() {
+  try {
+    const payload = await apiRequest("/api/profile/page", { method: "GET" });
+    const { user, stats, recentWatched, recentLiked } = payload;
+
+    // Large avatar — click opens avatar picker
+    const avatarEl = document.querySelector("#profile-avatar-lg");
+    if (avatarEl) {
+      const avatarUrl = user?.avatarUrl || "";
+      if (avatarUrl.startsWith("data:image/")) {
+        avatarEl.style.backgroundImage = `url(${avatarUrl})`;
+        avatarEl.style.backgroundSize = "cover";
+        avatarEl.style.backgroundPosition = "center";
+        avatarEl.textContent = "";
+      } else if (avatarUrl.startsWith("preset:")) {
+        const presetId = avatarUrl.slice(7);
+        const preset = AVATAR_PRESETS.find((p) => p.id === presetId);
+        avatarEl.style.background = preset ? `linear-gradient(${preset.gradient})` : "";
+        avatarEl.style.backgroundImage = "";
+        avatarEl.textContent = "";
+      } else {
+        avatarEl.style.backgroundImage = "";
+        avatarEl.style.background = "";
+        const initials = (user?.name || "MB").split(" ").map((w) => w[0] || "").join("").slice(0, 2).toUpperCase();
+        avatarEl.textContent = initials;
+      }
+    }
+
+    // Avatar button wires once
+    const avatarBtn = document.querySelector("#profile-avatar-btn");
+    if (avatarBtn && !avatarBtn.dataset.wired) {
+      avatarBtn.dataset.wired = "1";
+      avatarBtn.addEventListener("click", openAvatarPicker);
+    }
+
+    const nameEl = document.querySelector("#profile-name");
+    if (nameEl) nameEl.textContent = user?.name || "—";
+
+    // Handle display with copy
+    const handleEl = document.querySelector("#profile-handle");
+    if (handleEl) {
+      handleEl.innerHTML = "";
+      const handleText = document.createElement("span");
+      handleText.textContent = `@${user?.handle || ""}`;
+      const copyBtn = document.createElement("button");
+      copyBtn.type = "button";
+      copyBtn.className = "handle-copy-btn";
+      copyBtn.title = "Copy ID";
+      copyBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+      copyBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navigator.clipboard?.writeText(user?.handle || "").then(() => {
+          showToast("ID copied!", "success", 1800);
+        });
+      });
+      handleEl.append(handleText, copyBtn);
+    }
+
+    // Inline edit wires once — clicking name or handle opens it
+    const inlineEdit = document.querySelector("#profile-inline-edit");
+    if (inlineEdit && nameEl && !nameEl.dataset.wired) {
+      nameEl.dataset.wired = "1";
+      nameEl.style.cursor = "pointer";
+      nameEl.title = "Click to change your ID";
+
+      const openEdit = () => {
+        inlineEdit.classList.remove("hidden");
+        const inp = document.querySelector("#profile-edit-handle");
+        if (inp) { inp.value = state.currentUser?.handle || ""; inp.focus(); }
+      };
+      const closeEdit = () => inlineEdit.classList.add("hidden");
+
+      nameEl.addEventListener("click", openEdit);
+      handleEl?.addEventListener("click", openEdit);
+      document.querySelector("#profile-edit-cancel")?.addEventListener("click", closeEdit);
+
+      // Real-time uniqueness check
+      let handleTimer = null;
+      document.querySelector("#profile-edit-handle")?.addEventListener("input", (e) => {
+        const val = e.target.value.trim().toLowerCase().replace(/[^a-z0-9_.-]/g, "");
+        const status = document.querySelector("#profile-handle-status");
+        if (!status) return;
+        status.textContent = "";
+        clearTimeout(handleTimer);
+        if (!val || val.length < 3) return;
+        handleTimer = setTimeout(async () => {
+          const data = await apiRequest(`/api/auth/check-handle?handle=${encodeURIComponent(val)}`, { method: "GET" }).catch(() => null);
+          if (!data) return;
+          const isCurrent = val === (state.currentUser?.handle || "");
+          status.textContent = (data.available || isCurrent) ? "✓ Available" : "✗ Taken";
+          status.dataset.available = String(data.available || isCurrent);
+        }, 400);
+      });
+
+      document.querySelector("#profile-save-settings-btn")?.addEventListener("click", async () => {
+        const inp = document.querySelector("#profile-edit-handle");
+        const status = document.querySelector("#profile-handle-status");
+        const handle = inp?.value.trim().toLowerCase().replace(/[^a-z0-9_.-]/g, "") || "";
+        if (handle.length < 3) { showToast("ID must be at least 3 characters.", "error"); return; }
+        if (status?.dataset.available === "false") { showToast("That ID is already taken — choose another.", "error"); return; }
+        try {
+          await apiRequest("/api/profile/settings", { method: "PUT", body: { handle, name: state.currentUser?.name || handle } });
+          if (state.currentUser) state.currentUser.handle = handle;
+          if (document.querySelector("#current-user-id")) document.querySelector("#current-user-id").textContent = handle;
+          closeEdit();
+          showToast("Your ID has been updated.", "success");
+          void loadProfilePage();
+        } catch (err) {
+          showToast(err.message || "Could not save.", "error");
+        }
+      });
+    } else if (inlineEdit) {
+      const inp = document.querySelector("#profile-edit-handle");
+      if (inp && inp !== document.activeElement) inp.value = user?.handle || "";
+    }
+
+    document.querySelector("#profile-stat-watched").textContent = stats?.watched ?? 0;
+    document.querySelector("#profile-stat-liked").textContent = stats?.liked ?? 0;
+    document.querySelector("#profile-stat-wishlist").textContent = stats?.wishlist ?? 0;
+    document.querySelector("#profile-stat-friends").textContent = stats?.friends ?? 0;
+
+    const watchedGrid = document.querySelector("#profile-watched-grid");
+    if (watchedGrid) {
+      watchedGrid.innerHTML = "";
+      if (recentWatched.length === 0) {
+        watchedGrid.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:8px 0;">Nothing watched yet.</p>';
+      } else {
+        recentWatched.forEach((item) => {
+          const rating = Number(item.rating) || 0;
+          const stars = rating > 0 ? "★".repeat(rating) + "☆".repeat(5 - rating) : "";
+          const fakeMovie = { id: item.movieId, title: item.title, year: "", type: "movie", meta: "", summary: "", poster: item.poster || "", tags: [] };
+          const context = stars ? `You rated: ${stars}` : "Watched";
+          watchedGrid.appendChild(buildMovieCard(fakeMovie, { primaryLabel: "Watched ✓", primaryDisabled: true, context }));
+        });
+      }
+    }
+
+    const likedGrid = document.querySelector("#profile-liked-grid");
+    if (likedGrid) {
+      likedGrid.innerHTML = "";
+      (recentLiked || []).forEach((movie) => {
+        likedGrid.appendChild(buildMovieCard(movie, {
+          primaryLabel: "Liked ♥",
+          primaryDisabled: true,
+        }));
+      });
+    }
+    void loadInsights();
+
+    // Wire privacy settings panel once
+    const privacySaveBtn = document.getElementById("save-privacy-btn");
+    if (privacySaveBtn && !privacySaveBtn.dataset.wired) {
+      privacySaveBtn.dataset.wired = "1";
+      const fp = getCurrentProfile()?.friendPrivacy || {};
+      const wEl  = document.getElementById("privacy-show-wishlist");
+      const lEl  = document.getElementById("privacy-show-liked");
+      const wdEl = document.getElementById("privacy-show-watched");
+      if (wEl)  wEl.checked  = fp.showWishlist !== false;
+      if (lEl)  lEl.checked  = fp.showLiked    !== false;
+      if (wdEl) wdEl.checked = Boolean(fp.showWatched);
+      privacySaveBtn.addEventListener("click", async () => {
+        try {
+          await apiRequest("/api/profile/privacy", { method: "PUT", body: {
+            showWishlist: wEl?.checked ?? true,
+            showLiked:    lEl?.checked ?? true,
+            showWatched:  wdEl?.checked ?? false,
+          }});
+          showToast("Privacy settings saved.", "success");
+        } catch { showToast("Could not save privacy settings.", "error"); }
+      });
+    }
+
+    // Load active devices
+    void loadActiveSessions();
+  } catch (error) {
+    console.error("Profile load error", error);
+  }
+}
+
+async function loadInsights() {
+  try {
+    const payload = await apiRequest("/api/profile/stats", { method: "GET" });
+    const hoursEl = document.getElementById("stat-hours");
+    const monthEl = document.getElementById("stat-this-month");
+    const genreEl = document.getElementById("stat-top-genre");
+    const friendsEl = document.getElementById("stat-friends-count");
+    const avgRatingEl = document.getElementById("stat-avg-rating");
+    const recsWatchedEl = document.getElementById("stat-recs-watched");
+    if (hoursEl) hoursEl.textContent = payload.estimatedHours ?? "—";
+    if (monthEl) monthEl.textContent = payload.watchedThisMonth ?? "—";
+    if (genreEl) genreEl.textContent = payload.topGenre || "—";
+    if (friendsEl) friendsEl.textContent = payload.friendsCount ?? "—";
+    if (avgRatingEl) avgRatingEl.textContent = payload.avgRating ? payload.avgRating.toFixed(1) + "★" : "—";
+    if (recsWatchedEl) recsWatchedEl.textContent = payload.recsWatched ?? "—";
+    renderGenreBars(payload.topGenres || []);
+    renderMonthlyChart(payload.byMonth || {});
+  } catch { /* silent */ }
+}
+
+function renderGenreBars(topGenres) {
+  const el = document.getElementById("genre-bars");
+  if (!el) return;
+  if (!topGenres.length) { el.innerHTML = ""; return; }
+  const max = topGenres[0]?.count || 1;
+  el.innerHTML = topGenres.map(({ name, count }) => `
+    <div class="genre-bar-row">
+      <span class="genre-bar-label">${escapeHtml(name)}</span>
+      <div class="genre-bar-track"><div class="genre-bar-fill" style="width:${Math.round((count / max) * 100)}%"></div></div>
+      <span class="genre-bar-count">${count}</span>
+    </div>`).join("");
+}
+
+function renderMonthlyChart(byMonth) {
+  const el = document.getElementById("monthly-chart");
+  if (!el) return;
+  const entries = Object.entries(byMonth).sort(([a], [b]) => a.localeCompare(b)).slice(-6);
+  if (!entries.length) { el.innerHTML = ""; return; }
+  const max = Math.max(...entries.map(([, v]) => v), 1);
+  el.innerHTML = entries.map(([month, count]) => `
+    <div class="chart-bar-wrap">
+      <div class="chart-bar" style="height:${Math.round((count / max) * 60)}px" title="${count} watched"></div>
+      <span class="chart-label">${escapeHtml(month.slice(5))}</span>
+    </div>`).join("");
+}
+
+/* ============================================================
+   MOOD DISCOVERY
+   ============================================================ */
+const MOODS = [
+  { id: "excited",     emoji: "⚡", label: "Action & Thrills",  color: "#f59e0b" },
+  { id: "romantic",    emoji: "❤️", label: "Romance",           color: "#ec4899" },
+  { id: "thoughtful",  emoji: "🌙", label: "Deep & Thoughtful", color: "#6366f1" },
+  { id: "thrilled",    emoji: "🔪", label: "Crime & Mystery",   color: "#374151" },
+  { id: "nostalgic",   emoji: "✨", label: "Nostalgic",         color: "#10b981" },
+  { id: "adventurous", emoji: "🗺️", label: "Adventure",        color: "#3b82f6" },
+  { id: "funny",       emoji: "😂", label: "Comedy",            color: "#f97316" },
+  { id: "emotional",   emoji: "😢", label: "Emotional",         color: "#8b5cf6" },
+  { id: "scary",       emoji: "👻", label: "Horror",            color: "#1f2937" },
+  { id: "documentary", emoji: "📽️", label: "Documentary",      color: "#0d9488" },
+];
+
+const MOOD_LANGS = [
+  { code: "", label: "All" },
+  { code: "en", label: "English" },
+  { code: "hi", label: "Hindi" },
+  { code: "ta", label: "Tamil" },
+  { code: "te", label: "Telugu" },
+  { code: "ko", label: "Korean" },
+  { code: "ja", label: "Japanese" },
+];
+
+state.activeMood = "thoughtful";
+
+function renderMoodTab() {
+  const grid = document.querySelector("#mood-grid");
+  if (!grid || grid.dataset.rendered) return;
+  grid.dataset.rendered = "1";
+  MOODS.forEach(({ id, emoji, label, color }) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "mood-btn" + (id === state.activeMood ? " active" : "");
+    btn.dataset.mood = id;
+    btn.style.background = color + "22";
+    btn.style.borderColor = id === state.activeMood ? color : "transparent";
+    btn.innerHTML = `<span class="mood-emoji">${emoji}</span><span class="mood-label-text">${escapeHtml(label)}</span>`;
+    grid.appendChild(btn);
+  });
+
+  const langChips = document.querySelector("#mood-lang-chips");
+  const langFilter = document.querySelector("#mood-lang-filter");
+  if (langChips) {
+    langChips.innerHTML = "";
+    MOOD_LANGS.forEach(({ code, label }) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "filter-chip" + (code === state.activeMoodLang ? " active" : "");
+      btn.dataset.lang = code;
+      btn.textContent = label;
+      btn.addEventListener("click", () => {
+        langChips.querySelectorAll(".filter-chip").forEach((c) => c.classList.remove("active"));
+        btn.classList.add("active");
+        state.activeMoodLang = code;
+        void loadMoodPicks(state.activeMood);
+      });
+      langChips.appendChild(btn);
+    });
+    langFilter?.classList.remove("hidden");
+  }
+}
+
+document.querySelector("#mood-grid")?.addEventListener("click", (event) => {
+  const card = event.target.closest("[data-mood]");
+  if (!card) return;
+  const mood = card.dataset.mood;
+  const moodDef = MOODS.find((m) => m.id === mood);
+  state.activeMood = mood;
+  document.querySelectorAll("#mood-grid .mood-btn").forEach((c) => {
+    const def = MOODS.find((m) => m.id === c.dataset.mood);
+    c.classList.toggle("active", c.dataset.mood === mood);
+    c.style.borderColor = c.dataset.mood === mood ? (def?.color || "transparent") : "transparent";
+  });
+  const label = document.querySelector("#mood-picks-label");
+  if (label) {
+    label.classList.remove("hidden");
+    label.textContent = moodDef ? `${moodDef.emoji} ${moodDef.label}${state.activeMoodLang ? ` — ${MOOD_LANGS.find((l) => l.code === state.activeMoodLang)?.label || ""}` : ""}` : "";
+  }
+  void loadMoodPicks(mood);
+});
+
+document.querySelector("#surprise-me-btn")?.addEventListener("click", () => {
+  const random = MOODS[Math.floor(Math.random() * MOODS.length)];
+  const btn = document.querySelector(`#mood-grid [data-mood="${random.id}"]`);
+  btn?.click();
+});
+
+async function loadMoodPicks(mood) {
+  if (!mood) mood = "thoughtful";
+  const grid = document.querySelector("#mood-picks-grid");
+  if (!grid) return;
+  grid.innerHTML = buildSkeletonCards(4);
+  const langParam = state.activeMoodLang ? `&lang=${encodeURIComponent(state.activeMoodLang)}` : "";
+  try {
+    const payload = await apiRequest(`/api/mood/discover?mood=${encodeURIComponent(mood)}${langParam}`, { method: "GET" });
+    grid.innerHTML = "";
+    const profile = getCurrentProfile();
+    const liked = new Set((profile?.liked || []).map((m) => m.id));
+    const wishlist = new Set((profile?.wishlist || []).map((m) => m.id));
+    (payload.picks || []).forEach((movie) => {
+      grid.appendChild(buildMovieCard(movie, {
+        includeQuickWatch: true,
+        primaryLabel: liked.has(movie.id) ? "Liked ♥" : "Like",
+        primaryDisabled: liked.has(movie.id),
+        onPrimary: () => handleCardAction(movie, "liked"),
+        secondaryLabel: wishlist.has(movie.id) ? "Saved" : "Wishlist",
+        secondaryDisabled: wishlist.has(movie.id),
+        onSecondary: () => handleCardAction(movie, "wishlist"),
+      }));
+    });
+    if (grid.children.length === 0) {
+      grid.append(createEmptyCard("No picks right now", "TMDb API powers mood discovery. Add your TMDB_API_KEY to unlock this section, or like more titles to improve suggestions."));
+    }
+  } catch {
+    grid.append(createEmptyCard("Could not load picks", "Check your connection or TMDb API key and try again."));
+  }
+}
+
+/* ============================================================
+   CURATED LISTS
+   ============================================================ */
+async function loadCuratedLists() {
+  const container = document.querySelector("#curated-lists-grid");
+  if (!container) return;
+  container.innerHTML = buildSkeletonCards(6);
+  try {
+    const payload = await apiRequest("/api/lists/curated", { method: "GET" });
+    container.innerHTML = "";
+    const profile = getCurrentProfile();
+    const liked = new Set((profile?.liked || []).map((m) => m.id));
+    const wishlist = new Set((profile?.wishlist || []).map((m) => m.id));
+    const lists = payload.lists || [];
+    const populated = lists.filter((list) => (list.movies || []).length > 0);
+    if (populated.length === 0) {
+      container.append(createEmptyCard("Curated lists unavailable", "Add your TMDB_API_KEY to unlock curated collections powered by TMDb."));
+    } else {
+      populated.forEach((list) => {
+        const section = document.createElement("div");
+        section.innerHTML = `<p class="list-section-title">${escapeHtml(list.name)}</p><p class="list-section-desc">${escapeHtml(list.description)}</p>`;
+        const rail = document.createElement("div");
+        rail.className = "movie-grid movie-rail";
+        (list.movies || []).forEach((movie) => {
+          rail.appendChild(buildMovieCard(movie, {
+            primaryLabel: liked.has(movie.id) ? "Liked ♥" : "Like",
+            primaryDisabled: liked.has(movie.id),
+            onPrimary: () => handleCardAction(movie, "liked"),
+            secondaryLabel: wishlist.has(movie.id) ? "Saved" : "Wishlist",
+            secondaryDisabled: wishlist.has(movie.id),
+            onSecondary: () => handleCardAction(movie, "wishlist"),
+          }));
+        });
+        section.appendChild(rail);
+        container.appendChild(section);
+      });
+    }
+  } catch {
+    container.append(createEmptyCard("Could not load lists", "Check your connection or TMDb API key and try again."));
+  }
+}
+
+/* ============================================================
+   ACTIVE DEVICES
+   ============================================================ */
+const DEVICE_ICONS = {
+  iPhone: "📱", iPad: "📱", Android: "📱",
+  Windows: "💻", Mac: "💻", Linux: "💻",
+};
+
+function deviceIcon(deviceInfo) {
+  for (const [key, icon] of Object.entries(DEVICE_ICONS)) {
+    if (deviceInfo.includes(key)) return icon;
+  }
+  return "🖥️";
+}
+
+async function loadActiveSessions() {
+  const list = document.querySelector("#active-devices-list");
+  if (!list) return;
+  list.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Loading…</p>';
+  try {
+    const { sessions } = await apiRequest("/api/auth/sessions", { method: "GET" });
+    list.innerHTML = "";
+
+    sessions.forEach((s) => {
+      const card = document.createElement("div");
+      card.className = "device-card" + (s.isCurrent ? " device-card-current" : "");
+      const loginDate = new Date(s.createdAt).toLocaleString("en-IN", {
+        day: "numeric", month: "short", year: "numeric",
+        hour: "2-digit", minute: "2-digit",
+      });
+      const expDate = new Date(s.expiresAt).toLocaleDateString("en-IN", {
+        day: "numeric", month: "short", year: "numeric",
+      });
+      card.innerHTML = `
+        <div class="device-icon">${deviceIcon(s.deviceInfo)}</div>
+        <div class="device-info">
+          <strong class="device-name">${escapeHtml(s.deviceInfo)}${s.isCurrent ? ' <span class="device-current-badge">This device</span>' : ""}</strong>
+          <span class="device-meta">Signed in ${loginDate} · expires ${expDate}</span>
+        </div>
+        ${!s.isCurrent ? `<button class="device-signout-btn" data-token="${escapeHtml(s.token)}" type="button">Sign out</button>` : ""}
+      `;
+      list.appendChild(card);
+    });
+
+    // Wire individual sign-out buttons
+    list.querySelectorAll(".device-signout-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        btn.disabled = true;
+        btn.textContent = "Signing out…";
+        try {
+          await apiRequest(`/api/auth/sessions/${encodeURIComponent(btn.dataset.token)}`, { method: "DELETE" });
+          void loadActiveSessions();
+        } catch {
+          btn.disabled = false;
+          btn.textContent = "Sign out";
+          showToast("Could not sign out that device.", "error");
+        }
+      });
+    });
+  } catch {
+    list.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Could not load devices.</p>';
+  }
+}
+
+// Wire "Sign out other devices" bulk button
+document.querySelector("#signout-all-devices-btn")?.addEventListener("click", async () => {
+  const btn = document.querySelector("#signout-all-devices-btn");
+  if (!btn) return;
+  btn.disabled = true;
+  btn.textContent = "Signing out…";
+  try {
+    await apiRequest("/api/auth/sessions", { method: "DELETE" });
+    showToast("All other devices signed out.", "success");
+    void loadActiveSessions();
+  } catch {
+    showToast("Could not sign out other devices.", "error");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Sign out other devices";
+  }
+});
+
+/* ============================================================
+   ADMIN DASHBOARD
+   ============================================================ */
+async function loadAdminStats() {
+  const grid = document.querySelector("#admin-stats-grid");
+  const migrationsList = document.querySelector("#admin-migrations-list");
+  if (!grid) return;
+  grid.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Loading…</p>';
+  try {
+    const payload = await apiRequest("/api/admin/stats", { method: "GET" });
+    const { stats, migrations } = payload;
+    grid.innerHTML = `
+      <div class="admin-stat-card"><strong>${stats.users}</strong><span>Total users</span></div>
+      <div class="admin-stat-card"><strong>${stats.activeSessions}</strong><span>Active sessions</span></div>
+      <div class="admin-stat-card"><strong>${stats.profiles}</strong><span>User profiles</span></div>
+    `;
+    if (migrationsList) {
+      migrationsList.innerHTML = migrations.length === 0
+        ? '<p style="color:var(--text-muted);font-size:13px;">No migrations recorded.</p>'
+        : migrations.map((m) => `<p style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">v${m.version} — applied ${new Date(m.applied_at).toLocaleString()}</p>`).join("");
+    }
+    document.querySelector("#tab-button-admin")?.classList.remove("hidden");
+    document.querySelector("#tab-button-requests")?.classList.remove("hidden");
+    void loadRequestsTab();
+  } catch (error) {
+    grid.innerHTML = `<p style="color:var(--danger);font-size:13px;">${error.message === "Forbidden." ? "Admin access not configured." : "Could not load admin stats."}</p>`;
+  }
+}
+
+document.querySelector("#refresh-admin-button")?.addEventListener("click", () => void loadAdminStats());
+
+/* ============================================================
+   REQUESTS / FEEDBACK TAB (creator only)
+   ============================================================ */
+const TYPE_META = {
+  bug:          { label: "Bug Report",        color: "#ef4444", bg: "rgba(239,68,68,.12)" },
+  feature:      { label: "Feature Request",   color: "#3b82f6", bg: "rgba(59,130,246,.12)" },
+  appreciation: { label: "Appreciation",      color: "#22c55e", bg: "rgba(34,197,94,.12)" },
+  other:        { label: "Other",             color: "#a855f7", bg: "rgba(168,85,247,.12)" },
+};
+
+async function loadRequestsTab() {
+  const list = document.querySelector("#requests-list");
+  const badge = document.querySelector("#requests-badge");
+  if (!list) return;
+  list.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:12px 0;">Loading…</p>';
+  try {
+    const { messages, unread } = await apiRequest("/api/admin/requests", { method: "GET" });
+
+    // Reveal tab if not already
+    document.querySelector("#tab-button-requests")?.classList.remove("hidden");
+
+    // Update unread badge
+    if (badge) {
+      if (unread > 0) {
+        badge.textContent = unread;
+        badge.classList.remove("hidden");
+      } else {
+        badge.classList.add("hidden");
+      }
+    }
+
+    if (!messages.length) {
+      list.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:12px 0;">No messages yet. Share the docs link and messages will show up here.</p>';
+      return;
+    }
+
+    list.innerHTML = "";
+    messages.forEach((msg) => {
+      const meta = TYPE_META[msg.type] || TYPE_META.other;
+      const card = document.createElement("div");
+      card.className = "request-card" + (msg.status === "new" ? " request-card-new" : "");
+      card.dataset.id = msg.id;
+      card.innerHTML = `
+        <div class="request-card-header">
+          <span class="request-type-badge" style="color:${meta.color};background:${meta.bg};">${meta.label}</span>
+          ${msg.status === "new" ? '<span class="request-new-dot"></span>' : ""}
+          <span class="request-date">${new Date(Number(msg.created_at)).toLocaleString("en-IN", { day:"numeric", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" })}</span>
+          <div class="request-actions-row">
+            ${msg.status === "new" ? `<button class="request-mark-read" data-id="${escapeHtml(msg.id)}" type="button" title="Mark as read">✓ Read</button>` : ""}
+            <button class="request-delete-btn" data-id="${escapeHtml(msg.id)}" type="button" title="Delete">✕</button>
+          </div>
+        </div>
+        <p class="request-message">${escapeHtml(msg.message)}</p>
+        ${msg.name || msg.email ? `<p class="request-from">From: ${escapeHtml(msg.name || "")}${msg.name && msg.email ? " · " : ""}${msg.email ? `<a href="mailto:${escapeHtml(msg.email)}" style="color:var(--accent);">${escapeHtml(msg.email)}</a>` : ""}</p>` : ""}
+      `;
+      list.appendChild(card);
+    });
+
+    // Wire mark-read buttons
+    list.querySelectorAll(".request-mark-read").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        try {
+          await apiRequest(`/api/admin/requests/${id}/read`, { method: "PUT" });
+          void loadRequestsTab();
+        } catch { /* ignore */ }
+      });
+    });
+
+    // Wire delete buttons
+    list.querySelectorAll(".request-delete-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        try {
+          await apiRequest(`/api/admin/requests/${id}`, { method: "DELETE" });
+          void loadRequestsTab();
+        } catch { /* ignore */ }
+      });
+    });
+
+  } catch (err) {
+    if (err.message === "Forbidden.") {
+      list.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Access denied.</p>';
+    } else {
+      list.innerHTML = `<p style="color:var(--danger);font-size:13px;">Could not load requests.</p>`;
+    }
+  }
+}
+
+document.querySelector("#refresh-requests-button")?.addEventListener("click", () => void loadRequestsTab());
+
+/* ============================================================
+   MOVIE DETAIL DRAWER
+   ============================================================ */
+const movieDetailOverlay = document.querySelector("#movie-detail-overlay");
+
+function openMovieDetail(movie) {
+  if (!movieDetailOverlay) return;
+  const posterImg = document.querySelector("#movie-detail-poster-img");
+  const titleEl = document.querySelector("#movie-detail-title");
+  const metaEl = document.querySelector("#movie-detail-meta");
+  const badgesEl = document.querySelector("#movie-detail-badges");
+  const summaryEl = document.querySelector("#movie-detail-summary");
+  const actionsEl = document.querySelector("#movie-detail-actions");
+
+  if (posterImg) {
+    if (movie.poster && movie.poster.startsWith("http")) {
+      posterImg.src = movie.poster;
+      posterImg.alt = movie.title;
+      posterImg.style.display = "block";
+    } else {
+      posterImg.src = "";
+      posterImg.style.display = "none";
+      const wrap = document.querySelector("#movie-detail-poster-wrap");
+      if (wrap) wrap.style.background = movie.poster || "var(--bg-card)";
+    }
+  }
+  if (titleEl) titleEl.textContent = movie.title;
+  if (metaEl) metaEl.textContent = [movie.year, movie.meta].filter(Boolean).join(" • ");
+  if (badgesEl) {
+    badgesEl.innerHTML = "";
+    (movie.tags || []).slice(0, 4).forEach((tag) => {
+      const span = document.createElement("span");
+      span.className = "movie-detail-badge";
+      span.textContent = tag;
+      badgesEl.appendChild(span);
+    });
+  }
+  if (summaryEl) summaryEl.textContent = movie.summary || "No description available.";
+  if (actionsEl) {
+    actionsEl.innerHTML = "";
+    const profile = getCurrentProfile();
+    const liked = profile?.liked?.some((m) => m.id === movie.id);
+    const wishlisted = profile?.wishlist?.some((m) => m.id === movie.id);
+    [
+      { label: liked ? "Liked ♥" : "Like", disabled: liked, onClick: () => { handleCardAction(movie, "liked"); closeMovieDetail(); } },
+      { label: wishlisted ? "Saved" : "Add to Wishlist", disabled: wishlisted, onClick: () => { handleCardAction(movie, "wishlist"); closeMovieDetail(); } },
+      { label: "Share", disabled: false, onClick: () => openShareModal(movie) },
+      movie.watchUrl ? { label: "Where to Watch →", href: movie.watchUrl } : null,
+    ].filter(Boolean).forEach(({ label, disabled, onClick, href }) => {
+      const el = href ? document.createElement("a") : document.createElement("button");
+      el.textContent = label;
+      if (href) {
+        el.href = href; el.target = "_blank"; el.rel = "noreferrer noopener";
+        el.className = "secondary-action";
+      } else {
+        el.type = "button"; el.disabled = Boolean(disabled);
+        el.className = disabled ? "secondary-action" : "save-button";
+        if (onClick) el.addEventListener("click", onClick);
+      }
+      actionsEl.appendChild(el);
+    });
+  }
+
+  const providersEl = document.getElementById("movie-detail-providers");
+  const castEl = document.getElementById("movie-detail-cast");
+  const castListEl = document.getElementById("movie-detail-cast-list");
+  if (providersEl) { providersEl.innerHTML = ""; providersEl.classList.add("hidden"); }
+  if (castEl) castEl.classList.add("hidden");
+  if (castListEl) castListEl.innerHTML = "";
+
+  movieDetailOverlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  const tmdbId = movie.ids?.tmdb;
+  if (tmdbId) {
+    if (actionsEl) {
+      apiRequest(`/api/catalog/trailer?tmdb_id=${encodeURIComponent(tmdbId)}`, { method: "GET" })
+        .then((payload) => {
+          if (payload.url && actionsEl && movieDetailOverlay.classList.contains("open")) {
+            const trailerBtn = document.createElement("a");
+            trailerBtn.href = payload.url;
+            trailerBtn.target = "_blank";
+            trailerBtn.rel = "noreferrer noopener";
+            trailerBtn.className = "secondary-action";
+            trailerBtn.textContent = "Watch Trailer →";
+            actionsEl.appendChild(trailerBtn);
+          }
+        })
+        .catch(() => {});
+    }
+
+    apiRequest(`/api/catalog/tmdb-detail?tmdb_id=${encodeURIComponent(tmdbId)}&type=${encodeURIComponent(movie.type || "movie")}`, { method: "GET" })
+      .then(({ movie: detail }) => {
+        if (!detail || !movieDetailOverlay.classList.contains("open")) return;
+        if (providersEl && detail.providers?.length > 0) {
+          providersEl.innerHTML = detail.providers.map((p) => `<span class="provider-chip">${escapeHtml(p)}</span>`).join("");
+          providersEl.classList.remove("hidden");
+        }
+        if (castListEl && castEl && detail.cast?.length > 0) {
+          castListEl.innerHTML = detail.cast.map((name) => `<span class="cast-chip">${escapeHtml(name)}</span>`).join("");
+          castEl.classList.remove("hidden");
+        }
+        if (detail.director && metaEl && !metaEl.textContent.includes(detail.director)) {
+          metaEl.textContent += ` • ${detail.director}`;
+        }
+      })
+      .catch(() => {});
+  }
+}
+
+function closeMovieDetail() {
+  movieDetailOverlay?.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.querySelector("#movie-detail-close")?.addEventListener("click", closeMovieDetail);
+movieDetailOverlay?.addEventListener("click", (event) => {
+  if (event.target === movieDetailOverlay) closeMovieDetail();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && movieDetailOverlay?.classList.contains("open")) closeMovieDetail();
+});
+
+document.addEventListener("click", (event) => {
+  const card = event.target.closest(".movie-card");
+  if (!card) return;
+  if (event.target.closest("button, a")) return;
+  const title = card.querySelector(".movie-title")?.textContent;
+  const year = card.querySelector(".movie-year")?.textContent;
+  const meta = card.querySelector(".movie-meta")?.textContent;
+  const summary = card.querySelector(".movie-summary")?.textContent;
+  const type = card.querySelector(".movie-type")?.textContent?.toLowerCase().includes("series") ? "series" : "movie";
+  const posterStyle = card.querySelector(".movie-poster")?.style.getPropertyValue("--poster") || "";
+  const posterImg = card.querySelector(".movie-poster img")?.src || "";
+  if (!title) return;
+  const tmdbId = card.dataset.tmdbId || "";
+  openMovieDetail({
+    id: card.dataset.movieId || title,
+    title,
+    year: year || "",
+    meta: meta || "",
+    summary: summary || "",
+    type,
+    poster: posterImg || posterStyle,
+    tags: [],
+    watchUrl: "",
+    ids: tmdbId ? { tmdb: tmdbId } : undefined,
+  });
+});
+
+/* ============================================================
+   SKELETON LOADING HELPER
+   ============================================================ */
+function buildSkeletonCards(count) {
+  return Array.from({ length: count }, () => `
+    <div class="skeleton-card">
+      <div class="skeleton-poster"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line xshort"></div>
+      </div>
+    </div>
+  `).join("") + `<div class="skeleton-quote">${buildSkeletonQuoteHtml()}</div>`;
+}
+
+function buildSkeletonQuoteHtml() {
+  const q = getRandomQuote();
+  return `<span class="skeleton-quote-text">"${escapeHtml(q.text)}"</span><span class="skeleton-quote-src"> — ${escapeHtml(q.source)}</span>`;
+}
+
+/* ============================================================
+   CARD ACTION HELPER (centralised like/wishlist)
+   ============================================================ */
+function handleCardAction(movie, collection) {
+  const profile = getCurrentProfile();
+  if (!profile) return;
+  const list = profile[collection] || [];
+  const exists = list.some((m) => m.id === movie.id);
+  if (!exists) {
+    profile[collection] = [movie, ...list];
+    persistProfiles();
+    render();
+    void flushProfileSync();
+  }
+}
+
+/* ============================================================
+   SHARE MODAL
+   ============================================================ */
+function openShareModal(movie) {
+  state.shareTarget = movie;
+  const title = document.getElementById("share-movie-title");
+  const overlay = document.getElementById("share-overlay");
+  const canvas = document.getElementById("share-canvas");
+  if (title) title.textContent = movie.title;
+  if (canvas) { canvas.style.display = "none"; }
+  if (overlay) overlay.classList.remove("hidden");
+}
+
+document.getElementById("close-share")?.addEventListener("click", () => {
+  document.getElementById("share-overlay")?.classList.add("hidden");
+});
+document.getElementById("share-overlay")?.addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.add("hidden");
+});
+
+document.getElementById("share-text-btn")?.addEventListener("click", async () => {
+  const movie = state.shareTarget;
+  if (!movie) return;
+  const text = `Check out "${movie.title}" on Movie Buddy!`;
+  const url = window.location.origin;
+  if (navigator.share) {
+    try { await navigator.share({ title: movie.title, text, url }); } catch { /* cancelled */ }
+  } else {
+    await navigator.clipboard.writeText(`${text} ${url}`).catch(() => {});
+    showToast("Link copied to clipboard!", "success");
+  }
+  document.getElementById("share-overlay")?.classList.add("hidden");
+});
+
+document.getElementById("share-image-btn")?.addEventListener("click", async () => {
+  const movie = state.shareTarget;
+  if (!movie) return;
+  const canvas = document.getElementById("share-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  canvas.style.display = "block";
+
+  // Background
+  const grad = ctx.createLinearGradient(0, 0, 0, 560);
+  grad.addColorStop(0, "#0d0d1a");
+  grad.addColorStop(1, "#1a1a2e");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 400, 560);
+
+  // Poster image
+  const posterUrl = typeof movie.poster === "string" && movie.poster.startsWith("http") ? movie.poster : null;
+  if (posterUrl) {
+    try {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      await new Promise((res) => { img.onload = res; img.onerror = res; img.src = posterUrl; });
+      ctx.drawImage(img, 0, 0, 400, 420);
+    } catch { /* no poster */ }
+  }
+
+  // Gradient overlay
+  const overlay = ctx.createLinearGradient(0, 300, 0, 560);
+  overlay.addColorStop(0, "rgba(0,0,0,0)");
+  overlay.addColorStop(1, "rgba(0,0,0,0.95)");
+  ctx.fillStyle = overlay;
+  ctx.fillRect(0, 300, 400, 260);
+
+  // Title
+  ctx.fillStyle = "#fff";
+  ctx.font = "bold 26px sans-serif";
+  const titleText = (movie.title || "").slice(0, 30);
+  ctx.fillText(titleText, 20, 460);
+
+  if (movie.year) {
+    ctx.fillStyle = "#aaa";
+    ctx.font = "16px sans-serif";
+    ctx.fillText(String(movie.year), 20, 486);
+  }
+
+  // App branding
+  ctx.fillStyle = "#e8a020";
+  ctx.font = "bold 14px sans-serif";
+  ctx.fillText("Movie Buddy", 20, 540);
+  ctx.fillStyle = "#aaa";
+  ctx.font = "12px sans-serif";
+  ctx.fillText(window.location.origin, 20, 555);
+
+  canvas.toBlob(async (blob) => {
+    if (!blob) return;
+    const file = new File([blob], "movie-card.png", { type: "image/png" });
+    if (navigator.share && navigator.canShare?.({ files: [file] })) {
+      try { await navigator.share({ files: [file], title: movie.title }); } catch { /* cancelled */ }
+      document.getElementById("share-overlay")?.classList.add("hidden");
+    } else {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `${(movie.title || "movie").replace(/[^a-z0-9]/gi, "-")}-movie-buddy.png`;
+      a.click();
+      showToast("Image downloaded!", "success");
+      document.getElementById("share-overlay")?.classList.add("hidden");
+    }
+  }, "image/png");
+});
+
+/* ============================================================
+   FRIEND PROFILE MODAL
+   ============================================================ */
+async function openFriendProfile(friendId) {
+  const overlay  = document.getElementById("friend-profile-overlay");
+  const body     = document.getElementById("friend-profile-body");
+  const nameEl   = document.getElementById("friend-profile-name");
+  const handleEl = document.getElementById("friend-profile-handle");
+  const avatarEl = document.getElementById("friend-profile-avatar");
+  if (!overlay) return;
+  if (body) body.innerHTML = '<p style="color:var(--text-muted);padding:24px 0;text-align:center">Loading…</p>';
+  overlay.classList.remove("hidden");
+  try {
+    const data = await apiRequest(`/api/friends/profile?friendId=${encodeURIComponent(friendId)}`, { method: "GET" });
+    const friend = data.friend || {};
+    const initials = (friend.name || "?").split(" ").map((w) => w[0] || "").join("").slice(0, 2).toUpperCase();
+    if (nameEl)   nameEl.textContent   = friend.name   || "—";
+    if (handleEl) handleEl.textContent = `@${friend.handle || ""}`;
+    if (avatarEl) avatarEl.textContent = initials;
+    if (!body) return;
+    body.innerHTML = "";
+    if (data.status === "not_friends") {
+      body.innerHTML = `<div class="friend-profile-gate"><span class="friend-profile-gate-icon">🔒</span><p>Add them as a friend and once they accept you will be able to see their profile.</p></div>`;
+    } else if (data.status === "pending") {
+      body.innerHTML = `<div class="friend-profile-gate"><span class="friend-profile-gate-icon">⏳</span><p>Your friend request is pending. Once they accept, you'll be able to see their profile.</p></div>`;
+    } else {
+      renderFriendProfileContent(body, data);
+    }
+  } catch {
+    if (body) body.innerHTML = '<p style="color:var(--text-muted);padding:16px 0;text-align:center">Could not load profile.</p>';
+  }
+}
+
+function renderFriendProfileContent(container, data) {
+  const allHidden = data.wishlist === null && data.liked === null;
+  if (allHidden) {
+    container.innerHTML = `<div class="friend-profile-gate"><span class="friend-profile-gate-icon">🙈</span><p>${escapeHtml(data.friend?.name || "This user")} has hidden their list from viewing.</p></div>`;
+    return;
+  }
+  if (data.wishlist && data.wishlist.length > 0) {
+    const sec = document.createElement("div");
+    sec.className = "friend-profile-section";
+    sec.innerHTML = `<p class="eyebrow" style="margin-bottom:8px">Wishlist</p>`;
+    const rail = document.createElement("div");
+    rail.className = "movie-grid movie-rail";
+    data.wishlist.forEach((movie) => {
+      rail.appendChild(buildMovieCard(movie, {
+        primaryLabel: "Like", onPrimary: () => handleCardAction(movie, "liked"),
+        secondaryLabel: "Wishlist", onSecondary: () => handleCardAction(movie, "wishlist"),
+      }));
+    });
+    sec.appendChild(rail);
+    container.appendChild(sec);
+  }
+  if (data.liked && data.liked.length > 0) {
+    const sec = document.createElement("div");
+    sec.className = "friend-profile-section";
+    sec.innerHTML = `<p class="eyebrow" style="margin-bottom:8px">Liked movies</p>`;
+    const rail = document.createElement("div");
+    rail.className = "movie-grid movie-rail";
+    data.liked.forEach((movie) => {
+      rail.appendChild(buildMovieCard(movie, {
+        primaryLabel: "Like", onPrimary: () => handleCardAction(movie, "liked"),
+        secondaryLabel: "Wishlist", onSecondary: () => handleCardAction(movie, "wishlist"),
+      }));
+    });
+    sec.appendChild(rail);
+    container.appendChild(sec);
+  }
+  if (!container.children.length) {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:8px 0">Nothing to show yet — they haven\'t added any movies.</p>';
+  }
+}
+
+document.getElementById("close-friend-profile")?.addEventListener("click", () =>
+  document.getElementById("friend-profile-overlay")?.classList.add("hidden"));
+document.getElementById("friend-profile-overlay")?.addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.add("hidden");
+});
+
+/* ============================================================
+   SEND TO FRIEND
+   ============================================================ */
+function openSendToFriend(movie) {
+  state.sendFriendTarget = movie;
+  state.sendFriendSelectedUserId = null;
+  const titleEl = document.getElementById("send-friend-movie-title");
+  const noteEl = document.getElementById("send-friend-note");
+  const listEl = document.getElementById("send-friend-list");
+  const overlay = document.getElementById("send-friend-overlay");
+  if (titleEl) titleEl.textContent = movie.title;
+  if (noteEl) noteEl.value = "";
+  if (listEl) {
+    listEl.innerHTML = "";
+    const profile = getCurrentProfile();
+    const friendIds = profile?.friendIds || [];
+    const friends = Object.values(state.userDirectory || {}).filter((u) => friendIds.includes(u.id));
+    if (friends.length === 0) {
+      listEl.innerHTML = '<p class="empty-msg" style="font-size:13px;color:var(--text-muted)">Add friends first to send recommendations.</p>';
+    } else {
+      friends.forEach((friend) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "friend-pick-btn";
+        btn.textContent = `${friend.name}${friend.handle ? " @" + friend.handle : ""}`;
+        btn.dataset.userId = friend.id;
+        btn.addEventListener("click", () => {
+          listEl.querySelectorAll(".friend-pick-btn").forEach((b) => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          state.sendFriendSelectedUserId = friend.id;
+        });
+        listEl.appendChild(btn);
+      });
+    }
+  }
+  if (overlay) overlay.classList.remove("hidden");
+}
+
+document.getElementById("close-send-friend")?.addEventListener("click", () => {
+  document.getElementById("send-friend-overlay")?.classList.add("hidden");
+});
+document.getElementById("send-friend-overlay")?.addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) e.currentTarget.classList.add("hidden");
+});
+
+document.getElementById("confirm-send-friend")?.addEventListener("click", async () => {
+  if (!state.sendFriendTarget || !state.sendFriendSelectedUserId) {
+    showToast("Select a friend first.", "error"); return;
+  }
+  const note = document.getElementById("send-friend-note")?.value.trim() || "";
+  try {
+    await apiRequest("/api/recommendations/send", {
+      method: "POST",
+      body: { toUserId: state.sendFriendSelectedUserId, movie: state.sendFriendTarget, note },
+    });
+    document.getElementById("send-friend-overlay")?.classList.add("hidden");
+    showToast("Recommendation sent!", "success");
+  } catch (err) {
+    showToast(err.message || "Could not send.", "error");
+  }
+});
+
+/* ============================================================
+   SERVICE WORKER REGISTRATION
+   ============================================================ */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
+
+/* ============================================================
+   TOAST NOTIFICATIONS
+   ============================================================ */
+function showToast(message, type = "info", duration = 3000, onUndo = null) {
+  const container = document.getElementById("toast-container");
+  if (!container) return;
+  const el = document.createElement("div");
+  el.className = `toast toast-${type}`;
+  const text = document.createElement("span");
+  text.textContent = message;
+  el.appendChild(text);
+  if (onUndo) {
+    const btn = document.createElement("button");
+    btn.className = "toast-undo-btn";
+    btn.textContent = "Undo";
+    btn.addEventListener("click", () => { el.remove(); onUndo(); });
+    el.appendChild(btn);
+  }
+  container.appendChild(el);
+  setTimeout(() => el.classList.add("toast-out"), Math.max(duration - 300, 0));
+  setTimeout(() => el.remove(), duration);
+}
+
+/* ============================================================
+   ACTIVITY FEED
+   ============================================================ */
+async function loadActivityFeed() {
+  const container = document.getElementById("activity-feed-list");
+  if (!container) return;
+  container.innerHTML = buildSkeletonCards(3);
+  try {
+    const payload = await apiRequest("/api/activity", { method: "GET" });
+    const events = payload.events || [];
+    container.innerHTML = "";
+    if (events.length === 0) {
+      container.innerHTML = '<p class="activity-empty">No activity yet. Add friends to see what they\'re watching.</p>';
+      return;
+    }
+    events.forEach((event) => {
+      const item = buildActivityItem(event);
+      if (item) container.appendChild(item);
+    });
+  } catch {
+    container.innerHTML = '<p class="activity-empty">Could not load activity.</p>';
+  }
+}
+
+function buildActivityItem(event) {
+  const typeLabels = {
+    liked: "liked",
+    wishlisted: "added to wishlist",
+    watched: "marked as watched",
+    sent_recommendation: "recommended",
+    new_friendship: "connected with a friend",
+    created_list: "created a list",
+  };
+  const label = typeLabels[event.type] || event.type.replace(/_/g, " ");
+  const subject = event.payload?.title || event.payload?.listName || "";
+  const initials = (event.userName || "?").split(" ").map((w) => w[0] || "").join("").slice(0, 2).toUpperCase();
+  const timeAgo = formatTimeAgo(event.createdAt);
+  const item = document.createElement("div");
+  item.className = "activity-item";
+  item.dataset.activityId = event.id;
+
+  // Reaction bar
+  const EMOJIS = ["👍", "❤️", "🎬", "😮", "😂"];
+  const reactionMap = {};
+  (event.reactions || []).forEach((r) => { reactionMap[r.emoji] = r; });
+
+  const reactionBar = document.createElement("div");
+  reactionBar.className = "activity-reactions";
+  EMOJIS.forEach((emoji) => {
+    const r = reactionMap[emoji];
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "reaction-btn" + (r?.mine ? " reacted" : "");
+    btn.title = emoji;
+    btn.textContent = `${emoji}${r?.count ? " " + r.count : ""}`;
+    btn.addEventListener("click", async () => {
+      try {
+        const res = await apiRequest(`/api/activity/${event.id}/react`, { method: "POST", body: { emoji } });
+        const newMap = {};
+        (res.reactions || []).forEach((rv) => { newMap[rv.emoji] = rv; });
+        EMOJIS.forEach((e, i) => {
+          const b = reactionBar.children[i];
+          if (!b) return;
+          const rv = newMap[e];
+          b.className = "reaction-btn" + (rv?.mine ? " reacted" : "");
+          b.textContent = `${e}${rv?.count ? " " + rv.count : ""}`;
+        });
+      } catch { /* ignore */ }
+    });
+    reactionBar.appendChild(btn);
+  });
+
+  // Comment toggle
+  const commentCount = event.commentCount || 0;
+  const commentToggle = document.createElement("button");
+  commentToggle.type = "button";
+  commentToggle.className = "comment-toggle-btn";
+  commentToggle.textContent = `💬 ${commentCount > 0 ? commentCount + " comment" + (commentCount > 1 ? "s" : "") : "Comment"}`;
+
+  const commentSection = document.createElement("div");
+  commentSection.className = "comment-thread hidden";
+  let commentsLoaded = false;
+
+  commentToggle.addEventListener("click", async () => {
+    if (commentSection.classList.contains("hidden")) {
+      commentSection.classList.remove("hidden");
+      if (!commentsLoaded) {
+        commentsLoaded = true;
+        commentSection.innerHTML = '<p style="font-size:12px;color:var(--text-muted)">Loading…</p>';
+        try {
+          const res = await apiRequest(`/api/activity/${event.id}/comments`, { method: "GET" });
+          commentSection.innerHTML = "";
+          (res.comments || []).forEach((c) => {
+            const div = document.createElement("div");
+            div.className = "comment-item";
+            div.innerHTML = `<span class="comment-author">${escapeHtml(c.userName)}</span>${escapeHtml(c.text)}<span style="color:var(--text-muted);font-size:11px;margin-left:6px">${escapeHtml(formatTimeAgo(c.createdAt))}</span>`;
+            commentSection.appendChild(div);
+          });
+          appendCommentInput(commentSection, event.id, commentToggle);
+        } catch { commentSection.innerHTML = ""; appendCommentInput(commentSection, event.id, commentToggle); }
+      }
+    } else {
+      commentSection.classList.add("hidden");
+    }
+  });
+
+  item.innerHTML = `
+    <div class="activity-avatar">${escapeHtml(initials)}</div>
+    <div class="activity-body">
+      <p class="activity-text"><strong>${escapeHtml(event.userName)}</strong> ${escapeHtml(label)}${subject ? ` <span class="activity-movie">${escapeHtml(subject)}</span>` : ""}</p>
+      <p class="activity-time">${escapeHtml(timeAgo)}</p>
+    </div>`;
+  item.appendChild(reactionBar);
+  item.appendChild(commentToggle);
+  item.appendChild(commentSection);
+  return item;
+}
+
+function appendCommentInput(container, activityId, toggleBtn) {
+  const row = document.createElement("div");
+  row.className = "comment-input-row";
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Add a comment…";
+  input.maxLength = 280;
+  const sendBtn = document.createElement("button");
+  sendBtn.type = "button";
+  sendBtn.className = "save-button";
+  sendBtn.style.padding = "4px 10px";
+  sendBtn.textContent = "Post";
+  sendBtn.addEventListener("click", async () => {
+    const text = input.value.trim();
+    if (!text) return;
+    try {
+      const res = await apiRequest(`/api/activity/${activityId}/comment`, { method: "POST", body: { text } });
+      if (res.comment) {
+        const div = document.createElement("div");
+        div.className = "comment-item";
+        div.innerHTML = `<span class="comment-author">${escapeHtml(res.comment.userName)}</span>${escapeHtml(res.comment.text)}`;
+        container.insertBefore(div, row);
+        input.value = "";
+        // Update toggle button count
+        const current = parseInt(toggleBtn.textContent.match(/\d+/)?.[0] || "0", 10);
+        const next = current + 1;
+        toggleBtn.textContent = `💬 ${next} comment${next > 1 ? "s" : ""}`;
+      }
+    } catch { showToast("Could not post comment.", "error"); }
+  });
+  row.append(input, sendBtn);
+  container.appendChild(row);
+}
+
+function formatTimeAgo(ts) {
+  const delta = Date.now() - ts;
+  if (delta < 60000) return "just now";
+  if (delta < 3600000) return `${Math.floor(delta / 60000)}m ago`;
+  if (delta < 86400000) return `${Math.floor(delta / 3600000)}h ago`;
+  return `${Math.floor(delta / 86400000)}d ago`;
+}
+
+document.getElementById("refresh-activity-button")?.addEventListener("click", () => void loadActivityFeed());
+
+/* ============================================================
+   USER LISTS
+   ============================================================ */
+async function loadUserLists() {
+  const container = document.getElementById("my-lists-grid");
+  if (!container) return;
+  container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">Loading…</p>';
+  try {
+    const payload = await apiRequest("/api/lists", { method: "GET" });
+    const lists = payload.lists || [];
+    container.innerHTML = "";
+    if (lists.length === 0) {
+      container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:8px 0;">No lists yet. Create your first collection above.</p>';
+      return;
+    }
+    lists.forEach((list) => {
+      const card = document.createElement("div");
+      card.className = "user-list-card";
+      const posters = (list.previewPosters || []).slice(0, 3);
+      const posterHtml = posters.length > 0
+        ? posters.map((p) => `<div class="list-preview-poster" style="background-image:url(${escapeHtml(p)})"></div>`).join("")
+        : '<div class="list-preview-poster list-preview-empty"></div>';
+      card.innerHTML = `
+        <div class="list-preview-collage">${posterHtml}</div>
+        <div>
+          <p class="list-name">${escapeHtml(list.name)}</p>
+          <p class="list-count">${list.itemCount} title${list.itemCount !== 1 ? "s" : ""}</p>
+        </div>
+        <div class="user-list-actions">
+          <button class="secondary-action" data-list-id="${escapeHtml(list.id)}" data-action="delete-list" type="button">Delete</button>
+        </div>`;
+      container.appendChild(card);
+    });
+  } catch {
+    container.innerHTML = '<p style="color:var(--text-muted);font-size:13px;padding:8px 0;">Could not load your lists.</p>';
+  }
+}
+
+document.getElementById("create-list-form")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const nameInput = document.getElementById("new-list-name-input");
+  const name = (nameInput?.value || "").trim();
+  if (!name) return;
+  try {
+    await apiRequest("/api/lists", { method: "POST", body: { name } });
+    if (nameInput) nameInput.value = "";
+    showToast(`List "${name}" created.`, "success");
+    void loadUserLists();
+  } catch (err) {
+    showToast(err.message || "Could not create list.", "error");
+  }
+});
+
+document.getElementById("my-lists-grid")?.addEventListener("click", async (e) => {
+  const btn = e.target.closest("[data-action='delete-list']");
+  if (!btn) return;
+  const listId = btn.dataset.listId;
+  if (!listId || !confirm("Delete this list?")) return;
+  try {
+    await apiRequest(`/api/lists/${listId}`, { method: "DELETE" });
+    showToast("List deleted.", "info");
+    void loadUserLists();
+  } catch (err) {
+    showToast(err.message || "Could not delete list.", "error");
+  }
+});
+
+/* ============================================================
+   IMPORT
+   ============================================================ */
+document.getElementById("import-file-input")?.addEventListener("change", async (e) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  const statusEl = document.getElementById("import-status");
+  if (statusEl) statusEl.textContent = "Importing…";
+  try {
+    const text = await file.text();
+    const ext = file.name.split(".").pop().toLowerCase();
+    let endpoint = "/api/import/letterboxd";
+    let body = {};
+    if (ext === "json") {
+      endpoint = "/api/import/trakt";
+      body = { json: text };
+    } else if (file.name.toLowerCase().includes("imdb") || file.name.toLowerCase().includes("ratings")) {
+      endpoint = "/api/import/imdb";
+      body = { csv: text };
+    } else {
+      body = { csv: text };
+    }
+    const payload = await apiRequest(endpoint, { method: "POST", body });
+    const msg = `Imported ${payload.imported} title${payload.imported !== 1 ? "s" : ""}${payload.skipped > 0 ? `, skipped ${payload.skipped}` : ""}.`;
+    if (statusEl) statusEl.textContent = msg;
+    showToast(msg, "success");
+    e.target.value = "";
+  } catch (err) {
+    const msg = err.message || "Import failed.";
+    if (statusEl) statusEl.textContent = msg;
+    showToast(msg, "error");
+  }
+});
+
+/* ============================================================
+   AI RECOMMENDATIONS — live Claude refresh
+   ============================================================ */
+document.getElementById("refresh-ai-button")?.addEventListener("click", async () => {
+  const grid = document.getElementById("ai-recommendation-grid");
+  if (!grid) return;
+  grid.innerHTML = buildSkeletonCards(6);
+  try {
+    const payload = await apiRequest("/api/ai/recommendations", { method: "GET" });
+    const recs = payload.recommendations || [];
+    grid.innerHTML = "";
+    if (recs.length === 0) {
+      grid.append(createEmptyCard("No recommendations yet", "Like more movies to improve AI picks."));
+      return;
+    }
+    const profile = getCurrentProfile();
+    recs.forEach((rec) => {
+      const movie = {
+        id: `ai-${(rec.title || "").replace(/\s+/g, "-").toLowerCase()}-${rec.year || ""}`,
+        title: rec.title || "",
+        year: String(rec.year || ""),
+        type: "movie",
+        meta: "",
+        summary: rec.reason || "",
+        poster: "",
+        tags: [],
+      };
+      grid.append(buildMovieCard(movie, buildLibraryCardOptions(profile, movie, {
+        context: rec.basedOn ? `Because you liked ${rec.basedOn}` : (rec.reason || "AI-selected for your taste profile"),
+        includeWatched: true,
+        watchSource: "ai",
+      })));
+    });
+    const src = payload.source === "claude" ? "Fresh Claude AI picks" : "Loaded from cache";
+    showToast(src, "info");
+  } catch (err) {
+    showToast(err.message || "Could not load AI picks.", "error");
+    grid.innerHTML = "";
+    grid.append(createEmptyCard("AI picks unavailable", "Check that ANTHROPIC_API_KEY is configured."));
+  }
+});
+
+/* ============================================================
+   LIBRARY SEARCH INPUT
+   ============================================================ */
+(function wireLibrarySearch() {
+  let debounceTimer;
+  document.getElementById("library-search-input")?.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => renderLibraryEditor(), 200);
+  });
+})();
+
+/* ============================================================
+   PWA INSTALL PROMPT
+   ============================================================ */
+(function initPwaInstall() {
+  let deferred = null;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferred = e;
+    document.getElementById("pwa-install-button")?.classList.remove("hidden");
+  });
+  document.getElementById("pwa-install-button")?.addEventListener("click", async () => {
+    if (!deferred) return;
+    deferred.prompt();
+    const { outcome } = await deferred.userChoice;
+    deferred = null;
+    document.getElementById("pwa-install-button")?.classList.add("hidden");
+    if (outcome === "accepted") showToast("Movie Buddy installed!", "success");
+  });
+  window.addEventListener("appinstalled", () => {
+    document.getElementById("pwa-install-button")?.classList.add("hidden");
+    deferred = null;
+  });
+})();
+
+/* ============================================================
+   CINEMATIC MOVIE QUOTES
+   ============================================================ */
+const MOVIE_QUOTES = [
+  { text: "The world is MINE.", source: "Rocky Bhai — KGF Chapter 2" },
+  { text: "Pushpa… I hate tears.", source: "Pushpa Raj — Pushpa: The Rise" },
+  { text: "Srivalli!", source: "Pushpa Raj — Pushpa: The Rise" },
+  { text: "Jhukega nahi — He will not bow down.", source: "Rocky — KGF Chapter 1" },
+  { text: "This is not just a fight for a throne, this is a fight for honour.", source: "Bahubali: The Beginning" },
+  { text: "Why are you so afraid of fire? You are the son of fire.", source: "Shivagami — Bahubali" },
+  { text: "Where is Kattappa? He killed Bahubali!", source: "Bahubali: The Beginning" },
+  { text: "I am going to be a storm. I am going to be a fire.", source: "RRR" },
+  { text: "One bullet, one life. And I have many bullets.", source: "Singam" },
+  { text: "A lion doesn't ask permission to hunt.", source: "Vikram" },
+  { text: "You play with fire, you will get burned.", source: "Singham Returns" },
+  { text: "I don't run from problems — problems run from me.", source: "Rajinikanth — Kabali" },
+  { text: "Living in the past is a waste of time. Focus on what lies ahead.", source: "2.0" },
+  { text: "Style is not something you wear, it's something you are.", source: "Rajinikanth — Enthiran" },
+  { text: "A horse runs on four legs yet the rider takes the glory — that's politics.", source: "Nayakan" },
+  { text: "A man who has nothing to lose is the most dangerous man in the world.", source: "Gangs of Wasseypur" },
+  { text: "Either you are with me or against me — there is no middle ground.", source: "Wanted (2009)" },
+  { text: "The biggest revenge is to succeed where they expected you to fail.", source: "Dil Dhadakne Do" },
+  { text: "Don't let the noise of others' opinions drown out your inner voice.", source: "3 Idiots" },
+  { text: "All is well!", source: "3 Idiots" },
+  { text: "Pursue excellence and success will follow — pants down!", source: "3 Idiots" },
+  { text: "Fear not the enemy who attacks you, fear the friend who flatters you.", source: "Mughal-E-Azam" },
+  { text: "In this jungle of stones called Mumbai, only the fittest survive.", source: "Dharavi" },
+  { text: "I may be a small man, but my dreams are very big.", source: "Slumdog Millionaire" },
+  { text: "There is no limit to what you can achieve when your heart is pure.", source: "Lagaan" },
+  { text: "If you break a mirror you get seven years of bad luck. Break their ego and you're free forever.", source: "Drishyam" },
+  { text: "A true hero doesn't wait for the world to be saved — he just does it.", source: "Uri: The Surgical Strike" },
+  { text: "How's the josh? — HIGH SIR!", source: "Uri: The Surgical Strike" },
+  { text: "Sometimes winning isn't about being the best — it's about being the last one standing.", source: "Bhaag Milkha Bhaag" },
+  { text: "The day I stop running is the day I die.", source: "Bhaag Milkha Bhaag" },
+];
+
+function getRandomQuote() {
+  return MOVIE_QUOTES[Math.floor(Math.random() * MOVIE_QUOTES.length)];
+}
+
+let quoteRotateTimer = null;
+
+function startQuoteRotation() {
+  const textEl   = document.getElementById("quote-text");
+  const sourceEl = document.getElementById("quote-source");
+  const strip    = document.getElementById("cinematic-quote-strip");
+  if (!textEl || !sourceEl || !strip) return;
+
+  function showQuote() {
+    const q = getRandomQuote();
+    strip.classList.add("quote-fade-out");
+    setTimeout(() => {
+      textEl.textContent   = q.text;
+      sourceEl.textContent = `— ${q.source}`;
+      strip.classList.remove("quote-fade-out");
+    }, 400);
+  }
+
+  showQuote();
+  if (quoteRotateTimer) clearInterval(quoteRotateTimer);
+  quoteRotateTimer = setInterval(showQuote, 9000);
+}
+
+// Start when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", startQuoteRotation);
+} else {
+  startQuoteRotation();
 }
