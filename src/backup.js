@@ -4,6 +4,8 @@ const { join } = require("node:path");
 const { log } = require("./logger");
 
 function runBackup(dbPath, backupDir) {
+  // Skip local backup when using Turso cloud DB — data lives in Turso, not a local file
+  if (process.env.TURSO_DATABASE_URL) return;
   try {
     mkdirSync(backupDir, { recursive: true });
     const ts = new Date().toISOString().replace(/[:.]/g, "-");
